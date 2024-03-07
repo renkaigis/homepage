@@ -55,7 +55,8 @@ p {
 
 a {
   font-size: 16px;
-  color: #00aaee;
+  /* color: #00aaee; */
+  color: darkturquoise;
   text-decoration: none;
 }
 
