@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img" aria-labelledby="title desc">
+  <title id="title">Earth observation graphic</title>
+  <desc id="desc">Minimal satellite observation graphic with landscape tiles and orbital path.</desc>
+  <rect width="900" height="506" fill="#eceee6"/>
+  <rect x="92" y="104" width="716" height="304" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <path d="M92 256h716M270 104v304M450 104v304M628 104v304" stroke="#d9ded7" stroke-width="4"/>
+  <path d="M92 332c68-50 118-54 188-2s122 44 180-14 118-66 178-18 106 54 170 8v102H92z" fill="#315c52"/>
+  <path d="M92 206c86-44 146-42 212 6s140 48 218-10 150-62 286-4v58H92z" fill="#9a5b3f" opacity="0.78"/>
+  <path d="M170 70c168 84 390 86 560 0" stroke="#1f433c" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <rect x="410" y="46" width="84" height="44" rx="6" fill="#1f433c"/>
+  <path d="M392 52h-70M508 52h70M392 82h-70M508 82h70" stroke="#315c52" stroke-width="8" stroke-linecap="round"/>
+</svg>

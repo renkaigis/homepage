@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img" aria-labelledby="title desc">
+  <title id="title">GeoAI paper graphic</title>
+  <desc id="desc">A scholarly graphic showing model uncertainty and spatial prediction layers.</desc>
+  <rect width="900" height="506" fill="#eceee6"/>
+  <rect x="112" y="94" width="250" height="158" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <rect x="324" y="174" width="250" height="158" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <rect x="538" y="254" width="250" height="158" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <path d="M162 174h150M374 254h150M588 334h150" stroke="#315c52" stroke-width="12" stroke-linecap="round"/>
+  <path d="M220 134c62 22 100 62 114 118M432 214c62 22 100 62 114 118" stroke="#9a5b3f" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="202" r="26" fill="#1f433c"/>
+  <circle cx="452" cy="284" r="26" fill="#1f433c"/>
+  <circle cx="704" cy="362" r="26" fill="#1f433c"/>
+  <path d="M200 202l252 82 252 78" stroke="#5f696c" stroke-width="5" stroke-linecap="round"/>
+</svg>

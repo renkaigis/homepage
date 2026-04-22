@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Kai Ren</title>
+    <meta name="description" content="Research and software projects by Kai Ren in smart agriculture, agricultural GIS, lake hydrodynamic modeling, and environmental GIS." />
+    <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
+    <script>
+      (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch {} })();
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script defer src="../js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="../" aria-label="Homepage"><img class="brand-logo" src="../image/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+        <div class="nav-links" id="site-menu">
+          <a href="../">Home</a>
+          <a href="../about/">About</a>
+          <a href="../research/">Research</a>
+          <a href="../projects/" aria-current="page">Projects</a>
+          <a href="../publications/">Publications</a>
+          <a href="../cv/">CV</a>
+          <a href="../contact/">Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span class="theme-toggle-label">Dark</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-hero shell">
+        <p class="eyebrow">Research Portfolio</p>
+        <h1>Projects</h1>
+        <p class="lead narrow">
+          Selected projects from smart agriculture, agricultural GIS decision support, lake
+          hydrodynamic simulation, and environmental GIS.
+        </p>
+      </section>
+
+      <section class="section shell">
+        <div class="card-grid">
+          <button class="project-card interactive-card" type="button" data-project="smart-agriculture">
+            <img src="../image/project-urban.svg" alt="Abstract map graphic for urban dynamics project" />
+            <span class="card-body">
+              <span class="card-meta">2021.09 - Present</span>
+              <strong>Shaanxi Smart Agricultural Decision-Making System and Big Data Analysis Platform</strong>
+              <span>
+                Big-data analysis and decision support for dryland agriculture and smart orchards.
+              </span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="xinjiang-cotton">
+            <img src="../image/project-geoai.svg" alt="Abstract model layers for GeoAI project" />
+            <span class="card-body">
+              <span class="card-meta">2020.09 - Present</span>
+              <strong>Xinjiang Cotton Decision Management Support System</strong>
+              <span>
+                GIS-based support for cotton production, plot management, field tasks, and agronomic decisions.
+              </span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="dianchi-cyanobacteria">
+            <img src="../image/project-earth.svg" alt="Abstract Earth observation graphic" />
+            <span class="card-body">
+              <span class="card-meta">2017.04 - 2018.05</span>
+              <strong>Remote Sensing Monitoring and Early Warning System of Cyanobacteria Bloom in Dianchi Lake</strong>
+              <span>
+                Remote sensing retrieval, hydrodynamic modeling, and visual simulation of cyanobacteria bloom drift.
+              </span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="groundwater-vulnerability">
+            <img src="../image/project-urban.svg" alt="Abstract map graphic for reproducible GIS project" />
+            <span class="card-body">
+              <span class="card-meta">2017.04 - 2018.05</span>
+              <strong>Groundwater Vulnerability Assessment in Pizhou City</strong>
+              <span>
+                Groundwater vulnerability assessment and mapping based on ArcGIS, C#, and expert-weighted evaluation.
+              </span>
+            </span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+
+      <div class="shell footer-inner">
+
+        <span class="footer-credit">&copy; Reserved by renkaigis. <span id="current-year">2026</span>.</span>
+
+        <span class="footer-unit-logo" aria-label="Nanjing Normal University">
+          <img class="footer-logo-opengms" src="../image/OpenGMS-logo.png" alt="OpenGMS" />
+          <img class="footer-logo-black" src="../image/NNU-logo-black.png" alt="" />
+
+          <img class="footer-logo-white" src="../image/NNU-logo-white.png" alt="" />
+
+        </span>
+
+      </div>
+
+    </footer>
+
+    <dialog class="paper-dialog" id="paper-dialog" aria-labelledby="paper-dialog-title">
+      <div class="dialog-header">
+        <h2 id="paper-dialog-title">Project details</h2>
+        <button class="dialog-close" type="button" aria-label="Close project details">Close</button>
+      </div>
+      <div class="dialog-content" id="paper-dialog-content"></div>
+    </dialog>
+  </body>
+</html>

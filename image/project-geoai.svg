@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img" aria-labelledby="title desc">
+  <title id="title">Geospatial AI graphic</title>
+  <desc id="desc">Abstract model layers and data nodes for geospatial artificial intelligence.</desc>
+  <rect width="900" height="506" fill="#f7f7f2"/>
+  <rect x="92" y="86" width="300" height="180" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <rect x="252" y="176" width="300" height="180" rx="8" fill="#eceee6" stroke="#d9ded7" stroke-width="3"/>
+  <rect x="410" y="250" width="300" height="180" rx="8" fill="#ffffff" stroke="#d9ded7" stroke-width="3"/>
+  <path d="M242 176h160M402 266h160M552 340h160" stroke="#315c52" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="168" cy="164" r="34" fill="#1f433c"/>
+  <circle cx="304" cy="164" r="34" fill="#9a5b3f"/>
+  <circle cx="490" cy="338" r="34" fill="#315c52"/>
+  <circle cx="632" cy="338" r="34" fill="#9a5b3f"/>
+  <path d="M168 164h136M304 164l186 174M490 338h142" stroke="#5f696c" stroke-width="6" stroke-linecap="round"/>
+</svg>

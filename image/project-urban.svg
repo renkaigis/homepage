@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 506" role="img" aria-labelledby="title desc">
+  <title id="title">Urban analytics graphic</title>
+  <desc id="desc">A minimal abstract map with streets, blocks, and highlighted corridors.</desc>
+  <rect width="900" height="506" fill="#eceee6"/>
+  <path d="M0 118h900M0 252h900M0 386h900" stroke="#d9ded7" stroke-width="7"/>
+  <path d="M130 0v506M340 0v506M590 0v506M760 0v506" stroke="#d9ded7" stroke-width="7"/>
+  <path d="M90 460 330 292 480 312 820 92" stroke="#315c52" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 80h160v120H40zM382 54h130v120H382zM620 286h210v132H620zM220 330h146v110H220z" fill="#ffffff" stroke="#cbd2ca" stroke-width="3"/>
+  <circle cx="330" cy="292" r="20" fill="#9a5b3f"/>
+  <circle cx="480" cy="312" r="20" fill="#9a5b3f"/>
+  <circle cx="820" cy="92" r="20" fill="#9a5b3f"/>
+</svg>
