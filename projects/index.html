@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Projects | Kai Ren</title>
     <meta name="description" content="Research and software projects by Kai Ren in smart agriculture, agricultural GIS, lake hydrodynamic modeling, and environmental GIS." />
-    <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../image/mine/favicon.ico" type="image/x-icon" />
     <script>
       (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch {} })();
     </script>
@@ -20,16 +20,14 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav shell" aria-label="Main navigation">
-        <a class="brand" href="../" aria-label="Homepage"><img class="brand-logo" src="../image/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+        <a class="brand" href="../" aria-label="Homepage"><img class="brand-logo" src="../image/mine/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
         <div class="nav-links" id="site-menu">
-          <a href="../">Home</a>
-          <a href="../about/">About</a>
-          <a href="../research/">Research</a>
-          <a href="../projects/" aria-current="page">Projects</a>
-          <a href="../publications/">Publications</a>
-          <a href="../cv/">CV</a>
-          <a href="../contact/">Contact</a>
+          <a href="../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+          <a href="../about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+          <a href="../projects/" aria-current="page"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
+          <a href="../publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+          <a href="../contact/"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
             <i class="fa-solid fa-moon" aria-hidden="true"></i>
             <span class="theme-toggle-label">Dark</span>
@@ -50,8 +48,18 @@
 
       <section class="section shell">
         <div class="card-grid">
+          <button class="project-card interactive-card" type="button" data-project="dayou-zuowei">
+            <img src="../image/project/2022-project-oil-s.jpg" alt="Graphic for Dayou Zuowei oily sludge remediation project" />
+            <span class="card-body">
+              <span class="card-meta">2022 - 2023</span>
+              <strong>大油作为: Oily Sludge Remediation Expert</strong>
+              <span>
+                Oily sludge remediation services combining hot-washing equipment, biosurfactants, and microbial agents.
+              </span>
+            </span>
+          </button>
           <button class="project-card interactive-card" type="button" data-project="smart-agriculture">
-            <img src="../image/project-urban.svg" alt="Abstract map graphic for urban dynamics project" />
+            <img src="../image/project/2021-project-smart-agriculture-s.jpg" alt="Abstract map graphic for urban dynamics project" />
             <span class="card-body">
               <span class="card-meta">2021.09 - Present</span>
               <strong>Shaanxi Smart Agricultural Decision-Making System and Big Data Analysis Platform</strong>
@@ -61,7 +69,7 @@
             </span>
           </button>
           <button class="project-card interactive-card" type="button" data-project="xinjiang-cotton">
-            <img src="../image/project-geoai.svg" alt="Abstract model layers for GeoAI project" />
+            <img src="../image/project/2020-project-xinjiang-cotton-s.jpg" alt="Abstract model layers for GeoAI project" />
             <span class="card-body">
               <span class="card-meta">2020.09 - Present</span>
               <strong>Xinjiang Cotton Decision Management Support System</strong>
@@ -71,7 +79,7 @@
             </span>
           </button>
           <button class="project-card interactive-card" type="button" data-project="dianchi-cyanobacteria">
-            <img src="../image/project-earth.svg" alt="Abstract Earth observation graphic" />
+            <img src="../image/project/2017-project-dianchi-cyanobacteria-s.jpg" alt="Abstract Earth observation graphic" />
             <span class="card-body">
               <span class="card-meta">2017.04 - 2018.05</span>
               <strong>Remote Sensing Monitoring and Early Warning System of Cyanobacteria Bloom in Dianchi Lake</strong>
@@ -80,8 +88,38 @@
               </span>
             </span>
           </button>
+          <button class="project-card interactive-card" type="button" data-project="dianchi-chla">
+            <img src="../image/project/2017-project-dianchi-chla-s.jpg" alt="Graphic for Chl-a concentration visualization in Dianchi Lake" />
+            <span class="card-body">
+              <span class="card-meta">2017.04 - 2018.05</span>
+              <strong>Visualization of Chl-a Concentration in Dianchi Lake</strong>
+              <span>
+                Grid-based Chl-a concentration simulation and VTK visualization under hydrodynamic conditions.
+              </span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="dianchi-flow">
+            <img src="../image/project/2017-project-dianchi-flow-s.jpg" alt="Graphic for flow field visualization in Dianchi Lake" />
+            <span class="card-body">
+              <span class="card-meta">2017.04 - 2018.05</span>
+              <strong>Visualization of Flow Field in Dianchi Lake</strong>
+              <span>
+                Vector-arrow visualization of simulated lake flow direction and velocity.
+              </span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="underground-space">
+            <img src="../image/project/2017-project-underground-space-s.jpg" alt="Graphic for underground space 3D modeling system" />
+            <span class="card-body">
+              <span class="card-meta">Software Copyright</span>
+              <strong>3D Modeling and Analysis System of Underground Space</strong>
+              <span>
+                Urban underground 3D modeling, mesh generation, borehole data management, and spatial analysis.
+              </span>
+            </span>
+          </button>
           <button class="project-card interactive-card" type="button" data-project="groundwater-vulnerability">
-            <img src="../image/project-urban.svg" alt="Abstract map graphic for reproducible GIS project" />
+            <img src="../image/project/2017-project-pizhou-groundwater-s.jpg" alt="Abstract map graphic for groundwater vulnerability project" />
             <span class="card-body">
               <span class="card-meta">2017.04 - 2018.05</span>
               <strong>Groundwater Vulnerability Assessment in Pizhou City</strong>
@@ -98,13 +136,14 @@
 
       <div class="shell footer-inner">
 
-        <span class="footer-credit">&copy; Reserved by renkaigis. <span id="current-year">2026</span>.</span>
+        <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart" aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
 
-        <span class="footer-unit-logo" aria-label="Nanjing Normal University">
-          <img class="footer-logo-opengms" src="../image/OpenGMS-logo.png" alt="OpenGMS" />
-          <img class="footer-logo-black" src="../image/NNU-logo-black.png" alt="" />
+        <span class="footer-unit-logo" aria-label="OpenGMS and Nanjing Normal University">
+          <img class="footer-logo-opengms footer-logo-opengms-blue" src="../image/mine/OpenGMS-logo-blue.png" alt="OpenGMS" />
+          <img class="footer-logo-opengms footer-logo-opengms-dark" src="../image/mine/OpenGMS-logo.png" alt="OpenGMS" />
+          <img class="footer-logo-black" src="../image/mine/NNU-logo-black.png" alt="" />
 
-          <img class="footer-logo-white" src="../image/NNU-logo-white.png" alt="" />
+          <img class="footer-logo-white" src="../image/mine/NNU-logo-white.png" alt="" />
 
         </span>
 

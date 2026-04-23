@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dianchi Lake Chl-a Visualization | Kai Ren</title>
+    <meta name="description" content="Project page for Chl-a concentration visualization in Dianchi Lake." />
+    <link rel="icon" href="../../../image/mine/favicon.ico" type="image/x-icon" />
+    <script>
+      (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch {} })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="../../../css/styles.css" />
+    <script defer src="../../../js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="../../../" aria-label="Homepage"><img class="brand-logo" src="../../../image/mine/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+        <div class="nav-links" id="site-menu">
+          <a href="../../../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+          <a href="../../../about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+          <a href="../../../projects/" aria-current="page"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
+          <a href="../../../publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+          <a href="../../../contact/"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span class="theme-toggle-label">Dark</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <article class="project-detail shell">
+        <a class="back-link" href="../../../projects/">Back to projects</a>
+        <p class="eyebrow">Lake Water Quality Visualization</p>
+        <h1>Visualization of Chl-a Concentration in Dianchi Lake</h1>
+        <p class="lead narrow">
+          This module visualizes Chl-a concentration in Dianchi Lake by combining discrete lake grids, initial concentration data, and hydrodynamic conditions such as wind direction, wind speed, inflow, and outflow.
+        </p>
+        <img class="detail-image" src="../../../image/project/2017-project-dianchi-chla-m.jpg" alt="Graphic for Chl-a concentration visualization in Dianchi Lake" />
+        <div class="detail-grid">
+          <section>
+            <h2>Project Focus</h2>
+            <p>Grid-based simulation and visualization of chlorophyll-a concentration dynamics in Dianchi Lake.</p>
+          </section>
+          <section>
+            <h2>Methods</h2>
+            <p>Discrete point grids, hydrodynamic condition coupling, concentration calculation, and VTK-based visualization.</p>
+          </section>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart" aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
+        <span class="footer-unit-logo" aria-label="OpenGMS and Nanjing Normal University">
+          <img class="footer-logo-opengms footer-logo-opengms-blue" src="../../../image/mine/OpenGMS-logo-blue.png" alt="OpenGMS" />
+          <img class="footer-logo-opengms footer-logo-opengms-dark" src="../../../image/mine/OpenGMS-logo.png" alt="OpenGMS" />
+          <img class="footer-logo-black" src="../../../image/mine/NNU-logo-black.png" alt="" />
+          <img class="footer-logo-white" src="../../../image/mine/NNU-logo-white.png" alt="" />
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

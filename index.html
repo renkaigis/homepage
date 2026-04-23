@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kai Ren | Academic Homepage</title>
   <meta name="description"
-    content="Academic homepage for Kai Ren, PostDoc at Nanjing Normal University, featuring GIScience research, publications, projects, awards, and links." />
+    content="Academic homepage for Kai Ren, Postdoctoral Researcher at Nanjing Normal University, featuring GIScience research, publications, projects, awards, and links." />
   <meta property="og:title" content="Kai Ren | Academic Homepage" />
   <meta property="og:description"
     content="GIScience, climate-agriculture, spatial prediction, publications, projects, and academic profile." />
-  <meta property="og:image" content="image/og-image.svg" />
-  <link rel="icon" href="image/favicon.ico" type="image/x-icon" />
+  <meta property="og:image" content="image/mine/og-image.svg" />
+  <link rel="icon" href="image/mine/favicon.ico" type="image/x-icon" />
   <script>
     (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch { } })();
   </script>
@@ -25,24 +25,21 @@
 
   <header class="site-header">
     <nav class="nav shell" aria-label="Main navigation">
-      <a class="brand" href="./" aria-label="Homepage"><img class="brand-logo" src="image/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+      <a class="brand" href="./" aria-label="Homepage"><img class="brand-logo" src="image/mine/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
         Menu
       </button>
       <div class="nav-links" id="site-menu">
-        <a href="./" aria-current="page">Home</a>
-        <a href="about/">About</a>
-        <a href="research/">Research</a>
-        <a href="projects/">Projects</a>
-        <a href="publications/">Publications</a>
-        <a href="cv/">CV</a>
-        <a href="contact/">Contact</a>
+        <a href="./" aria-current="page"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+        <a href="about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+        <a href="projects/"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
+        <a href="publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+        <a href="contact/"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"
           title="Toggle dark mode">
           <i class="fa-solid fa-moon" aria-hidden="true"></i>
           <span class="theme-toggle-label">Dark</span>
         </button>
-        <a class="language-link" href="zh/" lang="zh-Hans">中文</a>
       </div>
     </nav>
   </header>
@@ -50,22 +47,25 @@
   <main id="main">
     <section class="home-hero shell">
       <figure class="portrait-card">
-        <img class="profile-avatar" src="image/avatar.jpg" alt="Portrait placeholder for Kai Ren" />
+        <img class="profile-avatar" src="image/mine/avatar.jpg" alt="Portrait placeholder for Kai Ren" />
       </figure>
 
       <div class="home-intro">
-        <p class="eyebrow">PostDoc | GIScience and Geospatial Analytics</p>
-        <h1>Kai Ren</h1>
-        <p class="lead">
-          I work on geospatial analysis, climate change and agriculture, spatial prediction of
-          meteorological elements, GIS modeling and simulation, and applied GIS software systems.
-        </p>
-        <div class="hero-actions compact-actions">
-          <a class="button primary" href="https://cv.renkaigis.cn" target="_blank" rel="noreferrer">Resume</a>
-          <a class="button secondary" href="https://cv.renkaigis.cn/KaiRen_CV.pdf" target="_blank"
-            rel="noreferrer">Download CV</a>
-          <a class="button secondary" href="mailto:kai@njnu.edu.cn">Email</a>
-          <a class="button language-button" href="zh/" lang="zh-Hans">中文</a>
+        <p class="eyebrow">Postdoctoral Researcher | GIScience and Geospatial Analytics</p>
+        <div class="hero-name-row">
+          <h1>Kai Ren</h1>
+          <a class="hero-language-button" href="zh/" lang="zh-Hans">中文</a>
+        </div>
+        <blockquote class="hero-quote">
+          <p>“Turning geospatial evidence into clearer decisions for land, climate, and agriculture.”</p>
+        </blockquote>
+        <div class="hero-contact-row">
+          <p class="hero-email">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:kai@njnu.edu.cn">kai@njnu.edu.cn</a>
+            <span class="email-separator">/</span>
+            <a href="mailto:renkaigis@gmail.com">renkaigis@gmail.com</a>
+          </p>
         </div>
         <div class="profile-links icon-links" aria-label="Academic profiles and social links">
           <a href="https://renkaigis.cn/" target="_blank" rel="noreferrer" aria-label="Personal website"
@@ -95,13 +95,6 @@
           <a href="https://github.com/renkaigis" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">
             <i class="fa-brands fa-github" aria-hidden="true"></i>
           </a>
-          <a href="https://notes.renkaigis.cn" target="_blank" rel="noreferrer" aria-label="Notes" title="Notes">
-            <i class="fa-solid fa-book" aria-hidden="true"></i>
-          </a>
-          <a href="https://photo.renkaigis.cn/" target="_blank" rel="noreferrer" aria-label="Photography"
-            title="Photography">
-            <i class="fa-solid fa-camera" aria-hidden="true"></i>
-          </a>
         </div>
       </div>
 
@@ -112,15 +105,14 @@
             <dd>
               State Key Laboratory of Climate System Prediction and Risk Management, Nanjing Normal University</dd>
           </div>
-          <div>
-            <dt>Visiting Role</dt>
-            <dd>Visiting Research Associate, Curtin University, 2023.03 - 2025.03</dd>
-          </div>
-          <div>
-            <dt>Focus</dt>
-            <dd>Geospatial analysis, climate-agriculture, spatial prediction, GIS modeling</dd>
-          </div>
         </dl>
+        <div class="wechat-card" aria-label="WeChat official account">
+          <img src="image/mine/wechat.jpg" alt="WeChat QR code for GIS 空间分析" loading="lazy" />
+          <div>
+            <span>WeChat Official Account</span>
+            <strong>GIS 空间分析</strong>
+          </div>
+        </div>
       </aside>
     </section>
 
@@ -129,10 +121,10 @@
         <p class="section-kicker">Research</p>
         <h2>Interests</h2>
         <div class="tag-list">
-          <a href="research/">Geospatial analysis</a>
-          <a href="research/">Climate change and agriculture</a>
-          <a href="research/">Spatial prediction</a>
-          <a href="research/">GIS modeling</a>
+          <span>Geospatial analysis</span>
+          <span>Climate change and agriculture</span>
+          <span>Spatial prediction</span>
+          <span>GIS modeling</span>
         </div>
       </article>
       <article class="mini-panel">
@@ -149,7 +141,7 @@
         <p class="section-kicker">Profile</p>
         <h2>Current Role</h2>
         <p>
-          PostDoc at Nanjing Normal University; Visiting Research Associate at Curtin University
+          Postdoctoral Researcher at Nanjing Normal University; Research Associate at Curtin University
           from 2023.03 to 2025.03.
         </p>
         <a class="read-more" href="about/">More about me</a>
@@ -167,14 +159,14 @@
         </div>
         <div class="card-grid compact-card-grid">
           <button class="publication-card image-publication-card" type="button" data-paper="second-dimension-outliers">
-            <img src="image/paper-urban-change.svg" alt="Graphic for second-dimension outliers paper" />
+            <img src="image/paper/2025-ijgis-sdo-s.jpg" alt="Graphic for second-dimension outliers paper" />
             <span class="card-meta">Journal Article</span>
             <strong>Second-dimension outliers for spatial prediction</strong>
             <span>Kai Ren, Yongze Song, Qiang Yu</span>
             <em>IJGIS, 2025</em>
           </button>
           <button class="publication-card image-publication-card" type="button" data-paper="wheat-production">
-            <img src="image/paper-geoai.svg" alt="Graphic for uncertainty-aware GeoAI paper" />
+            <img src="image/paper/2025-grs-gozh-wheat-s.jpg" alt="Graphic for uncertainty-aware GeoAI paper" />
             <span class="card-meta">Journal Article</span>
             <strong>Identifying climate and environmental determinants of spatial disparities in wheat production using
               a geospatial machine learning model</strong>
@@ -182,7 +174,7 @@
             <em>GIScience &amp; Remote Sensing, 2025</em>
           </button>
           <button class="publication-card image-publication-card" type="button" data-paper="urban-heat-island">
-            <img src="image/paper-resilience.svg" alt="Graphic for resilience sensing paper" />
+            <img src="image/paper/2025-scs-urban-heat-island-footprint-s.jpg" alt="Graphic for resilience sensing paper" />
             <span class="card-meta">Co-authored Article</span>
             <strong>Irregular anisotropy in surface urban heat island footprint</strong>
             <span>X. Yang, Yongze Song, C. Yoo, Kai Ren, P. Wu</span>
@@ -192,32 +184,45 @@
       </div>
     </section>
 
-    <section class="section compact-section shell">
-      <div class="section-heading">
-        <p class="section-kicker">Recognition</p>
-        <h2>Awards and Professional Services</h2>
-      </div>
-      <div class="info-strip">
-        <article>
-          <h3>Awards</h3>
-          <ul class="plain-list compact-list">
-            <li>Oral presentation at IPC2025, Perth, Australia</li>
-            <li>Provincial-Level Bronze Award, Challenger Cup Entrepreneurship Plan Competition, 2022</li>
-            <li>Outstanding Graduate, Nanjing Normal University, 2019</li>
-          </ul>
-        </article>
-        <article>
-          <h3>Professional Services</h3>
-          <ul class="plain-list compact-list">
-            <li>Organising Committee, IPC2025 and IPC2024, Perth, Australia</li>
-            <li>Conference staff, ISPRS Technical Commission IV Symposium 2024</li>
-            <li>Organizer and presenter, City+2023@Perth</li>
-          </ul>
+    <section class="section compact-section call-paper-section">
+      <div class="shell">
+        <div class="section-heading compact-heading">
+          <h2>Call for papers</h2>
+        </div>
+        <article class="call-paper-card">
+          <span class="call-paper-image">
+            <img src="image/others/2026-04-16_Remote Sensing_SI.jpg" alt="Remote Sensing special issue call for papers" />
+          </span>
+          <span class="call-paper-copy">
+            <span class="card-meta">Remote Sensing · IF = 4.1</span>
+            <a class="call-paper-title" href="https://www.mdpi.com/journal/remotesensing/special_issues/URZE8143C8"
+              target="_blank" rel="noreferrer">GeoAI for Smart Cities: Urban Remote Sensing and Geospatial
+              Intelligence</a>
+            <small>Guest Editors: Dr. Qian Li, Dr. Md Rafiqul Islam, Dr. Nan Jia, Dr. Kai Ren</small>
+          </span>
         </article>
       </div>
     </section>
 
-    <section class="section compact-section section-muted">
+    <section class="section compact-section review-section">
+      <div class="shell">
+        <div class="section-heading compact-heading">
+          <p class="section-kicker">Professional Service</p>
+          <h2>Peer Review Journals</h2>
+        </div>
+        <ul class="review-journal-list">
+          <li><span>Resources, Conservation and Recycling</span><strong>IF 10.9</strong></li>
+          <li><span>GIScience &amp; Remote Sensing</span><strong>IF 6.9</strong></li>
+          <li><span>International Journal of Applied Earth Observation and Geoinformation</span><strong>IF 8.6</strong></li>
+          <li><span>Geoscientific Model Development</span><strong>IF 4.9</strong></li>
+          <li><span>All Earth</span><strong>IF 2.6</strong></li>
+          <li><span>Journal of Spatial Science</span><strong>IF 1.7</strong></li>
+          <li><span>Computing</span><strong>IF 2.8</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section compact-section work-section">
       <div class="shell">
         <div class="section-heading">
           <p class="section-kicker">Appointments</p>
@@ -226,12 +231,12 @@
         <div class="timeline compact-timeline">
           <article class="timeline-item">
             <span class="timeline-date">2025 - Present</span>
-            <h3>PostDoc, Nanjing Normal University</h3>
+            <h3>Postdoctoral Researcher, Nanjing Normal University</h3>
             <p>Geospatial analysis, climate change and agriculture, and applied GIScience research.</p>
           </article>
           <article class="timeline-item">
             <span class="timeline-date">2023.03 - 2025.03</span>
-            <h3>Visiting Research Associate, Curtin University</h3>
+            <h3>Research Associate, Curtin University</h3>
             <p>School of Design and the Built Environment; geospatial analysis and climate-agriculture research.</p>
           </article>
           <article class="timeline-item">
@@ -243,39 +248,68 @@
       </div>
     </section>
 
-    <section class="section compact-section shell">
-      <div class="section-heading with-link">
-        <div>
-          <p class="section-kicker">Selected Work</p>
-          <h2>Featured Projects</h2>
+    <section class="section compact-section project-section">
+      <div class="shell">
+        <div class="section-heading with-link">
+          <div>
+            <p class="section-kicker">Selected Work</p>
+            <h2>Featured Projects</h2>
+          </div>
+          <a class="text-link" href="projects/">All projects</a>
         </div>
-        <a class="text-link" href="projects/">All projects</a>
+        <div class="card-grid compact-card-grid">
+          <button class="project-card interactive-card" type="button" data-project="dayou-zuowei">
+            <img src="image/project/2022-project-oil-s.jpg" alt="Graphic for Dayou Zuowei oily sludge remediation project" />
+            <span class="card-body">
+              <span class="card-meta">Environmental Remediation</span>
+              <strong>大油作为: Oily Sludge Remediation Expert</strong>
+              <span>Low-cost, efficient, and greener remediation for oily sludge pollution.</span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="smart-agriculture">
+            <img src="image/project/2021-project-smart-agriculture-s.jpg" alt="Abstract map graphic for urban dynamics project" />
+            <span class="card-body">
+              <span class="card-meta">Smart Agriculture</span>
+              <strong>Shaanxi Smart Agricultural Decision-Making System and Big Data Analysis Platform</strong>
+              <span>Big-data analysis and decision support for dryland agriculture and smart orchards.</span>
+            </span>
+          </button>
+          <button class="project-card interactive-card" type="button" data-project="xinjiang-cotton">
+            <img src="image/project/2020-project-xinjiang-cotton-s.jpg" alt="Abstract model layers for GeoAI project" />
+            <span class="card-body">
+              <span class="card-meta">Agricultural GIS</span>
+              <strong>Xinjiang Cotton Decision Management Support System</strong>
+              <span>GIS-based support for cotton production, plot management, and field decisions.</span>
+            </span>
+          </button>
+        </div>
       </div>
-      <div class="card-grid compact-card-grid">
-        <button class="project-card interactive-card" type="button" data-project="smart-agriculture">
-          <img src="image/project-urban.svg" alt="Abstract map graphic for urban dynamics project" />
-          <span class="card-body">
-            <span class="card-meta">Smart Agriculture</span>
-            <strong>Shaanxi Smart Agricultural Decision-Making System and Big Data Analysis Platform</strong>
-            <span>Big-data analysis and decision support for dryland agriculture and smart orchards.</span>
-          </span>
-        </button>
-        <button class="project-card interactive-card" type="button" data-project="xinjiang-cotton">
-          <img src="image/project-geoai.svg" alt="Abstract model layers for GeoAI project" />
-          <span class="card-body">
-            <span class="card-meta">Agricultural GIS</span>
-            <strong>Xinjiang Cotton Decision Management Support System</strong>
-            <span>GIS-based support for cotton production, plot management, and field decisions.</span>
-          </span>
-        </button>
-        <button class="project-card interactive-card" type="button" data-project="dianchi-cyanobacteria">
-          <img src="image/project-earth.svg" alt="Abstract Earth observation graphic" />
-          <span class="card-body">
-            <span class="card-meta">Lake Hydrodynamic Modeling</span>
-            <strong>Cyanobacteria Bloom Drift Simulation in Dianchi Lake</strong>
-            <span>Remote sensing monitoring, early warning, and lake drift visualization.</span>
-          </span>
-        </button>
+    </section>
+
+    <section class="section compact-section awards-section">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="section-kicker">Recognition</p>
+          <h2>Awards and Experience</h2>
+        </div>
+        <div class="info-strip">
+          <article>
+            <h3>Awards</h3>
+            <ul class="plain-list compact-list">
+              <li>Oral presentation at IPC2025, Perth, Australia</li>
+              <li>Provincial-Level Bronze Award, Challenger Cup Entrepreneurship Plan Competition, 2022</li>
+              <li>Outstanding Graduate, Nanjing Normal University, 2019</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Experience</h3>
+            <ul class="plain-list compact-list">
+              <li>Organising Committee, IPC2025 and IPC2024, Perth, Australia</li>
+              <li>Conference staff, ISPRS Technical Commission IV Symposium 2024</li>
+              <li>Organizer and presenter, City+2023@Perth</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -288,26 +322,46 @@
         <h2>Mentors & Collaborators</h2>
       </div>
       <div class="friend-links" aria-label="Academic friend links">
+        <a href="http://opengmsteam.com/" target="_blank" rel="noreferrer">
+          <span class="friend-avatar" aria-hidden="true">
+            <img src="image/mine/min-chen.jpg" alt="" />
+          </span>
+          <span class="friend-copy">
+            <span>Prof. Min Chen / OpenGMS</span>
+            <small>Open geographic modeling and simulation</small>
+          </span>
+        </a>
         <a href="https://yongzesong.com" target="_blank" rel="noreferrer">
-          <span>A/Prof. Yongze Song</span>
-          <small>Geospatial analytics and urban studies</small>
+          <span class="friend-avatar" aria-hidden="true">
+            <img src="image/mine/yongze-song.png" alt="" />
+          </span>
+          <span class="friend-copy">
+            <span>A/Prof. Yongze Song</span>
+            <small>Geospatial analytics and urban studies</small>
+          </span>
         </a>
         <a href="http://papers.agrivy.com/" target="_blank" rel="noreferrer">
-          <span>Prof. Qiang Yu</span>
-          <small>Agriculture, climate, and crop systems</small>
+          <span class="friend-avatar" aria-hidden="true">
+            <img src="image/mine/qiang-yu.jpg" alt="" />
+          </span>
+          <span class="friend-copy">
+            <span>Prof. Qiang Yu</span>
+            <small>Agriculture, climate, and crop systems</small>
+          </span>
         </a>
       </div>
     </div>
 
     <div class="shell footer-inner">
 
-      <span class="footer-credit">&copy; Reserved by renkaigis. <span id="current-year">2026</span>.</span>
+      <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart" aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
 
-      <span class="footer-unit-logo" aria-label="Nanjing Normal University">
-          <img class="footer-logo-opengms" src="image/OpenGMS-logo.png" alt="OpenGMS" />
-          <img class="footer-logo-black" src="image/NNU-logo-black.png" alt="" />
+      <span class="footer-unit-logo" aria-label="OpenGMS and Nanjing Normal University">
+          <img class="footer-logo-opengms footer-logo-opengms-blue" src="image/mine/OpenGMS-logo-blue.png" alt="OpenGMS" />
+          <img class="footer-logo-opengms footer-logo-opengms-dark" src="image/mine/OpenGMS-logo.png" alt="OpenGMS" />
+          <img class="footer-logo-black" src="image/mine/NNU-logo-black.png" alt="" />
 
-        <img class="footer-logo-white" src="image/NNU-logo-white.png" alt="" />
+        <img class="footer-logo-white" src="image/mine/NNU-logo-white.png" alt="" />
 
       </span>
 
