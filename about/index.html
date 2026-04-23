@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About | Kai Ren</title>
     <meta name="description" content="Biography, appointments, education, awards, and service for Kai Ren." />
-    <link rel="icon" href="../image/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../image/mine/favicon.ico" type="image/x-icon" />
     <script>
       (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch {} })();
     </script>
@@ -16,20 +16,18 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <script defer src="../js/main.js"></script>
   </head>
-  <body>
+  <body class="about-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav shell" aria-label="Main navigation">
-        <a class="brand" href="../" aria-label="Homepage"><img class="brand-logo" src="../image/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+        <a class="brand" href="../" aria-label="Homepage"><img class="brand-logo" src="../image/mine/logo.png" alt="" /><span class="brand-name">Kai Ren</span></a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
         <div class="nav-links" id="site-menu">
-          <a href="../">Home</a>
-          <a href="../about/" aria-current="page">About</a>
-          <a href="../research/">Research</a>
-          <a href="../projects/">Projects</a>
-          <a href="../publications/">Publications</a>
-          <a href="../cv/">CV</a>
-          <a href="../contact/">Contact</a>
+          <a href="../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+          <a href="../about/" aria-current="page"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+          <a href="../projects/"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
+          <a href="../publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+          <a href="../contact/"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
             <i class="fa-solid fa-moon" aria-hidden="true"></i>
             <span class="theme-toggle-label">Dark</span>
@@ -39,16 +37,35 @@
     </header>
 
     <main id="main">
-      <section class="page-hero shell">
-        <p class="eyebrow">Profile</p>
-        <h1>About</h1>
-        <p class="lead narrow">
-          I am a PostDoc at Nanjing Normal University working across GIScience, climate-agriculture,
-          spatial prediction, GIS modeling, and applied GIS software development.
-        </p>
+      <section class="page-hero shell about-hero">
+        <div class="about-hero-card">
+          <div class="about-hero-copy">
+            <p class="eyebrow">Profile</p>
+            <h1>About</h1>
+            <p class="lead">
+              I am a Postdoctoral Researcher at Nanjing Normal University working across GIScience,
+              climate-agriculture, spatial prediction, GIS modeling, and applied GIS software development.
+            </p>
+          </div>
+          <aside class="about-contact-card" aria-label="Contact details">
+            <p class="section-kicker">Contact</p>
+            <h2>Kai Ren</h2>
+            <p class="about-contact-affiliation">
+              State Key Laboratory of Climate System Prediction and Risk Management<br />
+              Nanjing Normal University
+            </p>
+            <div class="contact-details compact-contact-details">
+              <a href="mailto:kai@njnu.edu.cn"><i class="fa-solid fa-envelope" aria-hidden="true"></i> kai@njnu.edu.cn</a>
+              <a href="mailto:renkaigis@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> renkaigis@gmail.com</a>
+              <span>Postdoctoral Researcher, Nanjing Normal University</span>
+              <span>Research Associate, Curtin University, 2023.03 - 2025.03</span>
+            </div>
+          </aside>
+        </div>
       </section>
 
-      <section class="section shell two-column">
+      <section class="section section-muted">
+        <div class="shell two-column">
         <div>
           <p class="section-kicker">Biography</p>
           <h2>Academic Background</h2>
@@ -61,84 +78,177 @@
             simulation, and front-end/back-end GIS software systems.
           </p>
           <p>
-            I was a Visiting Research Associate at Curtin University from 2023.03 to 2025.03. I
+            I was a Research Associate at Curtin University from 2023.03 to 2025.03. I
             welcome collaborations on agricultural GIS, spatial prediction, climate impacts on
             production systems, and applied geospatial modeling.
           </p>
         </div>
-      </section>
-
-      <section class="section section-muted">
-        <div class="shell two-column">
-          <div>
-            <p class="section-kicker">Appointments</p>
-            <h2>Work Experience</h2>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item">
-              <span class="timeline-date">2025 - Present</span>
-              <h3>PostDoc, Nanjing Normal University</h3>
-              <p>Geospatial analysis, climate change and agriculture, and applied GIScience research.</p>
-            </article>
-            <article class="timeline-item">
-              <span class="timeline-date">2023.03 - 2025.03</span>
-              <h3>Visiting Research Associate, Curtin University</h3>
-              <p>School of Design and the Built Environment; geospatial analysis and climate-agriculture research.</p>
-            </article>
-            <article class="timeline-item">
-              <span class="timeline-date">2020.09 - 2025</span>
-              <h3>Ph.D. Researcher, Northwest A&amp;F University</h3>
-              <p>Spatial interpolation prediction of meteorological elements and climate change research.</p>
-            </article>
-          </div>
         </div>
       </section>
 
       <section class="section shell">
         <div class="section-heading">
-          <p class="section-kicker">Academic Activity</p>
-          <h2>Teaching, Service, and Awards</h2>
+          <p class="section-kicker">Academic Gallery</p>
+          <h2>Selected Group Photos with Leading Scholars</h2>
         </div>
-        <div class="info-columns">
-          <article>
-            <h3>Teaching</h3>
-            <ul class="plain-list">
-              <li>GIS and remote sensing coursework and research training</li>
-              <li>Applied GIS software development and geospatial modeling support</li>
-              <li>Student and team collaboration in agricultural GIS field studies</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Service</h3>
-            <ul class="plain-list">
-              <li>Organising Committee, IPC2025 and IPC2024, Perth, Australia</li>
-              <li>Conference staff, ISPRS Technical Commission IV Symposium 2024</li>
-              <li>Organizer and presenter, City+2023@Perth</li>
-            </ul>
-          </article>
-          <article>
-            <h3>Awards</h3>
-            <ul class="plain-list">
-              <li>Oral presentation at IPC2025, Perth, Australia</li>
-              <li>Provincial-Level Bronze Award, Challenger Cup Entrepreneurship Plan Competition, 2022</li>
-              <li>Outstanding Graduate, Nanjing Normal University, 2019</li>
-            </ul>
-          </article>
+        <div class="gallery-masonry" aria-label="Group photos with academic leaders">
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_001.jpg" data-gallery-alt="With Academician Deren Li in 2024">
+            <img src="../image/groupphoto/gp_001.jpg" alt="With Academician Deren Li in 2024" loading="lazy" />
+            <figcaption><span>With Academician Deren Li (2024)</span><span class="caption-zh">与李德仁院士（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_002.jpg" data-gallery-alt="With Academician Jianya Gong in 2024">
+            <img src="../image/groupphoto/gp_002.jpg" alt="With Academician Jianya Gong in 2024" loading="lazy" />
+            <figcaption><span>With Academician Jianya Gong (2024)</span><span class="caption-zh">与龚健雅院士（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_003.jpg" data-gallery-alt="With Academician Deren Li and Mrs. Li in 2024">
+            <img src="../image/groupphoto/gp_003.jpg" alt="With Academician Deren Li and Mrs. Li in 2024" loading="lazy" />
+            <figcaption><span>With Academician Deren Li and Mrs. Li (2024)</span><span class="caption-zh">与李德仁院士及夫人（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_004.jpg" data-gallery-alt="With Academician Ruizhi Chen in 2024">
+            <img src="../image/groupphoto/gp_004.jpg" alt="With Academician Ruizhi Chen in 2024" loading="lazy" />
+            <figcaption><span>With Academician Ruizhi Chen (2024)</span><span class="caption-zh">与陈锐志院士（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_005.jpg" data-gallery-alt="With Academicians Deren Li, Jianya Gong, and Ruizhi Chen in 2024">
+            <img src="../image/groupphoto/gp_005.jpg" alt="With Academicians Deren Li, Jianya Gong, and Ruizhi Chen in 2024" loading="lazy" />
+            <figcaption><span>With Academicians Deren Li, Jianya Gong, and Ruizhi Chen (2024)</span><span class="caption-zh">与李德仁院士、龚健雅院士、陈锐志院士（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_006.jpg" data-gallery-alt="Dinner with academicians and professors in 2024">
+            <img src="../image/groupphoto/gp_006.jpg" alt="Dinner with academicians and professors in 2024" loading="lazy" />
+            <figcaption><span>Dinner with academicians and professors (2024)</span><span class="caption-zh">与各位院士和教授们的晚宴（2024）</span></figcaption>
+          </figure>
+          <figure class="gallery-card" role="button" tabindex="0" data-gallery-src="../image/groupphoto/gp_007.jpg" data-gallery-alt="With Associate Professor Yongze Song in 2025">
+            <img src="../image/groupphoto/gp_007.jpg" alt="With Associate Professor Yongze Song in 2025" loading="lazy" />
+            <figcaption><span>With A/Prof. Yongze Song (2025)</span><span class="caption-zh">与宋泳泽副教授（2025）</span></figcaption>
+          </figure>
         </div>
       </section>
+
+      <section class="section shell cv-layout">
+        <aside class="cv-sidebar">
+          <p class="section-kicker">At a glance</p>
+          <h2>Research Profile</h2>
+          <p>
+            GeoSpatial Analysis | Climate Change and Agriculture | Spatial Interpolation Prediction
+            of Meteorological Elements | GIS Modeling and Simulation | Lake Hydrodynamic Numerical
+            Model Simulation | Applied GIS Software Systems
+          </p>
+        </aside>
+
+        <div class="cv-content">
+          <section>
+            <h2>Appointments</h2>
+            <article class="cv-item">
+              <span class="timeline-date">2025 - Present</span>
+              <h3>Postdoctoral Researcher, Nanjing Normal University</h3>
+              <p>Geospatial analysis, climate change and agriculture, and applied GIScience research.</p>
+            </article>
+            <article class="cv-item">
+              <span class="timeline-date">2023.03 - 2025.03</span>
+              <h3>Research Associate, Curtin University</h3>
+              <p>School of Design and the Built Environment; geospatial analysis and climate-agriculture research.</p>
+            </article>
+          </section>
+
+          <section>
+            <h2>Education</h2>
+            <article class="cv-item">
+              <span class="timeline-date">2020.09 - 2025</span>
+              <h3>Ph.D. Researcher, Northwest A&amp;F University</h3>
+              <p>Land Resources and Spatial Information Technology; spatial prediction and climate change research.</p>
+            </article>
+            <article class="cv-item">
+              <span class="timeline-date">2016.09 - 2019.06</span>
+              <h3>M.S. in Cartography and Geographic Information System, Nanjing Normal University</h3>
+              <p>College of Geographic Sciences and Virtual Geographic Environment Key Laboratory.</p>
+            </article>
+            <article class="cv-item">
+              <span class="timeline-date">2012.09 - 2016.06</span>
+              <h3>B.S. in Geographic Information System, Northwest A&amp;F University</h3>
+            </article>
+          </section>
+
+          <section>
+            <h2>Selected Publications</h2>
+            <ol class="cv-publications">
+              <li>Kai Ren, Yongze Song, and Qiang Yu. 2025. Second-dimension outliers for spatial prediction. <em>International Journal of Geographical Information Science</em>.</li>
+              <li>Kai Ren, Yongze Song, L. Li, F. Mancini, Z. Xiao, X. Zhang, R. Qu, and Qiang Yu. 2025. Identifying climate and environmental determinants of spatial disparities in wheat production using a geospatial machine learning model. <em>GIScience &amp; Remote Sensing</em>.</li>
+              <li>Yang, X., Yongze Song, C. Yoo, Kai Ren, and P. Wu. 2025. Irregular anisotropy in surface urban heat island footprint. <em>Sustainable Cities and Society</em>.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Skills</h2>
+            <p>
+              ArcGIS, ERDAS, ENVI, R, Python, Java, C++, C#, HTML/CSS/JavaScript,
+              Vue, Spring Boot, GIS modeling, remote sensing, geospatial machine learning,
+              and software development.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="section-kicker">Academic Activity</p>
+            <h2>Teaching, Service, and Awards</h2>
+          </div>
+          <div class="info-columns">
+            <article>
+              <h3>Teaching</h3>
+              <ul class="plain-list">
+                <li>GIS and remote sensing coursework and research training</li>
+                <li>Applied GIS software development and geospatial modeling support</li>
+                <li>Student and team collaboration in agricultural GIS field studies</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Service</h3>
+              <ul class="plain-list">
+                <li>Organising Committee, IPC2025 and IPC2024, Perth, Australia</li>
+                <li>Conference staff, ISPRS Technical Commission IV Symposium 2024</li>
+                <li>Organizer and presenter, City+2023@Perth</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Awards</h3>
+              <ul class="plain-list">
+                <li>Oral presentation at IPC2025, Perth, Australia</li>
+                <li>Provincial-Level Bronze Award, Challenger Cup Entrepreneurship Plan Competition, 2022</li>
+                <li>Outstanding Graduate, Nanjing Normal University, 2019</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="gallery-lightbox" id="gallery-lightbox" aria-labelledby="gallery-lightbox-caption">
+        <div class="gallery-lightbox-panel">
+          <div class="gallery-lightbox-header">
+            <div class="gallery-lightbox-caption" id="gallery-lightbox-caption"></div>
+            <button class="gallery-lightbox-close" type="button" aria-label="Close image preview">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="gallery-lightbox-body">
+            <img id="gallery-lightbox-image" src="" alt="" />
+          </div>
+        </div>
+      </dialog>
     </main>
 
     <footer class="site-footer">
 
       <div class="shell footer-inner">
 
-        <span class="footer-credit">&copy; Reserved by renkaigis. <span id="current-year">2026</span>.</span>
+        <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart" aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
 
-        <span class="footer-unit-logo" aria-label="Nanjing Normal University">
-          <img class="footer-logo-opengms" src="../image/OpenGMS-logo.png" alt="OpenGMS" />
-          <img class="footer-logo-black" src="../image/NNU-logo-black.png" alt="" />
+        <span class="footer-unit-logo" aria-label="OpenGMS and Nanjing Normal University">
+          <img class="footer-logo-opengms footer-logo-opengms-blue" src="../image/mine/OpenGMS-logo-blue.png" alt="OpenGMS" />
+          <img class="footer-logo-opengms footer-logo-opengms-dark" src="../image/mine/OpenGMS-logo.png" alt="OpenGMS" />
+          <img class="footer-logo-black" src="../image/mine/NNU-logo-black.png" alt="" />
 
-          <img class="footer-logo-white" src="../image/NNU-logo-white.png" alt="" />
+          <img class="footer-logo-white" src="../image/mine/NNU-logo-white.png" alt="" />
 
         </span>
 
