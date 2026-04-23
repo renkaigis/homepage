@@ -715,11 +715,12 @@ h3 {
   margin-top: clamp(2rem, 4vw, 3rem);
 }
 
-.publication-group h3 {
+.publication-group h3,
+.publication-subheading {
   margin-bottom: 0.8rem;
   color: var(--accent-strong);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.3rem;
+  font-size: 1.16rem;
 }
 
 .publication-list {
@@ -824,9 +825,10 @@ h3 {
   margin-top: clamp(2.8rem, 5vw, 4rem);
 }
 
-.publication-year h2 {
+.publication-year h2,
+.publication-section-title {
   margin-bottom: 1rem;
-  font-size: 1.65rem;
+  font-size: 1.42rem;
 }
 
 .plain-list {
@@ -971,6 +973,14 @@ h3 {
   padding-block: clamp(3.5rem, 8vw, 6rem);
 }
 
+.compact-page-hero {
+  padding-block: clamp(2.7rem, 6vw, 3.8rem) clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.page-content-section {
+  padding-top: clamp(0.55rem, 1.8vw, 0.95rem);
+}
+
 .page-hero h1,
 .project-detail h1 {
   max-width: none;
@@ -1071,16 +1081,13 @@ h3 {
 
 .detail-image {
   width: 100%;
-  aspect-ratio: 16 / 9;
   max-height: none;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   margin: 1.5rem 0 2rem;
-}
-
-.paper-detail .detail-image {
-  aspect-ratio: 16 / 9;
 }
 
 .project-detail .lead {
@@ -1249,6 +1256,10 @@ h3 {
 
 .cv-sidebar p {
   color: var(--muted);
+}
+
+.about-section-title {
+  font-size: 1.32rem;
 }
 
 .cv-content {
@@ -1656,9 +1667,14 @@ h3 {
   line-height: 1.45;
 }
 
+.call-paper-deadline {
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
 .review-journal-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
   margin: 1rem 0 0;
   padding: 0;
@@ -1704,10 +1720,17 @@ h3 {
 }
 
 .contact-page {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  align-items: start;
+  column-count: 2;
+  column-gap: 1rem;
+}
+
+.contact-page > .contact-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
 }
 
 .contact-card .contact-details {
@@ -2155,9 +2178,14 @@ code {
   .info-columns.two-up,
   .info-strip,
   .compact-timeline,
+  .review-journal-list,
   .friend-links,
   .project-detail .detail-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-page {
+    column-count: 1;
   }
 
   .gallery-masonry {

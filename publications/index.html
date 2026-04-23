@@ -25,8 +25,8 @@
         <div class="nav-links" id="site-menu">
           <a href="../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
           <a href="../about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
-          <a href="../projects/"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
           <a href="../publications/" aria-current="page"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+          <a href="../projects/"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
           <a href="../contact/"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Contact</span></a>
           <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
             <i class="fa-solid fa-moon" aria-hidden="true"></i>
@@ -37,7 +37,7 @@
     </header>
 
     <main id="main">
-      <section class="page-hero shell">
+      <section class="page-hero compact-page-hero shell">
         <p class="eyebrow">Research Output</p>
         <h1>Publications</h1>
         <p class="lead narrow">
@@ -46,15 +46,15 @@
         </p>
       </section>
 
-      <section class="section shell">
+      <section class="section shell page-content-section">
         <div class="publication-list-section">
           <div class="section-heading">
             <p class="section-kicker">Full List</p>
             <h2>Selected Publications</h2>
           </div>
           <div class="publication-group">
-            <h3>Journal Articles</h3>
-            <ol class="publication-list" reversed id="publication-list">
+            <h3 class="publication-subheading">Journal Articles</h3>
+            <ol class="publication-list" reversed start="5" id="publication-list">
               <li id="second-dimension-outliers"><strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup>, 2025. <a class="publication-title" href="../details/papers/second-dimension-outliers/">Second-dimension outliers for spatial prediction</a>. <em>International Journal of Geographical Information Science</em>, pp.1-28. <span class="publication-note">Top Journal in Zone 1, IF 5.1</span> <a class="publication-doi" href="https://doi.org/10.1080/13658816.2025.2580414" target="_blank" rel="noreferrer">DOI</a></li>
               <li id="wheat-production"><strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Li, L., Mancini, F., Xiao, Z., Zhang, X., Qu, R., Yu, Q.<sup>*</sup>, 2025. <a class="publication-title" href="../details/papers/wheat-production-disparities/">Identifying climate and environmental determinants of spatial disparities in wheat production using a geospatial machine learning model</a>. <em>GIScience &amp; Remote Sensing</em>, 62(1): 2533487. <span class="publication-note">Top Journal in Zone 1, IF 6.9</span> <a class="publication-doi" href="https://doi.org/10.1080/15481603.2025.2533487" target="_blank" rel="noreferrer">DOI</a></li>
               <!-- Confidential until accepted:
@@ -72,8 +72,8 @@
           </div>
 
           <div class="publication-group">
-            <h3>International Conference</h3>
-            <ol class="publication-list" reversed>
+            <h3 class="publication-subheading">International Conference</h3>
+            <ol class="publication-list" reversed start="3">
               <li><strong>Ren, K.</strong>, Song, Y. and Yu, Q. (2025). <a class="publication-title" href="https://ipcannual.com/" target="_blank" rel="noreferrer">A Novel Geospatial Machine Learning Approach for Uncovering Wheat Production Disparities: Evidence from Australia</a>. <em>The 11th International Conference on Innovative Production and Construction (IPC2025)</em>. Perth, Australia.</li>
               <li><strong>Ren, K.</strong>, Song, Y. and Yu, Q. (2024). <a class="publication-title" href="https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1760905" target="_blank" rel="noreferrer">Assessing the Impact of ENSO and Indian Ocean Dipole on Australian Bushfires Using RandomForests</a>. <em>2024 American Geophysical Union (AGU24)</em>. Washington, D.C., USA.</li>
               <li><strong>Ren, K.</strong> and Song, Y. (2023). <a class="publication-title" href="https://yongzesong.com/cityplus-2023-proceedings/" target="_blank" rel="noreferrer">Local spatial heterogeneity of Wheat Yields in Western Australia</a>. In <em>Proceedings of City+2023@Perth International Conference on Geospatial Big Data and Artificial Intelligence for Cities</em>. Perth, Curtin University, Australia.</li>
@@ -81,7 +81,7 @@
           </div>
 
           <div class="publication-group">
-            <h3>Software Copyright</h3>
+            <h3 class="publication-subheading">Software Copyright</h3>
             <div class="table-wrap">
               <table class="software-table">
                 <thead>
@@ -134,7 +134,7 @@
         </div>
 
         <div class="publication-year publication-card-section">
-          <h2>Publication Cards</h2>
+          <h2 class="publication-section-title">Featured Publications</h2>
           <div class="card-grid">
             <a class="publication-card image-publication-card" href="../details/papers/second-dimension-outliers/">
               <img src="../image/paper/2025-ijgis-sdo-s.jpg" alt="Graphic for second-dimension outliers paper" />
@@ -163,7 +163,7 @@
         </div>
 
         <div class="publication-year">
-          <h2>Co-authored Papers</h2>
+          <h2 class="publication-section-title">Co-authored Papers</h2>
           <div class="card-grid">
             <a class="publication-card image-publication-card" href="../details/papers/urban-heat-island-footprint/">
               <img src="../image/paper/2025-scs-urban-heat-island-footprint-s.jpg" alt="Graphic for uncertainty-aware GeoAI paper" />

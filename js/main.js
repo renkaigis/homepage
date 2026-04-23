@@ -382,6 +382,16 @@ function setCurrentYear() {
   });
 }
 
+function normalizeReversedOrderedLists() {
+  document.querySelectorAll("ol[reversed]").forEach((list) => {
+    const count = Array.from(list.children).filter((child) => child.tagName === "LI").length;
+
+    if (count > 0) {
+      list.start = count;
+    }
+  });
+}
+
 function setupNavigation() {
   const button = document.querySelector(".nav-toggle");
   const menu = document.querySelector("#site-menu");
@@ -625,6 +635,7 @@ function setupGalleryLightbox() {
   });
 }
 
+normalizeReversedOrderedLists();
 setCurrentYear();
 setupThemeToggle();
 setupNavigation();
