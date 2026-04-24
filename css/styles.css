@@ -1414,6 +1414,10 @@ h3 {
   font-size: clamp(2rem, 4.6vw, 3.35rem);
 }
 
+.home-intro .eyebrow {
+  font-size: 0.72rem;
+}
+
 .hero-name-row {
   display: inline-flex;
   flex-wrap: wrap;
@@ -2434,6 +2438,10 @@ code {
 
   .home-hero {
     padding-block: 1.6rem 2rem;
+  }
+
+  .portrait-card {
+    justify-self: center;
   }
 
   .profile-avatar {
