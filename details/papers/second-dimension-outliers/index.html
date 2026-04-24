@@ -42,7 +42,7 @@
           <p class="eyebrow">Journal Article</p>
           <h1>Second-dimension outliers for spatial prediction</h1>
           <div class="paper-detail-meta">
-            <p class="paper-authors"><span>Authors</span><strong>Kai Ren, Yongze Song, Qiang Yu</strong></p>
+            <p class="paper-authors"><span>Authors</span><strong>Kai Ren, Yongze Song<sup>*</sup>, Qiang Yu<sup>*</sup></strong></p>
             <p class="paper-journal"><span>Journal</span><cite>International Journal of Geographical Information Science</cite>, <time>2025</time></p>
           </div>
           <a class="doi-link" href="https://doi.org/10.1080/13658816.2025.2580414" target="_blank" rel="noreferrer">
@@ -52,14 +52,154 @@
         </header>
 
         <section class="detail-section">
-          <h2>Abstract</h2>
-          <p>This paper develops the concept of second-dimension outliers for spatial prediction and uses spatial outlier patterns to improve the interpretation of heterogeneity and prediction behavior in geographic data.</p>
+          <h2>Overview</h2>
+          <p class="paper-summary">
+            This paper introduces second-dimension outliers (SDO) as a new way to encode the
+            outlier context around unsampled locations and then uses SDO-enhanced machine learning
+            to improve spatial prediction of wheat production across Australia.
+          </p>
         </section>
 
         <section class="detail-section">
-          <h2>Figures</h2>
-          <div class="detail-gallery">
-            <img class="detail-image" src="../../../image/paper/2025-ijgis-sdo-l.jpg" alt="Graphic for second-dimension outliers paper" />
+          <h2>Abstract</h2>
+          <p class="paper-summary">
+            Spatial prediction aims to accurately estimate attributes at unsampled locations based
+            on spatial dependencies, patterns, variability, and covariates, providing knowledge of
+            complex spatial systems and supporting diverse applications. However, existing methods
+            for spatial prediction ignore geographic and environmental characteristics outside
+            sample locations, particularly spatial outliers, significantly impacting prediction
+            accuracy. This study introduces the concept of second-dimension outliers (SDO) and SDO
+            models that incorporate local outlier information at unsampled locations to enhance
+            prediction accuracy. SDO models generate SDO variables that capture samples' external
+            geographic and environmental characteristics in the spatial prediction. This study
+            develops SDO-based machine learning to predict wheat production in Australia, using
+            cross-validation to evaluate prediction accuracy. Results demonstrate that SDO-based
+            support vector machines (SVM) improve spatial prediction accuracy, with the R<sup>2</sup>
+            increasing from 0.555 to 0.671 compared to aspatial SVM, particularly for extreme
+            values. The developed local outlier strength index that examines the strength of SDO
+            ensures more accurate and smooth spatial predictions. The SDO concept provides more
+            in-depth explanatory information from an innovative spatial perspective and a detailed
+            understanding of local outliers for spatial prediction, making it a robust and
+            effective tool for spatial statistical inference and geographic computation across
+            various fields.
+          </p>
+        </section>
+
+        <section class="detail-section">
+          <h2>Figures and Tables</h2>
+          <div class="detail-gallery paper-asset-grid">
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-01.jpg" alt="Figure 1. Schematic overview of second-dimension outliers (SDO) model for examining the relationship between dependent variables and spatial local outliers." />
+              <figcaption>
+                <span>Figure 1. Schematic overview of second-dimension outliers (SDO) model for examining the relationship between dependent variables and spatial local outliers.</span>
+                <span class="caption-zh">图 1. 用于检验因变量与空间局部离群值关系的第二维度离群值（SDO）模型示意图。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-02.jpg" alt="Figure 2. Summary of simulation data including dependent variable (a), explanatory variables (b), and the correlation analysis with them." />
+              <figcaption>
+                <span>Figure 2. Summary of simulation data including dependent variable (a), explanatory variables (b), and the correlation analysis with them.</span>
+                <span class="caption-zh">图 2. 模拟数据概览，包括因变量（a）、解释变量（b）及其相关性分析。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-03.jpg" alt="Figure 3. The second-dimension variables of the explanatory variables of the simulated data are generated by the SDO model. The letters p and n mean positive and negative outliers, respectively. The letters b2, b3, ..., b7 mean the buffers with sizes varying from 2 to 7." />
+              <figcaption>
+                <span>Figure 3. The second-dimension variables of the explanatory variables of the simulated data are generated by the SDO model. The letters p and n mean positive and negative outliers, respectively. The letters b2, b3, ..., b7 mean the buffers with sizes varying from 2 to 7.</span>
+                <span class="caption-zh">图 3. 模拟数据解释变量的第二维度变量由 SDO 模型生成。字母 p 和 n 分别表示正离群值和负离群值；b2、b3、...、b7 表示大小从 2 到 7 的缓冲区。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-04.jpg" alt="Figure 4. Results of SDO modeling on simulation data using random forest (RF) and support vector machine model (SVM). (a) SDO prediction result using RF, (b) aspatial prediction results based RF and SVM, and SDO-SVM prediction, (c) Importance of the individual variables for the aspatial (upper) and SDO (lower) RF models." />
+              <figcaption>
+                <span>Figure 4. Results of SDO modeling on simulation data using random forest (RF) and support vector machine model (SVM). (a) SDO prediction result using RF, (b) aspatial prediction results based RF and SVM, and SDO-SVM prediction, (c) Importance of the individual variables for the aspatial (upper) and SDO (lower) RF models.</span>
+                <span class="caption-zh">图 4. 基于随机森林（RF）和支持向量机（SVM）的模拟数据 SDO 建模结果。(a) 基于 RF 的 SDO 预测结果；(b) 基于 RF 和 SVM 的非空间预测结果以及 SDO-SVM 预测结果；(c) 非空间 RF 模型（上）与 SDO-RF 模型（下）的变量重要性。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-05.jpg" alt="Figure 5. Annual wheat production in Australia's LGAs within the wheat belt in 2021." />
+              <figcaption>
+                <span>Figure 5. Annual wheat production in Australia's LGAs within the wheat belt in 2021.</span>
+                <span class="caption-zh">图 5. 2021 年澳大利亚小麦带内各地方政府区域（LGA）的小麦年产量。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-06.jpg" alt="Figure 6. Spatial distributions of explanatory variables in 2021. (a) and (b) Climate variables, (c)-(e) Environmental variables, (f)-(i) Soil attributes." />
+              <figcaption>
+                <span>Figure 6. Spatial distributions of explanatory variables in 2021. (a) and (b) Climate variables, (c)-(e) Environmental variables, (f)-(i) Soil attributes.</span>
+                <span class="caption-zh">图 6. 2021 年解释变量的空间分布。(a) 和 (b) 为气候变量，(c)-(e) 为环境变量，(f)-(i) 为土壤属性。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Table-01.jpg" alt="Table 1. A summary of explanatory variables that potentially affect spatial disparities of wheat production." />
+              <figcaption>
+                <span>Table 1. A summary of explanatory variables that potentially affect spatial disparities of wheat production.</span>
+                <span class="caption-zh">表 1. 可能影响小麦产量空间差异的解释变量汇总。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-07.jpg" alt="Figure 7. Main steps of the second-dimension outliers (SDO) model for predicting wheat production in Australia." />
+              <figcaption>
+                <span>Figure 7. Main steps of the second-dimension outliers (SDO) model for predicting wheat production in Australia.</span>
+                <span class="caption-zh">图 7. 基于第二维度离群值（SDO）模型预测澳大利亚小麦产量的主要步骤。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-08.jpg" alt="Figure 8. Correlation analysis for wheat production and explanatory variables, including air temperature, evapotranspiration, EVI, NDVI, total precipitation, total nitrogen, total phosphorus, silt, sand, and wind speed." />
+              <figcaption>
+                <span>Figure 8. Correlation analysis for wheat production and explanatory variables, including air temperature, evapotranspiration, EVI, NDVI, total precipitation, total nitrogen, total phosphorus, silt, sand, and wind speed.</span>
+                <span class="caption-zh">图 8. 小麦产量与解释变量的相关性分析，包括气温、蒸散发、EVI、NDVI、总降水量、总氮、总磷、粉砂、砂和风速。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-09.jpg" alt="Figure 9. The distribution of the second-dimension temperature variable generated by the SDO model under different buffers, which includes positive outliers (red) and negative outliers (blue)." />
+              <figcaption>
+                <span>Figure 9. The distribution of the second-dimension temperature variable generated by the SDO model under different buffers, which includes positive outliers (red) and negative outliers (blue).</span>
+                <span class="caption-zh">图 9. SDO 模型在不同缓冲区下生成的第二维度温度变量分布，其中红色表示正离群值，蓝色表示负离群值。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-10.jpg" alt="Figure 10. Spatial distributions of second-dimension outlier variables for total precipitation (TP), normalized difference vegetation index (NDVI), and sand (SND) at buffer distances 100, 400, and 700 km, generated using the SDO model." />
+              <figcaption>
+                <span>Figure 10. Spatial distributions of second-dimension outlier variables for total precipitation (TP), normalized difference vegetation index (NDVI), and sand (SND) at buffer distances 100, 400, and 700 km, generated using the SDO model.</span>
+                <span class="caption-zh">图 10. 由 SDO 模型生成的总降水量（TP）、归一化植被指数（NDVI）和砂（SND）在 100、400 和 700 km 缓冲距离下的第二维度离群变量空间分布。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Table-02.jpg" alt="Table 2. Improvements of model accuracy in machine learning by SDO models compared with aspatial models (bold values indicating the best-performing SDO results)." />
+              <figcaption>
+                <span>Table 2. Improvements of model accuracy in machine learning by SDO models compared with aspatial models (bold values indicating the best-performing SDO results).</span>
+                <span class="caption-zh">表 2. 与非空间模型相比，SDO 模型在机器学习中的精度提升（加粗值表示表现最优的 SDO 结果）。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-11.jpg" alt="Figure 11. Sensitivity analysis of the SDO model: impact of buffer threshold, buffer interval, and outlier (standard deviation) threshold settings on model accuracy (cross-validation root mean square error, CV-RMSE)." />
+              <figcaption>
+                <span>Figure 11. Sensitivity analysis of the SDO model: impact of buffer threshold, buffer interval, and outlier (standard deviation) threshold settings on model accuracy (cross-validation root mean square error, CV-RMSE).</span>
+                <span class="caption-zh">图 11. SDO 模型敏感性分析：缓冲阈值、缓冲间隔和离群值（标准差）阈值设置对模型精度（交叉验证均方根误差，CV-RMSE）的影响。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-12.jpg" alt="Figure 12. Prediction of average wheat production in Australia based on the aspatial model (a) and SDO machine learning model (c). The importance of top 30 SDO variables (d) and aspatial variables (b) in the machine learning model." />
+              <figcaption>
+                <span>Figure 12. Prediction of average wheat production in Australia based on the aspatial model (a) and SDO machine learning model (c). The importance of top 30 SDO variables (d) and aspatial variables (b) in the machine learning model.</span>
+                <span class="caption-zh">图 12. 基于非空间模型（a）和 SDO 机器学习模型（c）的澳大利亚平均小麦产量预测结果，以及机器学习模型中前 30 个 SDO 变量（d）和非空间变量（b）的重要性。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-13.jpg" alt="Figure 13. Comparison of SDO and aspatial model predictions along cross-sections in the wheat belt region of New South Wales. (a) Locations of section A (southwest to northeast) and section B (northwest to southeast) in the wheat belt region of New South Wales. (b, c) Predicted wheat production along sections A and B, comparing SDO-SVM and aspatial SVM models. (d) Original wheat production data with cross-sections overlaid. (e, f) Predicted wheat production from the SDO-SVM model (e) and the aspatial SVM model (f), with overlaid cross-sections." />
+              <figcaption>
+                <span>Figure 13. Comparison of SDO and aspatial model predictions along cross-sections in the wheat belt region of New South Wales. (a) Locations of section A (southwest to northeast) and section B (northwest to southeast) in the wheat belt region of New South Wales. (b, c) Predicted wheat production along sections A and B, comparing SDO-SVM and aspatial SVM models. (d) Original wheat production data with cross-sections overlaid. (e, f) Predicted wheat production from the SDO-SVM model (e) and the aspatial SVM model (f), with overlaid cross-sections.</span>
+                <span class="caption-zh">图 13. 新南威尔士州小麦带区域沿剖面的 SDO 模型与非空间模型预测结果比较。(a) 新南威尔士州小麦带内剖面 A（西南至东北）和剖面 B（西北至东南）的位置；(b, c) 沿剖面 A 和 B 的小麦产量预测，对比 SDO-SVM 与非空间 SVM 模型；(d) 叠加剖线的原始小麦产量数据；(e, f) 分别为 SDO-SVM 模型（e）和非空间 SVM 模型（f）的预测结果，并叠加剖线。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2025-ijgis-sdo/Fig-14.jpg" alt="Figure 14. Density distribution map of the average wheat production prediction results of the SDO and aspatial models in Australia and each state." />
+              <figcaption>
+                <span>Figure 14. Density distribution map of the average wheat production prediction results of the SDO and aspatial models in Australia and each state.</span>
+                <span class="caption-zh">图 14. 澳大利亚整体及各州范围内 SDO 模型与非空间模型平均小麦产量预测结果的密度分布图。</span>
+              </figcaption>
+            </figure>
           </div>
         </section>
       </article>

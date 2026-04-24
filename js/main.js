@@ -1,7 +1,7 @@
 const paperDetails = {
   "second-dimension-outliers": {
     title: "Second-dimension outliers for spatial prediction",
-    authors: "Kai Ren, Yongze Song, Qiang Yu",
+    authors: "Kai Ren, Yongze Song<sup>*</sup>, Qiang Yu<sup>*</sup>",
     venue: "International Journal of Geographical Information Science, 2025",
     image: "image/paper/2025-ijgis-sdo-m.jpg",
     abstract:
@@ -15,7 +15,8 @@ const paperDetails = {
   "wheat-production": {
     title:
       "Identifying climate and environmental determinants of spatial disparities in wheat production using a geospatial machine learning model",
-    authors: "Kai Ren, Yongze Song, L. Li, F. Mancini, Z. Xiao, X. Zhang, R. Qu, Qiang Yu",
+    authors:
+      "Kai Ren, Yongze Song<sup>*</sup>, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu<sup>*</sup>",
     venue: "GIScience & Remote Sensing, 2025",
     image: "image/paper/2025-grs-gozh-wheat-m.jpg",
     abstract:
@@ -28,7 +29,7 @@ const paperDetails = {
   },
   "urban-heat-island": {
     title: "Irregular anisotropy in surface urban heat island footprint",
-    authors: "X. Yang, Yongze Song, C. Yoo, Kai Ren, P. Wu",
+    authors: "Xinyue Yang, Yongze Song<sup>*</sup>, Cheolhee Yoo, Kai Ren, Peng Wu",
     venue: "Sustainable Cities and Society, 2025",
     image: "image/paper/2025-scs-urban-heat-island-footprint-m.jpg",
     abstract:
@@ -56,7 +57,8 @@ const paperDetails = {
   "aerosol-unmixing": {
     title:
       "A spatio-temporal unmixing with heterogeneity model for the identification of remotely sensed MODIS aerosols",
-    authors: "L. Yang, P. Luo, Z. Zhang, Yongze Song, Kai Ren, C. Zhang, J. Awange, P. M. Atkinson, L. Meng",
+    authors:
+      "Longshan Yang, Peng Luo<sup>*</sup>, Zehua Zhang, Yongze Song<sup>*</sup>, Kai Ren, Ce Zhang, Joseph Awange, Peter M. Atkinson, Liqiu Meng",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
     image: "image/paper/2024-jag-aerosol-unmixing-m.jpg",
     abstract:
@@ -69,7 +71,8 @@ const paperDetails = {
   },
   "oasisation-ecology": {
     title: "Ecological influence of oasisation on peripheral regions",
-    authors: "X. Zhang, Yongze Song, A. Dewan, Z. Guo, X. Cao, Q. Bie, Y. Xie, X. Ma, Kai Ren, H. Zhang, G. Xi",
+    authors:
+      "Xueyuan Zhang, Yongze Song, Ashraf Dewan, Zecheng Guo, Xiaoyan Cao, Qiang Bie, Yaowen Xie<sup>*</sup>, Xu Ma, Kai Ren, Haoyan Zhang, Guilin Xi, Lei He",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
     image: "image/paper/2024-jag-oasisation-ecology-m.jpg",
     abstract:
@@ -382,6 +385,34 @@ function setCurrentYear() {
   });
 }
 
+function setupPaperAssetSizing() {
+  const applyAssetClass = (image) => {
+    const card = image.closest(".paper-asset-card");
+    if (!card || !image.naturalWidth || !image.naturalHeight) {
+      return;
+    }
+
+    card.classList.remove("is-portrait", "is-squareish", "is-narrow-landscape");
+    const ratio = image.naturalWidth / image.naturalHeight;
+
+    if (ratio < 0.95) {
+      card.classList.add("is-portrait");
+    } else if (ratio < 1.35) {
+      card.classList.add("is-squareish");
+    } else if (ratio < 1.6) {
+      card.classList.add("is-narrow-landscape");
+    }
+  };
+
+  document.querySelectorAll(".paper-asset-image").forEach((image) => {
+    if (image.complete) {
+      applyAssetClass(image);
+    } else {
+      image.addEventListener("load", () => applyAssetClass(image), { once: true });
+    }
+  });
+}
+
 function normalizeReversedOrderedLists() {
   document.querySelectorAll("ol[reversed]").forEach((list) => {
     const count = Array.from(list.children).filter((child) => child.tagName === "LI").length;
@@ -641,3 +672,4 @@ setupThemeToggle();
 setupNavigation();
 setupDetailDialog();
 setupGalleryLightbox();
+setupPaperAssetSizing();

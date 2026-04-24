@@ -675,6 +675,16 @@ h3 {
   color: var(--muted);
 }
 
+.publication-card .author-self {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 800;
+}
+
 .image-publication-card {
   overflow: hidden;
   padding: 0;
@@ -1032,6 +1042,10 @@ h3 {
   font-weight: 750;
 }
 
+.paper-detail-meta strong sup {
+  font-size: 0.72em;
+}
+
 .paper-detail-meta cite {
   color: var(--accent-strong);
   font-style: italic;
@@ -1072,11 +1086,112 @@ h3 {
   color: var(--body);
 }
 
+.paper-summary {
+  margin: 0;
+  color: var(--body);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.paper-highlight-list {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--body);
+}
+
+.paper-highlight-list li + li {
+  margin-top: 0.45rem;
+}
+
 .detail-gallery {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.paper-asset-grid {
+  gap: 1.1rem;
+}
+
+.paper-asset-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.paper-asset-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--surface-muted);
+}
+
+.paper-asset-card figcaption {
+  padding: 0.78rem 0.88rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+.paper-asset-card figcaption span {
+  display: block;
+}
+
+.paper-asset-card figcaption span:first-child {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.paper-asset-card .caption-zh {
+  margin-top: 0.18rem;
+  color: var(--muted);
+}
+
+.paper-asset-note {
+  display: inline-block;
+  margin: 0.55rem 0 1rem;
+  max-width: min(820px, 100%);
+  padding: 0.2rem 0 0.2rem 0.9rem;
+  border-left: 2px solid var(--accent-warm);
+  background: transparent;
+  background-image: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent-warm) 10%, transparent) 0%,
+    transparent 78%
+  );
+  color: var(--body);
+  font-size: 0.79rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.paper-asset-note .caption-zh {
+  display: block;
+  margin-top: 0.16rem;
+  padding-top: 0;
+  border-top: 0;
+  color: var(--muted);
+}
+
+.paper-asset-card.is-portrait {
+  max-width: min(560px, 56vw);
+  margin-inline: auto;
+}
+
+.paper-asset-card.is-squareish {
+  max-width: min(860px, 74vw);
+  margin-inline: auto;
+}
+
+.paper-asset-card.is-narrow-landscape {
+  max-width: min(980px, 82vw);
+  margin-inline: auto;
 }
 
 .detail-image {
@@ -2186,6 +2301,12 @@ code {
 
   .contact-page {
     column-count: 1;
+  }
+
+  .paper-asset-card.is-portrait,
+  .paper-asset-card.is-squareish,
+  .paper-asset-card.is-narrow-landscape {
+    max-width: 100%;
   }
 
   .gallery-masonry {
