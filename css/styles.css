@@ -1273,39 +1273,53 @@ h3 {
 }
 
 .gallery-lightbox {
-  width: min(1180px, calc(100vw - 32px));
+  width: min(1280px, calc(100vw - 28px));
   border: 0;
   padding: 0;
   background: transparent;
 }
 
 .gallery-lightbox::backdrop {
-  background: rgba(15, 20, 18, 0.8);
-  backdrop-filter: blur(4px);
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .gallery-lightbox-panel {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: calc(var(--radius) + 2px);
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+  display: grid;
+  gap: 0.9rem;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #f7f7f2;
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
 .gallery-lightbox-header {
+  position: relative;
   display: flex;
   align-items: start;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid var(--line);
+  justify-content: center;
+  padding: 12px 68px 0;
+  border-bottom: 0;
 }
 
 .gallery-lightbox-caption {
   min-width: 0;
-  font-size: 0.96rem;
+  max-width: min(720px, 100%);
+  margin-inline: auto;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(18, 24, 26, 0.3);
+  backdrop-filter: blur(14px) saturate(125%);
+  font-size: 0.94rem;
   line-height: 1.45;
+  text-align: center;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .gallery-lightbox-caption span {
@@ -1313,43 +1327,65 @@ h3 {
 }
 
 .gallery-lightbox-caption span:first-child {
-  color: var(--ink);
+  color: #ffffff;
   font-weight: 800;
 }
 
 .gallery-lightbox-caption .caption-zh {
   margin-top: 0.18rem;
-  color: var(--muted);
+  color: rgba(247, 247, 242, 0.78);
 }
 
 .gallery-lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   flex: 0 0 auto;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  background: var(--surface-muted);
-  color: var(--ink);
+  background: rgba(18, 24, 26, 0.3);
+  color: #ffffff;
   cursor: pointer;
+  backdrop-filter: blur(14px) saturate(125%);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.gallery-lightbox-close:hover {
+  transform: translateY(-1px);
+  background: rgba(18, 24, 26, 0.42);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .gallery-lightbox-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  background: color-mix(in srgb, var(--surface) 74%, #000 26%);
+  padding: 0 12px 12px;
+  background: transparent;
 }
 
 .gallery-lightbox-body img {
-  width: 100%;
-  max-height: calc(100vh - 180px);
+  width: auto;
+  max-width: min(1320px, calc(100vw - 64px));
+  max-height: calc(100vh - 132px);
   object-fit: contain;
-  border-radius: calc(var(--radius) - 2px);
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .project-detail .detail-grid {
@@ -1721,6 +1757,33 @@ h3 {
   background: var(--surface);
   box-shadow: var(--shadow);
 }
+
+.awards-section .plain-list {
+  margin-top: 0.9rem;
+}
+
+.awards-section .plain-list li + li {
+  margin-top: 0.72rem;
+}
+
+.awards-section .plain-list a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(154, 91, 63, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.awards-section .plain-list a:hover {
+  color: var(--accent-strong);
+  text-decoration-color: currentcolor;
+}
+
+.awards-section .plain-list strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
 
 .compact-heading {
   margin-bottom: 0.8rem;

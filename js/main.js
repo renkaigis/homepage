@@ -598,8 +598,9 @@ function setupGalleryLightbox() {
   const caption = document.querySelector("#gallery-lightbox-caption");
   const closeButton = document.querySelector(".gallery-lightbox-close");
   const cards = document.querySelectorAll(".gallery-card[data-gallery-src]");
+  const awardLinks = document.querySelectorAll(".award-preview-link[data-preview-src]");
 
-  if (!dialog || !image || !caption || !cards.length) {
+  if (!dialog || !image || !caption || (!cards.length && !awardLinks.length)) {
     return;
   }
 
@@ -640,6 +641,28 @@ function setupGalleryLightbox() {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         openLightbox(card);
+      }
+    });
+  });
+
+  awardLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const src = link.dataset.previewSrc;
+      const alt = link.dataset.previewAlt || "";
+      if (!src) {
+        return;
+      }
+
+      image.src = sitePath(src);
+      image.alt = alt;
+      caption.innerHTML = `<span>${link.innerHTML}</span>`;
+
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
       }
     });
   });
