@@ -15,6 +15,11 @@
   <script>
     (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch { } })();
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <script defer src="js/main.js"></script>
@@ -57,9 +62,7 @@
           <h1>Kai Ren</h1>
           <a class="hero-language-button" href="zh/" lang="zh-Hans">中文</a>
         </div>
-        <blockquote class="hero-quote">
-          <p>“Turning geospatial evidence into clearer decisions for land, climate, and agriculture.”</p>
-        </blockquote>
+        <p class="hero-affiliation">State Key Laboratory of Climate System Prediction and Risk Management, Nanjing Normal University</p>
         <div class="hero-contact-row">
           <p class="hero-email">
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
@@ -98,9 +101,8 @@
       <aside class="quick-facts" aria-label="Academic profile highlights">
         <dl>
           <div>
-            <dt>Affiliation</dt>
-            <dd>
-              State Key Laboratory of Climate System Prediction and Risk Management, Nanjing Normal University</dd>
+            <dt>Collaboration</dt>
+            <dd>Academic collaborations are welcomed in GIScience, remote sensing, spatial analysis, geospatial machine learning, and climate change.</dd>
           </div>
         </dl>
         <div class="wechat-card" aria-label="WeChat official account">

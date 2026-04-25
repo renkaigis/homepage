@@ -13,6 +13,11 @@
   <script>
     (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch { } })();
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <script defer src="../js/main.js"></script>
@@ -54,9 +59,7 @@
           <h1>任凯</h1>
           <a class="hero-language-button" href="../" lang="en">English</a>
         </div>
-        <blockquote class="hero-quote">
-          <p>“以地理空间证据，服务土地、气候与农业决策。”</p>
-        </blockquote>
+        <p class="hero-affiliation">气候系统预测与风险管理全国重点实验室（南京师范大学）</p>
         <div class="hero-contact-row">
           <p class="hero-email">
             <i class="fa-solid fa-envelope" aria-hidden="true"></i>
@@ -95,8 +98,8 @@
       <aside class="quick-facts" aria-label="学术概览">
         <dl>
           <div>
-            <dt>机构</dt>
-            <dd>南京师范大学，博士后研究员</dd>
+            <dt>合作</dt>
+            <dd>欢迎在 GIScience、遥感、空间分析、地理空间机器学习与气候变化等方向开展学术合作。</dd>
           </div>
         </dl>
         <div class="wechat-card" aria-label="微信公众号">
