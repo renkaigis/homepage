@@ -689,6 +689,145 @@ function setupGalleryLightbox() {
   });
 }
 
+function setupNewsPagination() {
+  const list = document.querySelector(".notes-list[data-page-size]");
+  const pagination = document.querySelector(".news-pagination");
+
+  if (!list || !pagination) {
+    return;
+  }
+
+  const cards = Array.from(list.querySelectorAll(":scope > .note-card"));
+  const pageSize = Number.parseInt(list.dataset.pageSize || "10", 10);
+
+  if (!Number.isFinite(pageSize) || pageSize < 1 || cards.length <= pageSize) {
+    pagination.hidden = true;
+    cards.forEach((card) => {
+      card.hidden = false;
+    });
+    return;
+  }
+
+  const totalPages = Math.ceil(cards.length / pageSize);
+  const params = new URLSearchParams(window.location.search);
+  const requestedPage = Number.parseInt(params.get("page") || "1", 10);
+  let currentPage = Math.min(Math.max(requestedPage || 1, 1), totalPages);
+
+  const goToPage = (page) => {
+    currentPage = Math.min(Math.max(page, 1), totalPages);
+
+    cards.forEach((card, index) => {
+      const cardPage = Math.floor(index / pageSize) + 1;
+      card.hidden = cardPage !== currentPage;
+    });
+
+    pagination.innerHTML = "";
+
+    const makeButton = (label, page, options = {}) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.className = options.edge ? "news-pagination-edge" : "news-pagination-page";
+      button.disabled = Boolean(options.disabled);
+
+      if (options.current) {
+        button.setAttribute("aria-current", "page");
+      }
+
+      if (options.label) {
+        button.setAttribute("aria-label", options.label);
+      }
+
+      button.addEventListener("click", () => {
+        goToPage(page);
+        const nextParams = new URLSearchParams(window.location.search);
+
+        if (page === 1) {
+          nextParams.delete("page");
+        } else {
+          nextParams.set("page", page.toString());
+        }
+
+        const nextQuery = nextParams.toString();
+        const nextUrl = `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ""}${window.location.hash}`;
+        window.history.replaceState({}, "", nextUrl);
+        list.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      return button;
+    };
+
+    const makeEllipsis = () => {
+      const ellipsis = document.createElement("span");
+      ellipsis.className = "news-pagination-ellipsis";
+      ellipsis.textContent = "...";
+      ellipsis.setAttribute("aria-hidden", "true");
+      return ellipsis;
+    };
+
+    const visiblePages = [];
+
+    if (totalPages <= 7) {
+      for (let page = 1; page <= totalPages; page += 1) {
+        visiblePages.push(page);
+      }
+    } else {
+      visiblePages.push(1);
+
+      if (currentPage > 3) {
+        visiblePages.push("ellipsis-start");
+      }
+
+      const start = Math.max(2, currentPage - 1);
+      const end = Math.min(totalPages - 1, currentPage + 1);
+
+      for (let page = start; page <= end; page += 1) {
+        visiblePages.push(page);
+      }
+
+      if (currentPage < totalPages - 2) {
+        visiblePages.push("ellipsis-end");
+      }
+
+      visiblePages.push(totalPages);
+    }
+
+    pagination.append(
+      makeButton("Prev", currentPage - 1, {
+        disabled: currentPage === 1,
+        edge: true,
+        label: "Previous page"
+      })
+    );
+
+    visiblePages.forEach((page) => {
+      if (typeof page === "string") {
+        pagination.append(makeEllipsis());
+        return;
+      }
+
+      pagination.append(
+        makeButton(page.toString(), page, {
+          current: page === currentPage,
+          label: page === currentPage ? `Page ${page}, current page` : `Go to page ${page}`
+        })
+      );
+    });
+
+    pagination.append(
+      makeButton("Next", currentPage + 1, {
+        disabled: currentPage === totalPages,
+        edge: true,
+        label: "Next page"
+      })
+    );
+
+    pagination.hidden = false;
+  };
+
+  goToPage(currentPage);
+}
+
 normalizeReversedOrderedLists();
 setCurrentYear();
 setupThemeToggle();
@@ -696,3 +835,4 @@ setupNavigation();
 setupDetailDialog();
 setupGalleryLightbox();
 setupPaperAssetSizing();
+setupNewsPagination();
