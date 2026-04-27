@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
-  <title id="title">Academic portrait placeholder</title>
-  <desc id="desc">Minimal portrait placeholder for a personal academic website.</desc>
-  <rect width="720" height="900" fill="#eceee6"/>
-  <rect x="56" y="56" width="608" height="788" rx="10" fill="#ffffff" stroke="#d9ded7" stroke-width="2"/>
-  <circle cx="360" cy="320" r="122" fill="#315c52"/>
-  <path d="M185 710c28-139 111-210 175-210s147 71 175 210" fill="#1f433c"/>
-  <path d="M160 760h400" stroke="#9a5b3f" stroke-width="16" stroke-linecap="round"/>
-</svg>
