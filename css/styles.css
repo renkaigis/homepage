@@ -2454,6 +2454,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   font-size: 0.92rem;
 }
@@ -2470,19 +2471,25 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.7rem;
   min-width: 160px;
 }
 
 .footer-unit-logo img {
   width: auto;
-  max-width: min(220px, 42vw);
-  height: 38px;
+  max-width: min(145px, 30vw);
+  height: 25px;
   object-fit: contain;
 }
 
 .footer-logo-opengms {
-  max-width: min(150px, 32vw);
+  max-width: min(100px, 24vw);
+}
+
+.footer-logo-curtin {
+  height: 23px;
+  max-width: min(135px, 28vw);
 }
 
 .footer-logo-opengms-dark,
@@ -2957,7 +2964,7 @@ code {
     order: 1;
     flex-direction: column;
     justify-content: center;
-    gap: 0.65rem;
+    gap: 0.5rem;
     min-width: 0;
   }
 
@@ -2967,12 +2974,17 @@ code {
   }
 
   .footer-unit-logo img {
-    height: 34px;
-    max-width: min(220px, 72vw);
+    height: 23px;
+    max-width: min(145px, 58vw);
   }
 
   .footer-logo-opengms {
-    max-width: min(180px, 72vw);
+    max-width: min(120px, 58vw);
+  }
+
+  .footer-logo-curtin {
+    height: 21px;
+    max-width: min(125px, 58vw);
   }
 
   .news-list li {
