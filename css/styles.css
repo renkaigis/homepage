@@ -873,38 +873,144 @@ h3 {
 
 .about-hero-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
-  gap: 1.15rem;
-  align-items: start;
-  padding: 1.1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.42fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background:
+    linear-gradient(135deg, rgba(49, 92, 82, 0.045), rgba(154, 91, 63, 0.035)),
+    var(--surface);
   box-shadow: var(--shadow);
 }
 
-.about-hero-copy .lead {
-  max-width: none;
-  margin-top: 0.7rem;
+.about-profile-summary {
+  max-width: 720px;
 }
 
-.about-contact-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-muted);
-  padding: 1rem;
+.about-profile-summary .eyebrow {
+  margin-bottom: 0.85rem;
 }
 
-.about-contact-card h2 {
-  margin-bottom: 0.3rem;
-  font-size: 1.58rem;
+.about-name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0;
+}
+
+.about-name-row h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  line-height: 1.05;
+}
+
+.about-name-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(49, 92, 82, 0.1);
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.about-affiliation-logos {
+  display: grid;
+  justify-items: end;
+  gap: 0.95rem;
+}
+
+.about-affiliation-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: min(280px, 100%);
+  padding: 0.12rem 0;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.about-affiliation-logos a:hover,
+.about-affiliation-logos a:focus-visible {
+  transform: translateX(-2px);
+  opacity: 0.78;
+  outline: none;
+}
+
+.about-affiliation-logos img {
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.about-logo-dark {
+  display: none;
+}
+
+.about-logo-opengms {
+  height: 42px;
+}
+
+.about-logo-nnu {
+  height: 38px;
+}
+
+.about-logo-gsil {
+  height: 38px;
+}
+
+.about-logo-curtin {
+  height: 36px;
 }
 
 .about-contact-affiliation {
-  margin: 0.35rem 0 0.85rem;
+  margin: 0.8rem 0 1rem;
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--accent);
   color: var(--muted);
   line-height: 1.5;
   font-size: 0.95rem;
+}
+
+.about-profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.about-profile-details a,
+.about-profile-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  min-height: 42px;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: rgba(49, 92, 82, 0.055);
+  color: var(--body);
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.about-profile-details a {
+  color: var(--accent-strong);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.about-profile-details i {
+  width: 1rem;
+  color: var(--accent);
+  text-align: center;
+  flex: 0 0 auto;
 }
 
 .contact-details {
@@ -2683,6 +2789,18 @@ code {
   display: block;
 }
 
+:root[data-theme="dark"] .about-logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .about-logo-dark {
+  display: block;
+}
+
+:root[data-theme="dark"] .about-logo-gsil {
+  filter: invert(1) brightness(1.18);
+}
+
 :root[data-theme="dark"] .stats-grid > div,
 :root[data-theme="dark"] .stats-band {
   background: #101513;
@@ -2782,6 +2900,18 @@ code {
   :root:not([data-theme="light"]) .footer-logo-opengms-dark,
   :root:not([data-theme="light"]) .footer-logo-white {
     display: block;
+  }
+
+  :root:not([data-theme="light"]) .about-logo-light {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .about-logo-dark {
+    display: block;
+  }
+
+  :root:not([data-theme="light"]) .about-logo-gsil {
+    filter: invert(1) brightness(1.18);
   }
 
   :root:not([data-theme="light"]) .stats-grid > div,
@@ -2985,6 +3115,14 @@ code {
   .footer-logo-curtin {
     height: 21px;
     max-width: min(125px, 58vw);
+  }
+
+  .about-profile-details {
+    grid-template-columns: 1fr;
+  }
+
+  .about-affiliation-logos {
+    justify-items: end;
   }
 
   .news-list li {
