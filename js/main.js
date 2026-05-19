@@ -1,8 +1,8 @@
 const paperDetails = {
   "second-dimension-outliers": {
     title: "Second-dimension outliers for spatial prediction",
-    authors: "Kai Ren, Yongze Song<sup>*</sup>, Qiang Yu<sup>*</sup>",
-    venue: "International Journal of Geographical Information Science, 2025",
+    authors: "Ren, K., Song, Y., Yu, Q.",
+    venue: "International Journal of Geographical Information Science, 2026",
     image: "image/paper/2025-ijgis-sdo-m.jpg",
     abstract:
       "This paper develops the concept of second-dimension outliers for spatial prediction, using spatial outlier patterns to improve the interpretation of heterogeneity and prediction behavior in geographic data.",
