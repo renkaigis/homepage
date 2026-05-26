@@ -2206,6 +2206,30 @@ h3 {
   transition: transform 220ms ease;
 }
 
+.note-thumb-placeholder,
+.note-article-cover-placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.note-thumb-placeholder {
+  padding: 0.9rem;
+}
+
+.note-article-cover-placeholder {
+  min-height: 100%;
+  padding: 1rem;
+  background:
+    linear-gradient(135deg, rgba(49, 92, 82, 0.08), rgba(154, 91, 63, 0.08)),
+    var(--surface-muted);
+}
+
 .note-card:hover .note-thumb img {
   transform: scale(1.035);
 }

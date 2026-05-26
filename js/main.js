@@ -10,7 +10,7 @@ const paperDetails = {
     pdf: "#",
     code: "#",
     data: "#",
-    readMore: "details/papers/second-dimension-outliers/"
+    readMore: "details/papers/2026-ijgis-kai-sdo/"
   },
   "wheat-production": {
     title:
@@ -25,7 +25,7 @@ const paperDetails = {
     pdf: "#",
     code: "#",
     data: "#",
-    readMore: "details/papers/wheat-production-disparities/"
+    readMore: "details/papers/2025-grs-kai-gozh-wheat/"
   },
   "urban-heat-island": {
     title: "Irregular anisotropy in surface urban heat island footprint",
@@ -38,7 +38,7 @@ const paperDetails = {
     pdf: "#",
     code: "#",
     data: "#",
-    readMore: "details/papers/urban-heat-island-footprint/"
+    readMore: "details/papers/2025-scs-xinyue-suhi-footprint/"
   },
   // Confidential until accepted:
   // "spatial-outliers-heterogeneity": {
@@ -67,7 +67,7 @@ const paperDetails = {
     pdf: "#",
     code: "#",
     data: "#",
-    readMore: "details/papers/aerosol-unmixing/"
+    readMore: "details/papers/2024-jag-longshan-aerosol-unmixing/"
   },
   "oasisation-ecology": {
     title: "Ecological influence of oasisation on peripheral regions",
@@ -81,7 +81,7 @@ const paperDetails = {
     pdf: "#",
     code: "#",
     data: "#",
-    readMore: "details/papers/oasisation-ecology/"
+    readMore: "details/papers/2024-jag-xueyuan-oasisation/"
   }
 };
 
@@ -90,19 +90,19 @@ const paperDetailsZh = {
     ...paperDetails["second-dimension-outliers"],
     abstract:
       "本文提出 second-dimension outliers 的概念，用空间异常模式辅助解释地理数据中的异质性和空间预测行为。",
-    readMore: "details/papers/second-dimension-outliers/"
+    readMore: "details/papers/2026-ijgis-kai-sdo/"
   },
   "wheat-production": {
     ...paperDetails["wheat-production"],
     abstract:
       "本文使用地理空间机器学习模型识别影响小麦产量空间差异的气候与环境决定因素，以澳大利亚农业系统为案例。",
-    readMore: "details/papers/wheat-production-disparities/"
+    readMore: "details/papers/2025-grs-kai-gozh-wheat/"
   },
   "urban-heat-island": {
     ...paperDetails["urban-heat-island"],
     abstract:
       "该合作论文研究地表城市热岛足迹中的不规则各向异性，为城市气候与环境分析提供空间证据。",
-    readMore: "details/papers/urban-heat-island-footprint/"
+    readMore: "details/papers/2025-scs-xinyue-suhi-footprint/"
   }
 };
 
@@ -138,7 +138,7 @@ const projectDetails = {
       "A cotton production decision management system for plot management, field tasks, crop growth, pest and disease warning, and agronomic service support.",
     methods:
       "GIS platform design, user and plot management, decision-support workflow design, crop monitoring, and system validation.",
-    readMore: "details/projects/xinjiang-cotton/"
+    readMore: "details/projects/2020-xinjiang-cotton/"
   },
   "dianchi-cyanobacteria": {
     title: "Remote Sensing Monitoring and Early Warning System of Cyanobacteria Bloom in Dianchi Lake",
