@@ -697,13 +697,15 @@ function setupNewsPagination() {
     return;
   }
 
-  const cards = Array.from(list.querySelectorAll(":scope > .note-card"));
+  const entries = Array.from(list.children);
+  const cards = entries.filter((entry) => entry.classList.contains("note-card"));
+  const yearDividers = entries.filter((entry) => entry.classList.contains("note-year-divider"));
   const pageSize = Number.parseInt(list.dataset.pageSize || "10", 10);
 
   if (!Number.isFinite(pageSize) || pageSize < 1 || cards.length <= pageSize) {
     pagination.hidden = true;
-    cards.forEach((card) => {
-      card.hidden = false;
+    entries.forEach((entry) => {
+      entry.hidden = false;
     });
     return;
   }
@@ -719,6 +721,15 @@ function setupNewsPagination() {
     cards.forEach((card, index) => {
       const cardPage = Math.floor(index / pageSize) + 1;
       card.hidden = cardPage !== currentPage;
+    });
+
+    yearDividers.forEach((divider) => {
+      const year = divider.dataset.newsYear || divider.textContent.trim().slice(0, 4);
+
+      divider.hidden = !cards.some((card) => {
+        const date = card.querySelector(".note-date");
+        return !card.hidden && date?.dateTime?.startsWith(year);
+      });
     });
 
     pagination.innerHTML = "";
@@ -828,6 +839,25 @@ function setupNewsPagination() {
   goToPage(currentPage);
 }
 
+function setupSelectableNewsCards() {
+  document.querySelectorAll(".note-card > a").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const selection = window.getSelection();
+
+      if (!selection || selection.isCollapsed || !selection.toString().trim()) {
+        return;
+      }
+
+      for (let index = 0; index < selection.rangeCount; index += 1) {
+        if (selection.getRangeAt(index).intersectsNode(link)) {
+          event.preventDefault();
+          return;
+        }
+      }
+    });
+  });
+}
+
 normalizeReversedOrderedLists();
 setCurrentYear();
 setupThemeToggle();
@@ -836,3 +866,4 @@ setupDetailDialog();
 setupGalleryLightbox();
 setupPaperAssetSizing();
 setupNewsPagination();
+setupSelectableNewsCards();

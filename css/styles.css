@@ -2116,6 +2116,51 @@ h3 {
   gap: 0.72rem;
 }
 
+.note-year-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  margin: 0.55rem 0 -0.05rem;
+  color: var(--accent-strong);
+}
+
+.note-year-divider:first-child {
+  margin-top: 0;
+}
+
+.note-year-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(49, 92, 82, 0.32), rgba(49, 92, 82, 0.08), transparent);
+}
+
+.note-year-divider span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.05rem;
+  padding: 0.22rem 0.72rem 0.26rem;
+  border: 1px solid rgba(49, 92, 82, 0.16);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(236, 238, 230, 0.62)),
+    var(--surface);
+  box-shadow: 0 10px 26px rgba(29, 37, 40, 0.07);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.38rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.note-year-divider small {
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .note-card {
   position: relative;
   overflow: hidden;
@@ -2151,6 +2196,13 @@ h3 {
   align-items: stretch;
   padding: 0;
   text-decoration: none;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.note-card a * {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .note-date {
