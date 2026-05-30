@@ -3309,30 +3309,37 @@ code {
   }
 
   .home-affiliation-logos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-items: center;
     justify-content: center;
-    gap: 0.62rem 0.85rem;
+    gap: 0.48rem;
     width: 100%;
-    padding: 0.5rem 0.58rem;
+    padding: 0.48rem 0.5rem;
+  }
+
+  .home-affiliation-logos a {
+    width: 100%;
   }
 
   .home-logo-opengms {
-    height: 22px;
-    max-width: 92px;
+    height: 20px;
+    max-width: 80px;
   }
 
   .home-logo-nnu {
-    height: 24px;
-    max-width: 92px;
+    height: 22px;
+    max-width: 86px;
   }
 
   .home-logo-gsil {
-    height: 23px;
-    max-width: 94px;
+    height: 21px;
+    max-width: 86px;
   }
 
   .home-logo-curtin {
-    height: 21px;
-    max-width: 104px;
+    height: 19px;
+    max-width: 96px;
   }
 
   .about-profile-details {
@@ -3471,5 +3478,33 @@ code {
 
   .publication-card {
     min-height: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-affiliation-logos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 0.72rem;
+    padding-inline: 0.7rem;
+  }
+
+  .home-logo-opengms {
+    height: 22px;
+    max-width: 96px;
+  }
+
+  .home-logo-nnu {
+    height: 24px;
+    max-width: 104px;
+  }
+
+  .home-logo-gsil {
+    height: 23px;
+    max-width: 104px;
+  }
+
+  .home-logo-curtin {
+    height: 21px;
+    max-width: 118px;
   }
 }
