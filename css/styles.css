@@ -1614,9 +1614,10 @@ h3 {
 }
 
 .home-affiliation-logos {
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: inline-grid;
+  grid-template-columns: repeat(4, max-content);
   align-items: center;
+  justify-items: center;
   gap: clamp(0.5rem, 1.25vw, 0.78rem);
   max-width: min(700px, 100%);
   margin-top: 0.42rem;
@@ -3313,9 +3314,9 @@ code {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     justify-items: center;
     justify-content: center;
-    gap: 0.48rem;
+    gap: clamp(0.26rem, 1.8vw, 0.48rem);
     width: 100%;
-    padding: 0.48rem 0.5rem;
+    padding: 0.48rem clamp(0.32rem, 2vw, 0.5rem);
   }
 
   .home-affiliation-logos a {
@@ -3323,23 +3324,23 @@ code {
   }
 
   .home-logo-opengms {
-    height: 20px;
-    max-width: 80px;
+    height: clamp(17px, 4.8vw, 20px);
+    max-width: 100%;
   }
 
   .home-logo-nnu {
-    height: 22px;
-    max-width: 86px;
+    height: clamp(18px, 5.2vw, 22px);
+    max-width: 100%;
   }
 
   .home-logo-gsil {
-    height: 21px;
-    max-width: 86px;
+    height: clamp(17px, 5vw, 21px);
+    max-width: 100%;
   }
 
   .home-logo-curtin {
-    height: 19px;
-    max-width: 96px;
+    height: clamp(16px, 4.6vw, 19px);
+    max-width: 100%;
   }
 
   .about-profile-details {
@@ -3478,33 +3479,5 @@ code {
 
   .publication-card {
     min-height: 0;
-  }
-}
-
-@media (max-width: 420px) {
-  .home-affiliation-logos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem 0.72rem;
-    padding-inline: 0.7rem;
-  }
-
-  .home-logo-opengms {
-    height: 22px;
-    max-width: 96px;
-  }
-
-  .home-logo-nnu {
-    height: 24px;
-    max-width: 104px;
-  }
-
-  .home-logo-gsil {
-    height: 23px;
-    max-width: 104px;
-  }
-
-  .home-logo-curtin {
-    height: 21px;
-    max-width: 118px;
   }
 }
