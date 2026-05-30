@@ -1561,6 +1561,10 @@ h3 {
   padding-block: clamp(1.6rem, 4vw, 3rem);
 }
 
+.home-intro {
+  min-width: 0;
+}
+
 .home-page h1 {
   font-size: clamp(2rem, 4.6vw, 3.35rem);
 }
@@ -1614,14 +1618,14 @@ h3 {
 }
 
 .home-affiliation-logos {
-  display: inline-grid;
-  grid-template-columns: repeat(4, max-content);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
-  gap: clamp(0.5rem, 1.25vw, 0.78rem);
-  max-width: min(700px, 100%);
+  gap: clamp(0.32rem, 1vw, 0.78rem);
+  width: min(700px, 100%);
   margin-top: 0.42rem;
-  padding: 0.38rem 0.55rem;
+  padding: 0.38rem clamp(0.32rem, 0.9vw, 0.55rem);
   border-radius: var(--radius);
   background:
     linear-gradient(135deg, rgba(49, 92, 82, 0.07), rgba(154, 91, 63, 0.045)),
@@ -1635,6 +1639,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-width: 0;
   min-height: 28px;
   padding: 0.02rem 0.05rem;
@@ -1654,7 +1659,9 @@ h3 {
 
 .home-affiliation-logos img {
   width: auto;
+  height: auto;
   max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -1663,22 +1670,22 @@ h3 {
 }
 
 .home-logo-opengms {
-  height: 23px;
+  max-height: 23px;
   max-width: 96px;
 }
 
 .home-logo-nnu {
-  height: 25px;
+  max-height: 25px;
   max-width: 98px;
 }
 
 .home-logo-gsil {
-  height: 24px;
+  max-height: 24px;
   max-width: 100px;
 }
 
 .home-logo-curtin {
-  height: 22px;
+  max-height: 22px;
   max-width: 108px;
 }
 
@@ -3324,22 +3331,22 @@ code {
   }
 
   .home-logo-opengms {
-    height: clamp(17px, 4.8vw, 20px);
+    max-height: clamp(17px, 4.8vw, 20px);
     max-width: 100%;
   }
 
   .home-logo-nnu {
-    height: clamp(18px, 5.2vw, 22px);
+    max-height: clamp(18px, 5.2vw, 22px);
     max-width: 100%;
   }
 
   .home-logo-gsil {
-    height: clamp(17px, 5vw, 21px);
+    max-height: clamp(17px, 5vw, 21px);
     max-width: 100%;
   }
 
   .home-logo-curtin {
-    height: clamp(16px, 4.6vw, 19px);
+    max-height: clamp(16px, 4.6vw, 19px);
     max-width: 100%;
   }
 
