@@ -12,7 +12,7 @@
   --focus: #a46a2a;
   --shadow: 0 18px 40px rgba(29, 37, 40, 0.08);
   --radius: 8px;
-  --max: 1440px;
+  --max: 1320px;
 }
 
 * {
@@ -1562,6 +1562,7 @@ h3 {
 }
 
 .home-intro {
+  container-type: inline-size;
   min-width: 0;
 }
 
@@ -1618,14 +1619,17 @@ h3 {
 }
 
 .home-affiliation-logos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  --home-logo-gap: clamp(0.28rem, 1cqw, 0.72rem);
+  --home-logo-height: clamp(12px, 4.35cqw, 26px);
+
+  display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-items: center;
-  gap: clamp(0.32rem, 1vw, 0.78rem);
-  width: min(700px, 100%);
+  gap: var(--home-logo-gap);
+  width: max-content;
+  max-width: 100%;
   margin-top: 0.42rem;
-  padding: 0.38rem clamp(0.32rem, 0.9vw, 0.55rem);
+  padding: clamp(0.3rem, 0.9cqw, 0.38rem) clamp(0.32rem, 1.1cqw, 0.55rem);
   border-radius: var(--radius);
   background:
     linear-gradient(135deg, rgba(49, 92, 82, 0.07), rgba(154, 91, 63, 0.045)),
@@ -1639,9 +1643,9 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  flex: 0 0 auto;
   min-width: 0;
-  min-height: 28px;
+  min-height: var(--home-logo-height);
   padding: 0.02rem 0.05rem;
   text-decoration: none;
   transition:
@@ -1659,34 +1663,14 @@ h3 {
 
 .home-affiliation-logos img {
   width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  height: var(--home-logo-height);
+  max-width: none;
+  max-height: none;
   object-fit: contain;
 }
 
 .home-logo-dark {
   display: none;
-}
-
-.home-logo-opengms {
-  max-height: 23px;
-  max-width: 96px;
-}
-
-.home-logo-nnu {
-  max-height: 25px;
-  max-width: 98px;
-}
-
-.home-logo-gsil {
-  max-height: 24px;
-  max-width: 100px;
-}
-
-.home-logo-curtin {
-  max-height: 22px;
-  max-width: 108px;
 }
 
 .portrait-card {
@@ -3317,37 +3301,13 @@ code {
   }
 
   .home-affiliation-logos {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-items: center;
-    justify-content: center;
-    gap: clamp(0.26rem, 1.8vw, 0.48rem);
-    width: 100%;
-    padding: 0.48rem clamp(0.32rem, 2vw, 0.5rem);
+    gap: var(--home-logo-gap);
+    max-width: 100%;
+    padding: clamp(0.3rem, 0.9cqw, 0.38rem) clamp(0.32rem, 1.1cqw, 0.55rem);
   }
 
   .home-affiliation-logos a {
-    width: 100%;
-  }
-
-  .home-logo-opengms {
-    max-height: clamp(17px, 4.8vw, 20px);
-    max-width: 100%;
-  }
-
-  .home-logo-nnu {
-    max-height: clamp(18px, 5.2vw, 22px);
-    max-width: 100%;
-  }
-
-  .home-logo-gsil {
-    max-height: clamp(17px, 5vw, 21px);
-    max-width: 100%;
-  }
-
-  .home-logo-curtin {
-    max-height: clamp(16px, 4.6vw, 19px);
-    max-width: 100%;
+    width: auto;
   }
 
   .about-profile-details {
