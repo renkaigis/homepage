@@ -1002,7 +1002,7 @@ h3 {
 
 .about-profile-details a {
   color: var(--accent-strong);
-  font-weight: 800;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -1719,7 +1719,7 @@ h3 {
 
 .hero-email a {
   color: inherit;
-  font-weight: 800;
+  font-weight: 400;
   text-decoration: none;
 }
 
