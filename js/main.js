@@ -315,13 +315,9 @@ function storeTheme(theme) {
   }
 }
 
-function prefersDarkTheme() {
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
-}
-
 function activeTheme() {
   const selectedTheme = document.documentElement.dataset.theme;
-  return selectedTheme || (prefersDarkTheme() ? "dark" : "light");
+  return selectedTheme === "dark" ? "dark" : "light";
 }
 
 function updateThemeButtons() {
@@ -371,12 +367,6 @@ function setupThemeToggle() {
     });
   });
 
-  const themeMedia = window.matchMedia?.("(prefers-color-scheme: dark)");
-  themeMedia?.addEventListener?.("change", () => {
-    if (!getStoredTheme()) {
-      updateThemeButtons();
-    }
-  });
 }
 
 function setCurrentYear() {
