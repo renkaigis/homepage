@@ -1,9 +1,23 @@
 const paperDetails = {
+  "spatial-outliers-heterogeneity": {
+    title: "Spatial outliers as a pattern determinant for explaining heterogeneity",
+    authors:
+      "Kai Ren<sup>*</sup>, Yongze Song<sup>*</sup>, Xinyue Yang, Xi Wang, Min Chen, Qiang Yu",
+    venue: "International Journal of Geographical Information Science, 2026",
+    image: "image/paper/2026-ijgis-soh/2026-ijgis-soh-m.jpg",
+    abstract:
+      "This study proposed a second-dimension outlier-driven heterogeneity (SOH) model for incorporating local outlier configurations into spatial heterogeneity analysis. Applied to Australian barley production, SOH showed that multi-scale spatial outlier patterns strengthened heterogeneity explanation and produced synergistic gains through SOP interactions and SOP-variable interactions.",
+    doi: "https://doi.org/10.1080/13658816.2026.2682957",
+    pdf: "#",
+    code: "#",
+    data: "#",
+    readMore: "details/papers/2026-ijgis-kai-soh/"
+  },
   "second-dimension-outliers": {
     title: "Second-dimension outliers for spatial prediction",
     authors: "Ren, K., Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup>",
     venue: "International Journal of Geographical Information Science, 2026",
-    image: "image/paper/2025-ijgis-sdo-m.jpg",
+    image: "image/paper/2025-ijgis-sdo/2025-ijgis-sdo-m.jpg",
     abstract:
       "This paper develops the concept of second-dimension outliers for spatial prediction, using spatial outlier patterns to improve the interpretation of heterogeneity and prediction behavior in geographic data.",
     doi: "https://doi.org/10.1080/13658816.2025.2580414",
@@ -18,7 +32,7 @@ const paperDetails = {
     authors:
       "Kai Ren, Yongze Song<sup>*</sup>, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu<sup>*</sup>",
     venue: "GIScience & Remote Sensing, 2025",
-    image: "image/paper/2025-grs-gozh-wheat-m.jpg",
+    image: "image/paper/2025-grs-gozh/2025-grs-gozh-wheat-m.jpg",
     abstract:
       "This study uses a geospatial machine learning model to identify climate and environmental determinants of spatial disparities in wheat production, with evidence from Australian agricultural systems.",
     doi: "https://doi.org/10.1080/15481603.2025.2533487",
@@ -31,7 +45,7 @@ const paperDetails = {
     title: "Irregular anisotropy in surface urban heat island footprint",
     authors: "Xinyue Yang, Yongze Song<sup>*</sup>, Cheolhee Yoo, Kai Ren, Peng Wu",
     venue: "Sustainable Cities and Society, 2025",
-    image: "image/paper/2025-scs-urban-heat-island-footprint-m.jpg",
+    image: "image/paper/2025-scs-co-xinyue/2025-scs-urban-heat-island-footprint-m.jpg",
     abstract:
       "This co-authored paper examines irregular anisotropy in surface urban heat island footprints, contributing spatial evidence for urban climate and environmental analysis.",
     doi: "https://doi.org/10.1016/j.scs.2025.106779",
@@ -40,27 +54,13 @@ const paperDetails = {
     data: "#",
     readMore: "details/papers/2025-scs-xinyue-suhi-footprint/"
   },
-  // Confidential until accepted:
-  // "spatial-outliers-heterogeneity": {
-  //   title: "Spatial outliers as a pattern measure for explaining heterogeneity",
-  //   authors: "Kai Ren, Yongze Song, Qiang Yu",
-  //   venue: "Under Review",
-  //   image: "image/paper/2025-ijgis-sdo-m.jpg",
-  //   abstract:
-  //     "This manuscript extends spatial outlier thinking toward a pattern measure for explaining spatial heterogeneity.",
-  //   doi: "#",
-  //   pdf: "#",
-  //   code: "#",
-  //   data: "#",
-  //   readMore: "publications/#spatial-outliers-heterogeneity"
-  // },
   "aerosol-unmixing": {
     title:
       "A spatio-temporal unmixing with heterogeneity model for the identification of remotely sensed MODIS aerosols",
     authors:
       "Longshan Yang, Peng Luo<sup>*</sup>, Zehua Zhang, Yongze Song<sup>*</sup>, Kai Ren, Ce Zhang, Joseph Awange, Peter M. Atkinson, Liqiu Meng",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
-    image: "image/paper/2024-jag-aerosol-unmixing-m.jpg",
+    image: "image/paper/2024-jag-co-longshan/2024-jag-aerosol-unmixing-m.jpg",
     abstract:
       "This co-authored paper proposes a spatio-temporal unmixing model with heterogeneity for identifying remotely sensed MODIS aerosols, exemplified by the case of Africa.",
     doi: "https://doi.org/10.1016/j.jag.2024.104068",
@@ -74,7 +74,7 @@ const paperDetails = {
     authors:
       "Xueyuan Zhang, Yongze Song, Ashraf Dewan, Zecheng Guo, Xiaoyan Cao, Qiang Bie, Yaowen Xie<sup>*</sup>, Xu Ma, Kai Ren, Haoyan Zhang, Guilin Xi, Lei He",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
-    image: "image/paper/2024-jag-oasisation-ecology-m.jpg",
+    image: "image/paper/2024-jag-oasisation-ecology/2024-jag-oasisation-ecology-m.jpg",
     abstract:
       "This co-authored paper studies the ecological influence of oasisation on peripheral regions using applied Earth observation and geospatial analysis.",
     doi: "https://doi.org/10.1016/j.jag.2024.104004",
