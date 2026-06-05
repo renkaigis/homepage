@@ -2324,12 +2324,13 @@ h3 {
 }
 
 .note-card {
+  --note-card-accent: var(--accent);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(49, 92, 82, 0.09);
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.99), rgba(250, 252, 251, 0.9));
-  box-shadow: 0 12px 32px rgba(29, 37, 40, 0.038);
+  border: 1px solid rgba(49, 92, 82, 0.12);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(29, 37, 40, 0.035);
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -2340,18 +2341,43 @@ h3 {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  width: 4px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-warm));
-  opacity: 0.42;
+  width: 3px;
+  background: var(--note-card-accent);
+  opacity: 0.9;
+}
+
+.notes-list .note-card:nth-of-type(6n + 1) {
+  --note-card-accent: #00a870;
+}
+
+.notes-list .note-card:nth-of-type(6n + 2) {
+  --note-card-accent: #f97316;
+}
+
+.notes-list .note-card:nth-of-type(6n + 3) {
+  --note-card-accent: #2563eb;
+}
+
+.notes-list .note-card:nth-of-type(6n + 4) {
+  --note-card-accent: #9333ea;
+}
+
+.notes-list .note-card:nth-of-type(6n + 5) {
+  --note-card-accent: #0891b2;
+}
+
+.notes-list .note-card:nth-of-type(6n) {
+  --note-card-accent: #dc2626;
 }
 
 .note-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(49, 92, 82, 0.18);
-  box-shadow: 0 20px 44px rgba(29, 37, 40, 0.065);
+  transform: translateY(-1px);
+  border-color: rgba(49, 92, 82, 0.24);
+  box-shadow: 0 16px 34px rgba(29, 37, 40, 0.055);
 }
 
 .note-card a {
+  position: relative;
   display: grid;
   grid-template-columns: 78px minmax(0, 1fr) minmax(230px, 300px);
   gap: clamp(0.75rem, 2vw, 1.1rem);
@@ -2373,9 +2399,7 @@ h3 {
   justify-items: center;
   min-height: 96px;
   border-right: 1px solid rgba(49, 92, 82, 0.07);
-  background:
-    linear-gradient(180deg, rgba(49, 92, 82, 0.026), rgba(154, 91, 63, 0.018)),
-    rgba(248, 250, 249, 0.62);
+  background: rgba(248, 250, 249, 0.72);
   color: var(--accent-strong);
   text-align: center;
 }
@@ -2397,9 +2421,12 @@ h3 {
 }
 
 .note-card-body {
-  display: grid;
-  gap: 0.3rem;
-  padding: 0.74rem 0;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.42rem;
+  justify-content: flex-start;
+  padding: 1.05rem 0 0.88rem;
 }
 
 .note-thumb {
@@ -2409,7 +2436,7 @@ h3 {
   margin: 0;
   overflow: hidden;
   border-left: 1px solid rgba(49, 92, 82, 0.08);
-  border-radius: 0 16px 16px 0;
+  border-radius: 0 8px 8px 0;
   background: var(--surface-muted);
 }
 
@@ -2464,7 +2491,7 @@ h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(0.92rem, 1.24vw, 1.08rem);
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.28;
 }
 
 .note-card-summary {
@@ -2475,7 +2502,7 @@ h3 {
   font-size: 0.84rem;
   line-height: 1.48;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
 }
 
 .note-card-footer {
@@ -2483,7 +2510,9 @@ h3 {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.35rem 0.7rem;
-  margin-top: 0.1rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(49, 92, 82, 0.08);
   color: var(--muted);
   letter-spacing: 0.04em;
 }
@@ -3073,6 +3102,7 @@ code {
 }
 
 :root[data-theme="dark"] .note-card {
+  border-color: rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.035);
 }
 
@@ -3376,14 +3406,14 @@ code {
   }
 
   .note-card-body {
-    padding: 1rem;
+    padding: 1.05rem 1rem 1rem;
   }
 
   .note-thumb {
     margin: 0;
     border-left: 0;
     border-top: 1px solid rgba(49, 92, 82, 0.14);
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 8px 8px;
   }
 
   .news-section-header {
