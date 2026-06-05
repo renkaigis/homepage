@@ -3375,8 +3375,29 @@ code {
     gap: 0.35rem;
   }
 
+  .notes-list {
+    gap: 0.55rem;
+  }
+
+  .note-year-divider {
+    gap: 0.55rem;
+    margin: 0.45rem 0 -0.08rem;
+  }
+
+  .note-year-divider span {
+    min-height: 1.7rem;
+    padding: 0.18rem 0.58rem 0.22rem;
+    font-size: 1rem;
+  }
+
+  .note-year-divider small {
+    font-size: 0.58rem;
+  }
+
   .note-card a {
-    grid-template-columns: 1fr;
+    grid-template-columns: 50px minmax(0, 1fr) 72px;
+    gap: 0;
+    min-height: 96px;
   }
 
   .note-meta {
@@ -3389,31 +3410,63 @@ code {
 
   .note-date {
     min-height: 0;
-    grid-auto-flow: column;
-    justify-content: start;
-    gap: 0.55rem;
-    border-right: 0;
-    border-bottom: 1px solid rgba(49, 92, 82, 0.1);
-    padding: 0.75rem 1rem 0.65rem;
+    grid-auto-flow: row;
+    align-content: center;
+    justify-content: center;
+    gap: 0.28rem;
+    border-right: 1px solid rgba(49, 92, 82, 0.08);
+    border-bottom: 0;
+    padding: 0.55rem 0.28rem;
   }
 
   .note-date span {
-    font-size: 1.32rem;
+    font-size: 1.15rem;
   }
 
   .note-date small {
     margin-top: 0;
+    font-size: 0.52rem;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
   }
 
   .note-card-body {
-    padding: 1.05rem 1rem 1rem;
+    gap: 0.25rem;
+    justify-content: center;
+    padding: 0.7rem 0.68rem;
+  }
+
+  .note-card-meta {
+    display: block;
+    overflow: hidden;
+    font-size: 0.56rem;
+    letter-spacing: 0.06em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .note-card-title {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.9rem;
+    line-height: 1.22;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .note-card-summary,
+  .note-card-footer {
+    display: none;
   }
 
   .note-thumb {
+    align-self: stretch;
+    aspect-ratio: auto;
+    min-height: 96px;
     margin: 0;
-    border-left: 0;
-    border-top: 1px solid rgba(49, 92, 82, 0.14);
-    border-radius: 0 0 8px 8px;
+    border-left: 1px solid rgba(49, 92, 82, 0.1);
+    border-top: 0;
+    border-radius: 0 8px 8px 0;
   }
 
   .news-section-header {
