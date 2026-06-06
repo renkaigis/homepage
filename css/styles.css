@@ -109,6 +109,10 @@ textarea {
   border-radius: 50%;
 }
 
+.brand-logo-night {
+  display: none;
+}
+
 .brand-name {
   position: absolute;
   width: 1px;
@@ -3121,6 +3125,7 @@ code {
 
 :root[data-theme="dark"] .footer-logo-black,
 :root[data-theme="dark"] .footer-logo-opengms-blue,
+:root[data-theme="dark"] .brand-logo-day,
 :root[data-theme="dark"] .about-logo-light,
 :root[data-theme="dark"] .home-logo-light {
   display: none;
@@ -3128,6 +3133,7 @@ code {
 
 :root[data-theme="dark"] .footer-logo-opengms-dark,
 :root[data-theme="dark"] .footer-logo-white,
+:root[data-theme="dark"] .brand-logo-night,
 :root[data-theme="dark"] .about-logo-dark,
 :root[data-theme="dark"] .home-logo-dark {
   display: block;
