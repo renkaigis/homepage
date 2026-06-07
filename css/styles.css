@@ -738,6 +738,7 @@ h3 {
 
 .publication-card {
   display: grid;
+  align-content: start;
   gap: 0.7rem;
   width: 100%;
   min-height: 230px;
@@ -798,7 +799,8 @@ h3 {
 }
 
 .image-publication-card .card-meta {
-  margin-top: 0.95rem;
+  margin-top: 0.25rem;
+  margin-bottom: -0.3rem;
 }
 
 .image-publication-card em {
