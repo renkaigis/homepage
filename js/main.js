@@ -86,6 +86,12 @@ const paperDetails = {
 };
 
 const paperDetailsZh = {
+  "spatial-outliers-heterogeneity": {
+    ...paperDetails["spatial-outliers-heterogeneity"],
+    abstract:
+      "本文提出第二维异常驱动异质性（SOH）模型，将局部空间异常配置纳入空间异质性分析。以澳大利亚大麦生产为例，多尺度空间异常模式增强了异质性解释能力，并通过空间异常模式之间及其与变量之间的交互产生协同增益。",
+    readMore: "details/papers/2026-ijgis-kai-soh/"
+  },
   "second-dimension-outliers": {
     ...paperDetails["second-dimension-outliers"],
     abstract:
