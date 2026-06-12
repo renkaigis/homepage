@@ -2849,6 +2849,188 @@ h3 {
   line-height: 1.45;
 }
 
+.journal-name-short {
+  display: none;
+}
+
+.publication-note-stack {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.publication-note-paper {
+  --paper-accent: var(--accent);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--paper-accent) 28%, var(--line));
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--paper-accent) 9%, transparent), transparent 34%),
+    var(--surface);
+  padding: clamp(1.1rem, 3vw, 1.65rem);
+  box-shadow: 0 20px 46px rgba(29, 37, 40, 0.07);
+}
+
+.publication-note-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--paper-accent);
+}
+
+.publication-note-paper-grs {
+  --paper-accent: var(--accent-warm);
+}
+
+.publication-note-paper-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.publication-note-index {
+  color: var(--paper-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.publication-note-journal {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.publication-note-journal > span {
+  color: var(--paper-accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.publication-note-journal > strong {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.publication-note-if {
+  border: 1px solid color-mix(in srgb, var(--paper-accent) 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper-accent) 10%, var(--surface));
+  padding: 0.42rem 0.68rem;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.note-content .publication-note-paper h2 {
+  max-width: 830px;
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  line-height: 1.28;
+}
+
+.note-content .publication-note-summary {
+  max-width: 850px;
+  margin-top: 0.8rem;
+}
+
+.publication-note-citation {
+  margin-top: 1.2rem;
+  border-left: 3px solid var(--paper-accent);
+  background: color-mix(in srgb, var(--paper-accent) 6%, var(--surface-muted));
+  padding: 0.85rem 1rem;
+}
+
+.publication-note-citation > strong {
+  color: var(--paper-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.note-content .publication-note-citation p {
+  margin-top: 0.35rem;
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+.publication-note-figure {
+  margin: 1.25rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.publication-note-figure a {
+  display: block;
+}
+
+.publication-note-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 220ms ease;
+}
+
+.publication-note-figure a:hover img {
+  transform: scale(1.012);
+}
+
+.publication-note-figure figcaption {
+  border-top: 1px solid var(--line);
+  padding: 0.72rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.publication-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.publication-note-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  padding: 0.62rem 0.9rem;
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.publication-note-action:hover {
+  border-color: var(--paper-accent);
+  color: var(--paper-accent);
+  transform: translateY(-1px);
+}
+
+.publication-note-action-primary {
+  border-color: var(--paper-accent);
+  background: var(--paper-accent);
+  color: #fff;
+}
+
+.publication-note-action-primary:hover {
+  background: color-mix(in srgb, var(--paper-accent) 88%, #000);
+  color: #fff;
+}
+
 .note-toc {
   position: sticky;
   top: 96px;
@@ -3505,6 +3687,32 @@ code {
 
   .note-meta {
     grid-template-columns: 1fr;
+  }
+
+  .journal-name-full {
+    display: none;
+  }
+
+  .journal-name-short {
+    display: inline;
+  }
+
+  .publication-note-paper-header {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .publication-note-if {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .publication-note-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .publication-note-action {
+    justify-content: center;
   }
 
   .note-photo-grid-timeline {
