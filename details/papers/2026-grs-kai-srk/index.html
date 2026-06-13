@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Singularity Regression Kriging | Kai Ren</title>
+    <meta name="description" content="Paper detail page for A singularity regression kriging for spatial prediction." />
+    <link rel="icon" href="../../../image/mine/favicon.ico" type="image/x-icon" />
+    <script>
+      (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch {} })();
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../../css/styles.css?v=srk-details" />
+    <script defer src="../../../js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav shell" aria-label="Main navigation">
+        <a class="brand" href="../../../" aria-label="Homepage"><img class="brand-logo brand-logo-day" src="../../../image/mine/logo_day.png" alt="" /><img class="brand-logo brand-logo-night" src="../../../image/mine/logo_night.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+        <div class="nav-links" id="site-menu">
+          <a href="../../../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+          <a href="../../../about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+          <a href="../../../publications/" aria-current="page"><i class="fa-solid fa-book-open" aria-hidden="true"></i><span>Publications</span></a>
+          <a href="../../../projects/"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><span>Projects</span></a>
+          <a href="../../../news/"><i class="fa-solid fa-newspaper" aria-hidden="true"></i><span>News</span></a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark mode">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span class="theme-toggle-label">Dark</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <article class="paper-detail shell">
+        <a class="back-link" href="../../../publications/">Back to publications</a>
+        <header class="paper-detail-header">
+          <p class="eyebrow">Journal Article</p>
+          <h1>A singularity regression kriging for spatial prediction</h1>
+          <div class="paper-detail-meta">
+            <p class="paper-authors"><span>Authors</span><strong>Kai Ren, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu</strong></p>
+            <p class="paper-journal"><span>Journal</span><cite>GIScience &amp; Remote Sensing</cite>, <time datetime="2026">2026</time>, 63(1), 2690341</p>
+          </div>
+          <a class="doi-link" href="https://doi.org/10.1080/15481603.2026.2690341" target="_blank" rel="noreferrer">
+            <i class="fa-solid fa-link" aria-hidden="true"></i>
+            https://doi.org/10.1080/15481603.2026.2690341
+          </a>
+        </header>
+
+        <section class="detail-section">
+          <h2>Overview</h2>
+          <p class="paper-summary">
+            This paper develops singularity regression kriging (SRK) for spatial prediction in
+            heterogeneous environments. SRK derives multi-scale singularity features from
+            environmental covariates, incorporates them into random forest trend estimation, and
+            applies ordinary kriging to the residuals. The model is evaluated through simulations
+            and trace-element mapping of zinc and cobalt in a mineralised region of Western
+            Australia.
+          </p>
+        </section>
+
+        <section class="detail-section">
+          <h2>Abstract</h2>
+          <p class="paper-summary">
+            Accurate spatial prediction remains challenging in heterogeneous environments where
+            environmental variables exhibit nonlinear, multiscale, and non-Gaussian
+            characteristics. Traditional kriging methods rely on simple trend models that cannot
+            adequately capture nonlinear and multiscale spatial structures, leading to degraded
+            prediction performance under complex conditions. This study proposes a singularity
+            regression kriging (SRK) model that explicitly incorporates singularity-based anomaly
+            features derived from environmental covariates into random forest trend estimation,
+            followed by ordinary kriging of the resulting residuals. By computing covariate
+            singularity indices at multiple spatial scales, SRK captures local multiscale
+            heterogeneity without requiring response observations at prediction locations,
+            ensuring robust generalisation under spatial block cross-validation. Simulation
+            experiments demonstrate that SRK consistently improves prediction accuracy relative
+            to ordinary kriging, with particularly significant improvements under skewed and
+            long-tailed distributions. The SRK model is implemented in trace-element mapping of Zn
+            and Co in a mineralised region of Western Australia and evaluated using spatial block
+            cross-validation and parameter sensitivity analysis. Compared with ordinary kriging,
+            regression-based methods, and machine-learning approaches, SRK produces more coherent
+            spatial patterns and reduced prediction uncertainty. These results indicate that
+            explicitly incorporating covariate singularity features into trend estimation enhances
+            both the accuracy and reliability of spatial predictions in heterogeneous
+            environments.
+          </p>
+        </section>
+
+        <section class="detail-section">
+          <h2>Figures</h2>
+          <div class="detail-gallery paper-asset-grid">
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-01.jpg" alt="Figure 1. Simulated spatial fields with normal, skewed, and long-tailed distributions." />
+              <figcaption>
+                <span>Figure 1. Spatial distributions and histograms of the three simulated datasets: (a) normal, (b) skewed, and (c) long-tailed.</span>
+                <span class="caption-zh">图 1. 正态、偏态和长尾情景下的模拟空间场及数值分布。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-02.jpg" alt="Figure 2. Singularity features, random forest importance, and prediction comparisons in simulation experiments." />
+              <figcaption>
+                <span>Figure 2. Illustration of the SRK modelling process using three simulated datasets, including the normal (a–d), skewed (e–h), and long-tailed (i–l) cases, showing the spatial distribution of the covariate singularity index (a, e, i), the relationship between the singularity index and the response variable for training samples (b, f, j), the random forest variable importance comparing original covariate and singularity features (c, g, k), and comparisons between SRK and ordinary kriging predictions (d, h, l).</span>
+                <span class="caption-zh">图 2. 模拟情景中的协变量奇异性特征、响应关系、随机森林重要性及普通克里金与 SRK 预测对比。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-03.jpg" alt="Figure 3. Study area, geology, and zinc and cobalt observations in Western Australia." />
+              <figcaption>
+                <span>Figure 3. Study area in Western Australia (b), lithological distribution (a), and spatial distributions of Zn (c) and Co (d) samples within the study area.</span>
+                <span class="caption-zh">图 3. 西澳大利亚研究区的位置、地质背景以及 Zn 和 Co 观测值的空间分布。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-04.jpg" alt="Figure 4. Workflow of singularity regression kriging modelling and validation." />
+              <figcaption>
+                <span>Figure 4. Workflow of the singularity regression kriging (SRK) model for trace element prediction in a mining region.</span>
+                <span class="caption-zh">图 4. SRK 的数据准备、多尺度奇异性特征构建、随机森林趋势估计、残差克里金、验证、敏感性分析与预测流程。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-05.jpg" alt="Figure 5. Spearman correlations among trace elements and environmental covariates." />
+              <figcaption>
+                <span>Figure 5. Spearman correlation matrices between trace elements and explanatory variables for (a) Zn and (b) Co.</span>
+                <span class="caption-zh">图 5. Zn、Co、岩性变量、高程、坡度和坡向之间的 Spearman 相关矩阵。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-06.jpg" alt="Figure 6. Covariate singularity maps, feature importance, residual distributions, and relationships with observations." />
+              <figcaption>
+                <span>Figure 6. Analysis of covariate singularity features and residual improvement in the SRK model for Zn (a–d) and Co (e–h). (a, e) Spatial distributions of the selected covariate singularity feature, <em>sv(hm)</em>. (b, f) Random forest variable importance, showing the relative contribution of original covariates and singularity features. (c, g) Residual density distributions for RF and SRK, illustrating the effect of singularity feature augmentation on residual concentration and spread. (d, h) Relationships between the singularity feature <em>sv_hm</em> and the observed element concentration, with the fitted trend line and correlation coefficient shown.</span>
+                <span class="caption-zh">图 6. Zn 和 Co 的协变量奇异性特征、随机森林重要性、残差分布及奇异性值与观测值的关系。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-07.jpg" alt="Figure 7. Sensitivity analysis of singularity scale and threshold parameters." />
+              <figcaption>
+                <span>Figure 7. Sensitivity analysis of the SRK model under different parameter combinations for Zn and Co. (a, c) Heatmaps of mean R<sup>2</sup> for Zn and Co, respectively, across combinations of maximum singularity scale and singularity feature selection threshold. (b, d) Heatmaps of mean RMSE for Zn and Co, respectively, under the same parameter settings. (e) Relative changes in R<sup>2</sup> and RMSE with respect to the baseline parameter settings with the maximum singularity scale of 20 km and singularity selection threshold of 0.5 for Zn and Co, with dashed lines indicating the ±5% range used to assess model robustness.</span>
+                <span class="caption-zh">图 7. Zn 和 Co 预测性能对最大奇异性尺度与奇异性阈值参数的敏感性。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-08.jpg" alt="Figure 8. Observed versus predicted zinc and cobalt values for six spatial prediction methods." />
+              <figcaption>
+                <span>Figure 8. Comparisons between observations and predictions of Zn and Co concentrations for the validation data under spatial block cross-validation of the SRK and benchmark models (OK, IDW, LM, RF, and RFK).</span>
+                <span class="caption-zh">图 8. 普通克里金、反距离加权、线性模型、随机森林、随机森林克里金与 SRK 的 Zn 和 Co 观测值与预测值对比。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-09.jpg" alt="Figure 9. Spatial prediction maps of zinc and cobalt from six methods." />
+              <figcaption>
+                <span>Figure 9. Spatial predictions of trace elements, Zn (a) and Co (b), in the study area using the SRK model and benchmark methods (OK, IDW, LM, RF, and RFK). For each element, the six prediction maps are displayed using a unified colour scale to ensure direct visual comparability across models.</span>
+                <span class="caption-zh">图 9. SRK 与五种对比方法生成的 Zn 和 Co 空间预测图。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-10.jpg" alt="Figure 10. Cross-section comparison of zinc and cobalt predictions." />
+              <figcaption>
+                <span>Figure 10. Comparisons of predicted Zn and Co concentrations derived from SRK and benchmark models along a horizontal cross-section at <em>y</em> = −3733945 m in the study area.</span>
+                <span class="caption-zh">图 10. 六种空间预测方法得到的 Zn 和 Co 预测结果剖面对比。</span>
+              </figcaption>
+            </figure>
+            <figure class="paper-asset-card">
+              <img class="paper-asset-image" src="../../../image/paper/2026-grs-srk/Fig-11.jpg" alt="Figure 11. Prediction uncertainty comparison between random forest kriging and singularity regression kriging." />
+              <figcaption>
+                <span>Figure 11. Uncertainty analysis and comparison between the SRK and RFK models for Zn and Co prediction. (a, d) Spatial distributions of prediction uncertainty derived from the RFK and SRK models for Zn and Co, respectively. (b, e) Probability density distributions of uncertainty values for RFK and SRK, with dashed lines indicating mean uncertainty levels. (c, f) Spatial differences in uncertainty, defined as Δ = δ<sub>RFK</sub> − δ<sub>SRK</sub>, where positive values indicate lower uncertainty for SRK than for RFK.</span>
+                <span class="caption-zh">图 11. Zn 和 Co 预测中随机森林克里金与 SRK 不确定性的空间分布及统计分布对比。</span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="detail-section">
+          <h2>Data and Code Availability</h2>
+          <p class="paper-summary">
+            The data and code supporting this study are publicly available through both Figshare and GitHub.
+          </p>
+          <ul class="plain-list paper-resource-list">
+            <li><strong>Figshare:</strong> <a href="https://doi.org/10.6084/m9.figshare.31073173" target="_blank" rel="noreferrer">https://doi.org/10.6084/m9.figshare.31073173</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/renkaigis/Singularity_Regression_Kriging" target="_blank" rel="noreferrer">https://github.com/renkaigis/Singularity_Regression_Kriging</a></li>
+          </ul>
+        </section>
+
+        <section class="detail-section">
+          <h2>Funding</h2>
+          <p class="paper-summary">
+            This work was supported by the National Natural Science Foundation of China
+            (Outstanding Young Scholars Program, Grant No. 42325107) and the Natural Science
+            Foundation of Inner Mongolia Autonomous Region of China (2024QN03070).
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart" aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
+        <span class="footer-unit-logo" aria-label="OpenGMS, Nanjing Normal University, Geospatial Intelligence Lab, and Curtin University">
+          <a href="http://opengmsteam.com/" target="_blank" rel="noopener noreferrer" aria-label="OpenGMS">
+            <img class="footer-logo-opengms footer-logo-opengms-blue" src="../../../image/mine/OpenGMS-logo-blue.png" alt="" />
+            <img class="footer-logo-opengms footer-logo-opengms-dark" src="../../../image/mine/OpenGMS-logo.png" alt="" />
+          </a>
+          <a href="https://www.njnu.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="Nanjing Normal University">
+            <img class="footer-logo-black" src="../../../image/mine/NNU-logo-black.png" alt="" />
+            <img class="footer-logo-white" src="../../../image/mine/NNU-logo-white.png" alt="" />
+          </a>
+          <a href="https://yongzesong.com/lab.html" target="_blank" rel="noopener noreferrer" aria-label="Geospatial Intelligence Lab">
+            <img class="footer-logo-gsil" src="../../../image/mine/GSIL_logo.png" alt="" />
+          </a>
+          <a href="https://www.curtin.edu.au/" target="_blank" rel="noopener noreferrer" aria-label="Curtin University">
+            <img class="footer-logo-curtin" src="../../../image/mine/Curtin_logo.png" alt="" />
+          </a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -13,6 +13,19 @@ const paperDetails = {
     data: "#",
     readMore: "details/papers/2026-ijgis-kai-soh/"
   },
+  "singularity-regression-kriging": {
+    title: "A singularity regression kriging for spatial prediction",
+    authors: "Kai Ren, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu",
+    venue: "GIScience & Remote Sensing, 2026",
+    image: "image/paper/2026-grs-srk/2026-grs-srk-m.jpg",
+    abstract:
+      "This study proposes singularity regression kriging (SRK), combining multi-scale covariate singularity features, random forest trend estimation, and residual kriging to improve prediction accuracy and reduce uncertainty in heterogeneous environments.",
+    doi: "https://doi.org/10.1080/15481603.2026.2690341",
+    pdf: "#",
+    code: "#",
+    data: "#",
+    readMore: "details/papers/2026-grs-kai-srk/"
+  },
   "second-dimension-outliers": {
     title: "Second-dimension outliers for spatial prediction",
     authors: "Ren, K., Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup>",
@@ -91,6 +104,12 @@ const paperDetailsZh = {
     abstract:
       "本文提出第二维异常驱动异质性（SOH）模型，将局部空间异常配置纳入空间异质性分析。以澳大利亚大麦生产为例，多尺度空间异常模式增强了异质性解释能力，并通过空间异常模式之间及其与变量之间的交互产生协同增益。",
     readMore: "details/papers/2026-ijgis-kai-soh/"
+  },
+  "singularity-regression-kriging": {
+    ...paperDetails["singularity-regression-kriging"],
+    abstract:
+      "本文提出奇异性回归克里金（SRK）模型，将多尺度协变量奇异性特征、随机森林趋势估计与残差克里金相结合，以提升异质环境中的空间预测精度并降低不确定性。",
+    readMore: "details/papers/2026-grs-kai-srk/"
   },
   "second-dimension-outliers": {
     ...paperDetails["second-dimension-outliers"],

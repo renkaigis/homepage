@@ -1264,10 +1264,13 @@ h3 {
 }
 
 .doi-link {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 0.45rem;
   width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
   margin-top: 1.25rem;
   border: 1px solid rgba(49, 92, 82, 0.3);
   border-radius: 999px;
@@ -1277,6 +1280,8 @@ h3 {
   text-decoration: none;
   font-size: 0.94rem;
   font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .detail-section {
