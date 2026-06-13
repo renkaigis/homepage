@@ -1405,6 +1405,12 @@ h3 {
   margin-inline: auto;
 }
 
+.paper-asset-card.is-expanded-figure {
+  width: 100%;
+  max-width: min(820px, 72vw);
+  margin-inline: auto;
+}
+
 .detail-image {
   width: 100%;
   max-height: none;
@@ -3527,6 +3533,11 @@ code {
 @media (max-width: 720px) {
   .shell {
     width: min(100% - 28px, var(--max));
+  }
+
+  .paper-asset-card.is-expanded-figure {
+    width: 100%;
+    max-width: 100%;
   }
 
   .nav {
