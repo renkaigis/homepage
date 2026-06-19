@@ -1220,6 +1220,7 @@ h3 {
 
 .paper-detail-header {
   max-width: none;
+  min-width: 0;
 }
 
 .paper-detail-meta {
@@ -1330,6 +1331,7 @@ h3 {
 .detail-section {
   max-width: none;
   margin-top: 2.4rem;
+  min-width: 0;
 }
 
 .detail-section h2 {
@@ -1359,6 +1361,7 @@ h3 {
 
 .method-section {
   max-width: min(980px, 100%);
+  min-width: 0;
 }
 
 .method-steps {
@@ -1366,12 +1369,15 @@ h3 {
   gap: 1rem;
   margin: 1.25rem 0 0;
   padding: 0;
+  min-width: 0;
   list-style: none;
   counter-reset: method-step;
 }
 
 .method-step {
   counter-increment: method-step;
+  min-width: 0;
+  max-width: 100%;
   padding: 1rem 1.05rem 1rem 1.25rem;
   border-left: 3px solid var(--accent-warm);
   border-radius: 0 var(--radius-small) var(--radius-small) 0;
@@ -1415,6 +1421,9 @@ h3 {
 }
 
 .method-equation {
+  display: block;
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   margin: 0.8rem 0;
   padding: 0.78rem 0.9rem;
@@ -1424,11 +1433,24 @@ h3 {
   color: var(--ink);
   overflow-x: auto;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .method-equation mjx-container {
-  min-width: max-content;
+  max-width: none;
+  min-width: 0;
   margin: 0 !important;
+}
+
+.method-equation mjx-container[display="true"] {
+  display: inline-block !important;
+  width: max-content;
+  min-width: 100%;
+  text-align: center !important;
+}
+
+.method-equation svg {
+  max-width: none;
 }
 
 .method-step code {
