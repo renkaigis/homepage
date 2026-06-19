@@ -13,7 +13,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../css/styles.css?v=srk-details" />
+    <link rel="stylesheet" href="../../../css/styles.css?v=paper-details-20260619" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"], ["$", "$"]],
+          displayMath: [["\\[", "\\]"]]
+        },
+        svg: { fontCache: "global" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script defer src="../../../js/main.js"></script>
   </head>
   <body>
@@ -43,8 +53,16 @@
           <p class="eyebrow">Journal Article</p>
           <h1>A singularity regression kriging for spatial prediction</h1>
           <div class="paper-detail-meta">
-            <p class="paper-authors"><span>Authors</span><strong>Kai Ren, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu</strong></p>
+            <p class="paper-authors"><span>Authors</span><strong><span class="author-primary">Kai Ren</span>, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu</strong></p>
             <p class="paper-journal"><span>Journal</span><cite>GIScience &amp; Remote Sensing</cite>, <time datetime="2026">2026</time></p>
+          </div>
+          <div class="paper-keyword-tags" aria-label="Paper keywords">
+            <span class="paper-keyword-label">Keywords</span>
+            <span>Spatial prediction</span>
+            <span>Kriging</span>
+            <span>Singularity</span>
+            <span>Spatial block cross-validation</span>
+            <span>Geochemical mapping</span>
           </div>
           <a class="doi-link" href="https://doi.org/10.1080/15481603.2026.2690341" target="_blank" rel="noreferrer">
             <i class="fa-solid fa-link" aria-hidden="true"></i>
@@ -89,6 +107,186 @@
             both the accuracy and reliability of spatial predictions in heterogeneous
             environments.
           </p>
+        </section>
+
+        <section class="detail-section method-section">
+          <h2>Method Implementation</h2>
+          <p class="paper-summary">
+            SRK keeps the regression-kriging decomposition, but changes the trend model by adding
+            singularity information derived from environmental covariates. The singularity indices
+            are calculated from \(X_k\), not from the response \(Z\) and not from random-forest
+            residuals, so they can be evaluated both at sampled locations and at unsampled
+            prediction locations.
+          </p>
+          <div class="method-equation">
+            \[
+              \hat{Z}(\mathbf{s}_0)
+              =
+              \hat{\mu}(\mathbf{s}_0)
+              +
+              \hat{\varepsilon}(\mathbf{s}_0),
+              \qquad
+              \hat{\mu}(\mathbf{s}_0)
+              =
+              g\!\left(\mathcal{F}(\mathbf{s}_0)\right)
+            \]
+          </div>
+
+          <ol class="method-steps">
+            <li class="method-step">
+              <h3>Construct singularity features from environmental covariates</h3>
+              <p>
+                For each environmental covariate \(X_k(\mathbf{s})\), local covariate intensity is
+                measured within neighbourhoods \(A(\mathbf{s},r)\) across multiple spatial scales.
+                In the paper, this intensity is estimated as the mean absolute covariate value in a
+                square window:
+              </p>
+              <div class="method-equation">
+                \[
+                  \widehat{C}_k\!\left(A(\mathbf{s},r)\right)
+                  =
+                  \frac{1}{\left|A(\mathbf{s},r)\right|}
+                  \sum_{\mathbf{s}' \in A(\mathbf{s},r)}
+                  \left|X_k(\mathbf{s}')\right|
+                \]
+              </div>
+              <p>
+                Repeating this over scales \(r_1 < r_2 < \cdots < r_J\) gives a local log-log
+                relationship:
+              </p>
+              <div class="method-equation">
+                \[
+                  \log \widehat{C}_k\!\left(A(\mathbf{s},r)\right)
+                  =
+                  \left(\alpha_k(\mathbf{s}) - 2\right)\log r
+                  +
+                  c_k(\mathbf{s})
+                  +
+                  e_{k,r}
+                \]
+              </div>
+              <p>
+                The singularity index is then estimated as
+                \(\alpha_k(\mathbf{s}) = \hat{\beta}_{1,k}(\mathbf{s}) + 2\). A value near 2
+                represents a locally uniform field, \(\alpha_k(\mathbf{s}) < 2\) indicates local
+                enrichment, and \(\alpha_k(\mathbf{s}) > 2\) indicates local depletion. In the case
+                study, singularity indices were computed from 2 to 20 km at 2-km intervals. Each
+                scale required at least three valid neighbouring samples, at least two valid scales
+                were required for estimation, and near-constant singularity features were removed
+                using a standard-deviation threshold of 0.5.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Build the augmented feature matrix</h3>
+              <p>
+                The original covariates and the retained singularity features are combined into one
+                predictor set. If \(q\) singularity features pass the filtering step, the feature
+                vector at location \(\mathbf{s}\) is:
+              </p>
+              <div class="method-equation">
+                \[
+                  \mathcal{F}(\mathbf{s})
+                  =
+                  \left\{
+                    X_1(\mathbf{s}),\ldots,X_p(\mathbf{s}),
+                    \alpha_{k_1}(\mathbf{s}),\ldots,\alpha_{k_q}(\mathbf{s})
+                  \right\}
+                \]
+              </div>
+              <p>
+                This is the central distinction of SRK: the random forest receives both the original
+                environmental variables and their covariate-based multiscale anomaly descriptors.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Estimate the nonlinear trend with random forest</h3>
+              <p>
+                A random forest model \(g(\cdot)\) is trained on the augmented feature matrix to
+                estimate the deterministic trend:
+              </p>
+              <div class="method-equation">
+                \[
+                  \hat{\mu}(\mathbf{s}_i)
+                  =
+                  g\!\left(\mathcal{F}(\mathbf{s}_i)\right)
+                \]
+              </div>
+              <p>
+                Because the singularity variables describe local multiscale heterogeneity, the RF
+                trend component can absorb more structured variation before kriging is applied. The
+                real-data implementation used a random forest with 500 trees.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Calculate residuals at sampled locations</h3>
+              <p>
+                The residual at each observed sample is computed by subtracting the
+                singularity-augmented RF trend from the observed target value:
+              </p>
+              <div class="method-equation">
+                \[
+                  \varepsilon(\mathbf{s}_i)
+                  =
+                  Z(\mathbf{s}_i)
+                  -
+                  \hat{\mu}(\mathbf{s}_i)
+                \]
+              </div>
+              <p>
+                These residuals are expected to be more concentrated around zero and closer to
+                stationarity than residuals from a model using only the original covariates.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Interpolate the residuals using ordinary kriging</h3>
+              <p>
+                A variogram is fitted to the residuals, and ordinary kriging estimates the residual
+                component at an unsampled location:
+              </p>
+              <div class="method-equation">
+                \[
+                  \hat{\varepsilon}(\mathbf{s}_0)
+                  =
+                  \sum_{i=1}^{n}
+                  \lambda_i\,\varepsilon(\mathbf{s}_i),
+                  \qquad
+                  \sum_{i=1}^{n}\lambda_i = 1
+                \]
+              </div>
+              <p>
+                In the case study, variogram fitting and residual kriging were implemented with
+                <code>autoKrige</code> from the R package <code>automap</code>, using an isotropic
+                ordinary-kriging setup.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Combine RF trend and kriged residuals</h3>
+              <p>
+                The final prediction is obtained by adding the random-forest trend and the
+                ordinary-kriging residual estimate:
+              </p>
+              <div class="method-equation">
+                \[
+                  \hat{Z}(\mathbf{s}_0)
+                  =
+                  \hat{\mu}_{\mathrm{RF+singularity}}(\mathbf{s}_0)
+                  +
+                  \hat{\varepsilon}_{\mathrm{OK}}(\mathbf{s}_0)
+                \]
+              </div>
+              <p>
+                The kriging variance from the residual interpolation also provides a kriging-based
+                uncertainty measure, \(\delta(\mathbf{s}_0)=\sqrt{\sigma_K^2(\mathbf{s}_0)}\).
+                Model performance in the paper was evaluated with 5-fold spatial block
+                cross-validation using a 15 km block size.
+              </p>
+            </li>
+          </ol>
         </section>
 
         <section class="detail-section">

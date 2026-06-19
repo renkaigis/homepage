@@ -13,7 +13,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/styles.css?v=paper-details-20260619" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"], ["$", "$"]],
+          displayMath: [["\\[", "\\]"]]
+        },
+        svg: { fontCache: "global" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script defer src="../../../js/main.js"></script>
   </head>
   <body>
@@ -42,8 +52,15 @@
           <p class="eyebrow">Journal Article</p>
           <h1>Second-dimension outliers for spatial prediction</h1>
           <div class="paper-detail-meta">
-            <p class="paper-authors"><span>Authors</span><strong>Ren, K., Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup></strong></p>
+            <p class="paper-authors"><span>Authors</span><strong><span class="author-primary">Kai Ren</span>, Yongze Song<sup>*</sup>, Qiang Yu<sup>*</sup></strong></p>
             <p class="paper-journal"><span>Journal</span><cite>International Journal of Geographical Information Science</cite>, <time datetime="2026">2026</time></p>
+          </div>
+          <div class="paper-keyword-tags" aria-label="Paper keywords">
+            <span class="paper-keyword-label">Keywords</span>
+            <span>Spatial outliers</span>
+            <span>Spatial prediction</span>
+            <span>Second-dimension spatial association</span>
+            <span>Agricultural production forecasting</span>
           </div>
           <a class="doi-link" href="https://doi.org/10.1080/13658816.2025.2580414" target="_blank" rel="noreferrer">
             <i class="fa-solid fa-link" aria-hidden="true"></i>
@@ -83,6 +100,137 @@
             effective tool for spatial statistical inference and geographic computation across
             various fields.
           </p>
+        </section>
+
+        <section class="detail-section method-section">
+          <h2>Method Implementation</h2>
+          <p class="paper-summary">
+            The SDO model improves spatial prediction by extracting local outlier information from
+            explanatory variables around sampled locations and converting that information into
+            second-dimension variables. These variables are then combined with the original
+            covariates in machine-learning models, so outliers are not removed; their local
+            strength is quantified and used as additional spatial context.
+          </p>
+
+          <ol class="method-steps">
+            <li class="method-step">
+              <h3>Define sampled and unsampled spatial supports</h3>
+              <p>
+                Let \(u\) denote sampled locations where the dependent variable is observed, and
+                let \(v\) denote unsampled grid locations or surrounding locations outside the
+                dependent-variable samples. The original covariates \(X\) are available over the
+                prediction domain, allowing local outlier information around each sampled location
+                to be extracted from nearby unsampled locations.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Select local buffer ranges</h3>
+              <p>
+                A set of local ranges is defined around each sample point so that outlier
+                information can be measured at multiple spatial scales:
+              </p>
+              <div class="method-equation">
+                \[
+                  b_\alpha,\qquad \alpha = 1,2,\ldots,m
+                \]
+              </div>
+              <p>
+                In the simulation experiment, six buffers from 2 to 7 were used. In the wheat
+                production case study, seven buffer distances from 100 km to 700 km at 100-km
+                intervals were used, balancing spatial context, computational efficiency, and
+                statistical reliability.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Identify positive and negative local outliers</h3>
+              <p>
+                Within each buffer, values at surrounding locations are compared with the local
+                distribution. Positive outliers exceed \(\bar{x}+2\sigma\), while negative
+                outliers fall below \(\bar{x}-2\sigma\). For an explanatory variable, the local
+                outlier vector around location \(u\) is:
+              </p>
+              <div class="method-equation">
+                \[
+                  O_s(u),\qquad s=1,2,\ldots,n
+                \]
+              </div>
+              <p>
+                Here, \(O_s(u)\) represents outlier values at unsampled locations \(v\) within the
+                buffer around \(u\), and \(n\) is the number of detected outliers in that buffer.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Compute outlier strength indices</h3>
+              <p>
+                The outlier strength index (OSI) summarises the cumulative magnitude of positive
+                and negative outliers for each explanatory variable and buffer distance:
+              </p>
+              <div class="method-equation">
+                \[
+                  \begin{aligned}
+                    I^P(X,b_\alpha,v) &=
+                    \sum_{s=1}^{m} O^P_s(b_\alpha,v),\\
+                    I^N(X,b_\alpha,v) &=
+                    \sum_{t=1}^{n} O^N_t(b_\alpha,v),\\
+                    I(X,b_\alpha,v) &=
+                    \left[
+                      I^P(X,b_\alpha,v),
+                      I^N(X,b_\alpha,v)
+                    \right]
+                  \end{aligned}
+                \]
+              </div>
+              <p>
+                Each buffer produces one positive and one negative SDO variable for each
+                explanatory variable. In the wheat case, this generated 14 SDO variables per
+                original predictor across the seven buffer distances.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Train SDO-enhanced machine-learning models</h3>
+              <p>
+                The original covariates and their SDO variables are combined as the model input:
+              </p>
+              <div class="method-equation">
+                \[
+                  Y(u) =
+                  f\!\left(
+                    X,\,
+                    I(X,b_\alpha,v)
+                  \right)
+                \]
+              </div>
+              <p>
+                The function \(f(\cdot)\) can be implemented with machine-learning algorithms such
+                as RF or SVM. In the real-data application, the best-performing model was
+                SDO-SVM with a Gaussian radial basis function kernel:
+              </p>
+              <div class="method-equation">
+                \[
+                  K(\vec{x_i},\vec{y_i})
+                  =
+                  e^{-\gamma\left\|\vec{x_i}-\vec{y_i}\right\|^2}
+                \]
+              </div>
+            </li>
+
+            <li class="method-step">
+              <h3>Validate prediction accuracy and robustness</h3>
+              <p>
+                The SDO-enhanced models are compared with their aspatial counterparts using
+                five-fold cross-validation and metrics including \(R^2\), RMSE, and MAE. The case
+                study compared SDO-SVM, SDO-RF, SDO-CRM, SDO-XGB, SDO-GBM, SDO-KNN, and SDO-ENR
+                against corresponding aspatial models. Sensitivity analysis then tested buffer
+                threshold, buffer interval, and outlier threshold settings; the preferred case
+                configuration used a 700 km buffer threshold, 100 km interval, and
+                \(\bar{x}\pm2\sigma\) outlier criterion.
+              </p>
+            </li>
+          </ol>
         </section>
 
         <section class="detail-section">
@@ -212,6 +360,14 @@
             <li><strong>Figshare:</strong> <a href="https://doi.org/10.6084/m9.figshare.27245838" target="_blank" rel="noreferrer">https://doi.org/10.6084/m9.figshare.27245838</a></li>
             <li><strong>GitHub:</strong> <a href="https://github.com/renkaigis/Second-Dimension_Outliers" target="_blank" rel="noreferrer">https://github.com/renkaigis/Second-Dimension_Outliers</a></li>
           </ul>
+        </section>
+
+        <section class="detail-section">
+          <h2>Funding</h2>
+          <p class="paper-summary">
+            This research was supported by the China Scholarship Council
+            (Grant No. 202206300058).
+          </p>
         </section>
       </article>
     </main>

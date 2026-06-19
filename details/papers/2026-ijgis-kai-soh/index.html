@@ -13,7 +13,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/styles.css?v=paper-details-20260619" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"], ["$", "$"]],
+          displayMath: [["\\[", "\\]"]]
+        },
+        svg: { fontCache: "global" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script defer src="../../../js/main.js"></script>
   </head>
   <body>
@@ -43,8 +53,16 @@
           <p class="eyebrow">Journal Article</p>
           <h1>Spatial outliers as a pattern determinant for explaining heterogeneity</h1>
           <div class="paper-detail-meta">
-            <p class="paper-authors"><span>Authors</span><strong>Kai Ren<sup>*</sup>, Yongze Song<sup>*</sup>, Xinyue Yang, Xi Wang, Min Chen, Qiang Yu</strong></p>
+            <p class="paper-authors"><span>Authors</span><strong><span class="author-primary">Kai Ren<sup>*</sup></span>, Yongze Song<sup>*</sup>, Xinyue Yang, Xi Wang, Min Chen, Qiang Yu</strong></p>
             <p class="paper-journal"><span>Journal</span><cite>International Journal of Geographical Information Science</cite>, <time datetime="2026">2026</time></p>
+          </div>
+          <div class="paper-keyword-tags" aria-label="Paper keywords">
+            <span class="paper-keyword-label">Keywords</span>
+            <span>Spatial heterogeneity</span>
+            <span>Spatial outlier patterns</span>
+            <span>Second-dimension outliers</span>
+            <span>Geographical detector</span>
+            <span>Stratification-based analysis</span>
           </div>
           <a class="doi-link" href="https://doi.org/10.1080/13658816.2026.2682957" target="_blank" rel="noreferrer">
             <i class="fa-solid fa-link" aria-hidden="true"></i>
@@ -86,6 +104,153 @@
             Overall, SOH provides a unified approach for incorporating outlier-driven spatial
             patterns into spatial heterogeneity analysis.
           </p>
+        </section>
+
+        <section class="detail-section method-section">
+          <h2>Method Implementation</h2>
+          <p class="paper-summary">
+            SOH explains spatial heterogeneity by adding a second dimension of spatial pattern
+            information to conventional covariates. The first dimension is the original covariate
+            variation across space, while the second dimension is a set of multi-scale spatial
+            outlier patterns (SOPs) derived from local outlier configurations.
+          </p>
+          <div class="method-equation">
+            \[
+              X = \{x_i\}_{i=1}^{n},
+              \qquad
+              Y = \{y_i\}_{i=1}^{n}
+            \]
+          </div>
+
+          <ol class="method-steps">
+            <li class="method-step">
+              <h3>Prepare spatial variables on a common support</h3>
+              <p>
+                The response variable \(Y\) and explanatory variables \(X\) are first aligned on
+                the same spatial units so that covariate values, SOPs, and heterogeneity statistics
+                can be compared consistently. In the barley case study, the response was SA2-level
+                barley production normalised by polygon area, and environmental predictors were
+                harmonised to a common coordinate system and analysis grid before being aggregated
+                to the modelling support.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Generate multi-scale spatial outlier patterns</h3>
+              <p>
+                For each explanatory variable \(X\), SOH uses the second-dimension outlier model to
+                identify positive and negative local deviations relative to neighbourhood
+                distributions. Across a set of buffer radii \(R=\{r_1,r_2,\ldots,r_k\}\), the
+                spatial pattern variable \(\Psi\) is constructed as:
+              </p>
+              <div class="method-equation">
+                \[
+                  \Psi =
+                  \bigcup_{r \in R}
+                  \left\{
+                    \sum_{v \in \mathcal{N}_r(u)}
+                    O^{+}(X,v)\,\mathbb{I}\!\left(O^{+}(X,v)>\tau\right),
+                    \sum_{v \in \mathcal{N}_r(u)}
+                    O^{-}(X,v)\,\mathbb{I}\!\left(O^{-}(X,v)<-\tau\right)
+                  \right\}
+                \]
+              </div>
+              <p>
+                Here, \(\mathcal{N}_r(u)\) is the neighbourhood around target spatial unit \(u\),
+                \(O^{+}\) and \(O^{-}\) are positive and negative outlier components, and
+                \(\tau\) controls the threshold for retaining pronounced local deviations. In the
+                case study, positive and negative outliers were defined using the
+                \(\bar{x}\pm2\sigma\) criterion, and SOPs were generated from 20 km to 200 km at
+                20-km intervals.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Build SOP variables for each spatial unit</h3>
+              <p>
+                For each spatial unit \(i\), positive and negative outlier summaries are retained
+                at each neighbourhood scale to form the second-dimension pattern set:
+              </p>
+              <div class="method-equation">
+                \[
+                  \Psi_i =
+                  \left\{
+                    O^{(r_1)}_{+,i}, O^{(r_1)}_{-,i},
+                    O^{(r_2)}_{+,i}, O^{(r_2)}_{-,i},
+                    \ldots,
+                    O^{(r_k)}_{+,i}, O^{(r_k)}_{-,i}
+                  \right\}
+                \]
+              </div>
+              <p>
+                These SOP variables describe where an explanatory factor is locally enriched,
+                depleted, or spatially unusual relative to its surrounding context. They are used
+                as explanatory pattern descriptors rather than as residuals or noise filters.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Transform predictors into data-adaptive strata</h3>
+              <p>
+                SOH uses a stratification-detection strategy. A CART regression tree converts an
+                original variable, an SOP variable, or their combination into categorical strata:
+              </p>
+              <div class="method-equation">
+                \[
+                  Z^{(\Psi)} =
+                  \{z_i^{(\Psi)}\}_{i=1}^{n},
+                  \qquad
+                  z_i^{(\Psi)} \in \{1,2,\ldots,L\}
+                \]
+              </div>
+              <p>
+                In the implementation, CART was fitted with the R package <code>rpart</code> using
+                \(cp=0.01\), and the number of strata \(L\) was determined adaptively by the
+                terminal nodes of the fitted tree. The tree is used here as a stratification tool,
+                not as an out-of-sample prediction model.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Measure explanatory power with the geographical detector</h3>
+              <p>
+                The geographical detector evaluates whether the strata induced by \(\Psi\) explain
+                spatial heterogeneity in \(Y\). The power of determinant (PD) is:
+              </p>
+              <div class="method-equation">
+                \[
+                  PD =
+                  \Omega_{\Psi}
+                  =
+                  1 -
+                  \frac{
+                    \sum_{h=1}^{L}
+                    N_h^{(\Psi)}\sigma_h^{2(\Psi)}
+                  }{
+                    N^{(\Psi)}\sigma^{2(\Psi)}
+                  }
+                \]
+              </div>
+              <p>
+                A larger PD indicates that the constructed strata produce stronger between-stratum
+                differentiation and lower within-stratum variance, meaning stronger explanatory
+                power for spatial heterogeneity.
+              </p>
+            </li>
+
+            <li class="method-step">
+              <h3>Evaluate original variables, SOPs, interactions, and scale effects</h3>
+              <p>
+                PD is calculated under several predictor configurations: original covariates
+                \(X\), SOP variables \(\Psi\), and combined sets \(X \cup \Psi\). The same
+                framework is then used to test pairwise SOP interactions, interactions between SOPs
+                and original variables, category-level interactions, and the sensitivity of PD to
+                neighbourhood buffer size. In the paper, this workflow showed that SOPs added
+                explanatory power beyond original variables and that the SOH response stabilised
+                around a neighbourhood threshold of approximately 200 km.
+              </p>
+            </li>
+          </ol>
         </section>
 
         <section class="detail-section">

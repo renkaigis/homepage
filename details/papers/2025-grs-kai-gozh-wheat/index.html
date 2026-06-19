@@ -13,7 +13,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/styles.css?v=paper-details-20260619" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"], ["$", "$"]],
+          displayMath: [["\\[", "\\]"]]
+        },
+        svg: { fontCache: "global" }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
     <script defer src="../../../js/main.js"></script>
   </head>
   <body>
@@ -42,8 +52,16 @@
           <p class="eyebrow">Journal Article</p>
           <h1>Identifying climate and environmental determinants of spatial disparities in wheat production using a geospatial machine learning model</h1>
           <div class="paper-detail-meta">
-            <p class="paper-authors"><span>Authors</span><strong>Kai Ren, Yongze Song<sup>*</sup>, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu<sup>*</sup></strong></p>
+            <p class="paper-authors"><span>Authors</span><strong><span class="author-primary">Kai Ren</span>, Yongze Song<sup>*</sup>, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu<sup>*</sup></strong></p>
             <p class="paper-journal"><span>Journal</span><cite>GIScience &amp; Remote Sensing</cite>, <time>2025</time></p>
+          </div>
+          <div class="paper-keyword-tags" aria-label="Paper keywords">
+            <span class="paper-keyword-label">Keywords</span>
+            <span>Agricultural remote sensing</span>
+            <span>Spatial heterogeneity</span>
+            <span>Spatial statistics</span>
+            <span>Geographical detector</span>
+            <span>Geospatial intelligence</span>
           </div>
           <a class="doi-link" href="https://doi.org/10.1080/15481603.2025.2533487" target="_blank" rel="noreferrer">
             <i class="fa-solid fa-link" aria-hidden="true"></i>
@@ -89,6 +107,100 @@
             sub-regional practices, climate-adaptive variety selection, and soil health strategies
             - thereby supporting food security and sustainable agricultural systems.
           </p>
+        </section>
+
+        <section class="detail-section method-section">
+          <h2>Method Implementation</h2>
+          <p class="paper-summary">
+            The implementation combines spatial autocorrelation diagnostics, geographically optimal
+            zones-based heterogeneity (GOZH), and a geographical detector comparison to explain
+            spatial disparities in Australian wheat production.
+          </p>
+          <ol class="method-steps">
+            <li class="method-step">
+              <strong>Preprocess wheat production and explanatory variables.</strong>
+              Wheat production and 20 explanatory variables are aligned to Local Government Areas
+              (LGAs). Climate, soil, geographic, and environmental variables are standardized by LGA
+              means; temperature is converted from Kelvin to Celsius; soil outliers are removed using
+              a 2.5 standard deviation threshold; and PCA is used to reduce layered soil attributes.
+            </li>
+            <li class="method-step">
+              <strong>Identify spatial clustering in the response variable.</strong>
+              Global Moran's I is used to test whether wheat production is spatially clustered, while
+              LISA/local Moran's I identifies hotspot, cold spot, and non-significant regions:
+              <div class="method-equation">
+                \[
+                I =
+                \frac{
+                  n\sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}(x_i-\bar{x})(x_j-\bar{x})
+                }{
+                  \sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}\sum_{i=1}^{n}(x_i-\bar{x})^2
+                }
+                \]
+              </div>
+              <div class="method-equation">
+                \[
+                I_i =
+                \frac{x_i-\bar{x}}{s^2}
+                \sum_{j=1}^{n}w_{ij}(x_j-\bar{x})
+                \]
+              </div>
+            </li>
+            <li class="method-step">
+              <strong>Measure the explanatory power of individual determinants.</strong>
+              The geographical detector framework evaluates how strongly each stratified
+              explanatory variable explains wheat production using the power of determinants (PD):
+              <div class="method-equation">
+                \[
+                PD =
+                1 -
+                \frac{\sum_{z=1}^{h}N_z\sigma_z^2}{N\sigma^2}
+                =
+                1 - \frac{SSW}{SST}
+                \]
+              </div>
+              A larger PD indicates stronger explanatory power for the spatial heterogeneity of
+              wheat production.
+            </li>
+            <li class="method-step">
+              <strong>Delineate geographically optimal zones with GOZH.</strong>
+              GOZH uses decision-tree-based spatial discretization to search for zones that maximize
+              between-zone differences while minimizing within-zone variation. Its optimal power of
+              determinants is written as:
+              <div class="method-equation">
+                \[
+                \Omega =
+                \max(PD) =
+                \gamma(X,D) =
+                1 - \frac{\min(SSW_{X,D})}{SST}
+                \]
+              </div>
+              <div class="method-equation">
+                \[
+                \min(SSW_{X,D}) =
+                \min\left\{
+                \sum_{z=1}^{h}\sum_{j=1}^{N_z}(y_{zj}-\bar{c}_z)^2
+                \right\}
+                \]
+              </div>
+              In the wheat case study, LGAs are recursively split with the 20 explanatory variables,
+              using a minimum node size of 10 LGAs to avoid excessive partitioning.
+            </li>
+            <li class="method-step">
+              <strong>Evaluate interaction effects at multiple spatial scales.</strong>
+              The GOZH model is run for Australia as a whole, hotspot and non-hotspot regions, and
+              individual states. The resulting \(\Omega\) values quantify the combined influence of
+              geographic, climatic, soil, and environmental determinants under different spatial
+              contexts.
+            </li>
+            <li class="method-step">
+              <strong>Validate the model against OPGD.</strong>
+              The same response and explanatory variables are analyzed with the optimal
+              parameters-based geographical detector (OPGD). GOZH and OPGD are compared through
+              individual-variable PD values, principal-variable stratification curves, and overall PD
+              values to assess whether GOZH better explains wheat-production disparities.
+            </li>
+          </ol>
         </section>
 
         <section class="detail-section">
@@ -224,6 +336,15 @@
           <ul class="plain-list paper-resource-list">
             <li><strong>Figshare:</strong> <a href="https://doi.org/10.6084/m9.figshare.28644923" target="_blank" rel="noreferrer">https://doi.org/10.6084/m9.figshare.28644923</a></li>
           </ul>
+        </section>
+
+        <section class="detail-section">
+          <h2>Funding</h2>
+          <p class="paper-summary">
+            This research was funded by the National Key Research and Development Program of China
+            (2023YFB3907403) and supported by the China Scholarship Council
+            (Grant No. 202206300058).
+          </p>
         </section>
       </article>
     </main>
