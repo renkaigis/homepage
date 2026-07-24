@@ -2910,6 +2910,15 @@ h3 {
   font-weight: 750;
 }
 
+.note-content .reflection-closing {
+  max-width: 46rem;
+  margin-top: 1.6rem;
+  color: var(--ink);
+  font-size: 1.03rem;
+  font-weight: 450;
+  line-height: 1.9;
+}
+
 .note-content blockquote {
   margin: 1.25rem 0 0;
   border-left: 4px solid var(--accent-warm);
