@@ -2218,6 +2218,17 @@ h3 {
   font-weight: 800;
 }
 
+.experience-translation {
+  display: block;
+  width: 100%;
+  margin-top: 0.28rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 430;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
 
 .compact-heading {
   margin-bottom: 0.8rem;
@@ -2541,6 +2552,23 @@ h3 {
   --note-card-accent: #dc2626;
 }
 
+.notes-list .note-card.note-card-pinned {
+  --note-card-accent: var(--accent-warm);
+  border-color: color-mix(in srgb, var(--accent-warm) 24%, var(--line));
+  background: var(--surface);
+  box-shadow: 0 12px 30px rgba(29, 37, 40, 0.05);
+}
+
+.note-card-pinned::before {
+  width: 4px;
+  opacity: 1;
+}
+
+.note-card-pinned .note-date {
+  background: color-mix(in srgb, var(--accent-warm) 5%, var(--surface));
+  color: var(--accent-warm);
+}
+
 .note-card:hover {
   transform: translateY(-1px);
   border-color: rgba(49, 92, 82, 0.24);
@@ -2598,6 +2626,48 @@ h3 {
   gap: 0.42rem;
   justify-content: flex-start;
   padding: 1.05rem 0 0.88rem;
+}
+
+.note-card-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.42rem 0.65rem;
+}
+
+.note-pinned-badge {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 1.5rem;
+  padding: 0 0.7rem 0 0;
+  border: 0;
+  border-right: 1px solid color-mix(in srgb, var(--accent-warm) 26%, var(--line));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--accent-warm);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.note-pinned-badge i {
+  display: inline-grid;
+  width: 1.46rem;
+  height: 1.46rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-warm);
+  box-shadow: 0 4px 10px rgba(154, 91, 63, 0.18);
+  color: #fff;
+  font-size: 0.56rem;
+  transform: rotate(-12deg);
 }
 
 .note-thumb {
@@ -3011,6 +3081,92 @@ h3 {
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.45;
+}
+
+.note-photo-card figcaption > span {
+  display: block;
+}
+
+.note-photo-card figcaption > span:first-child {
+  color: var(--body);
+  font-weight: 520;
+}
+
+.note-photo-card figcaption .caption-zh {
+  margin-top: 0.18rem;
+  color: var(--muted);
+  font-size: 0.92em;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.conference-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.conference-photo-grid .note-photo-card {
+  min-width: 0;
+  align-self: start;
+}
+
+.conference-photo-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.conference-photo-grid-campus {
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+}
+
+.conference-photo-grid-compact {
+  gap: 0.75rem;
+}
+
+.conference-photo-grid-compact .conference-photo-frame {
+  aspect-ratio: 1;
+}
+
+.conference-photo-grid-compact .note-photo-card figcaption {
+  padding: 0.58rem 0.68rem;
+  font-size: 0.76rem;
+}
+
+.conference-photo-frame {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-muted);
+}
+
+.conference-photo-frame-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.conference-photo-frame-wide {
+  aspect-ratio: 16 / 9;
+}
+
+.conference-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conference-photo-contain {
+  padding: 0.35rem;
+}
+
+.conference-photo-contain img {
+  object-fit: contain;
+}
+
+.conference-photo-face img {
+  object-position: center 26%;
+}
+
+.conference-community-grid .conference-photo-wide {
+  grid-column: 1 / -1;
 }
 
 .journal-name-short {
@@ -3672,6 +3828,10 @@ code {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .conference-photo-grid-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .paper-asset-card.is-portrait,
   .paper-asset-card.is-squareish,
   .paper-asset-card.is-narrow-landscape {
@@ -3889,6 +4049,14 @@ code {
   }
 
   .note-photo-grid-timeline .note-photo-card-wide {
+    grid-column: auto;
+  }
+
+  .conference-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conference-community-grid .conference-photo-wide {
     grid-column: auto;
   }
 
