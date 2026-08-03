@@ -132,6 +132,21 @@ const paperDetailsZh = {
 };
 
 const projectDetails = {
+  "jiangsu-excellence-postdoctoral": {
+    title: "江苏省卓越博士后计划 | Jiangsu Excellent Postdoctoral Program",
+    category: "省级项目 / Provincial-level Project",
+    period: "2027.01–2028.12",
+    periodLabel: "研究周期 / Period",
+    topic: "极端气候扰动下稻麦生产空间韧性的地理空间智能诊断与模拟研究",
+    topicEn:
+      "Geospatial-intelligence diagnosis and simulation of the spatial resilience of rice–wheat production under extreme climate disturbance",
+    topicLabel: "课题名称 / Research Topic",
+    image: "image/project/2027-jiangsu-excellence-postdoctoral.jpg",
+    imageFit: "contain",
+    link: "#",
+    methods: "",
+    readMore: "#"
+  },
   "dayou-zuowei": {
     title: "大油作为: Oily Sludge Remediation Expert",
     category: "Environmental Remediation",
@@ -223,6 +238,10 @@ const projectDetails = {
 };
 
 const projectDetailsZh = {
+  "jiangsu-excellence-postdoctoral": {
+    ...projectDetails["jiangsu-excellence-postdoctoral"],
+    category: "省级项目 / Provincial-level Project"
+  },
   "dayou-zuowei": {
     ...projectDetails["dayou-zuowei"],
     title: "大油作为：含油污泥修复专家",
@@ -571,10 +590,14 @@ function setupDetailDialog() {
         content,
         project.title,
         `
-          <img class="dialog-hero-image project-dialog-image" src="${sitePath(project.image)}" alt="" />
+          <img class="dialog-hero-image project-dialog-image${project.imageFit === "contain" ? " image-contain" : ""}" src="${sitePath(project.image)}" alt="" />
           <p class="card-meta">${project.category}</p>
-          <p>${project.summary}</p>
-          <p><strong>${text.methods}:</strong> ${project.methods}</p>
+          ${project.period ? `<p><strong>${project.periodLabel || "Period"}:</strong> ${project.period}</p>` : ""}
+          ${project.topic ? `<p><strong>${project.topicLabel || "Research Topic"}:</strong> ${project.topic}</p>` : ""}
+          ${project.topicEn ? `<p class="dialog-translation">${project.topicEn}</p>` : ""}
+          ${project.summary ? `<p>${project.summary}</p>` : ""}
+          ${project.summaryEn ? `<p class="dialog-translation">${project.summaryEn}</p>` : ""}
+          ${project.methods ? `<p><strong>${text.methods}:</strong> ${project.methods}</p>` : ""}
           ${optionalProjectActions(project, text)}
         `
       );

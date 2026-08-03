@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <script defer src="../js/main.js"></script>
   </head>
-  <body>
+  <body class="projects-page">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav shell" aria-label="Main navigation">
@@ -38,16 +38,70 @@
 
     <main id="main">
       <section class="page-hero compact-page-hero shell">
-        <p class="eyebrow">Research Portfolio</p>
-        <h1>Projects</h1>
-        <p class="lead narrow">
-          Selected projects from smart agriculture, agricultural GIS decision support, lake
-          hydrodynamic simulation, and environmental GIS.
-        </p>
+        <p class="eyebrow">研究项目 · Research Portfolio</p>
+        <h1>科研项目 <span class="page-title-translation">Research Projects</span></h1>
       </section>
 
-      <section class="section shell page-content-section">
-        <div class="card-grid">
+      <section class="section shell page-content-section projects-portfolio" aria-label="Research project portfolio">
+        <section class="project-stage project-stage-current" aria-labelledby="current-projects-title">
+          <header class="project-stage-heading">
+            <span class="project-stage-number" aria-hidden="true">01</span>
+            <div class="project-stage-copy">
+              <p class="project-stage-label">当前重点项目 · Current Flagship Project</p>
+              <h2 id="current-projects-title">
+                重点科研项目 <span class="heading-translation">Strategic Research Project</span>
+              </h2>
+            </div>
+            <span class="project-stage-period">2027.01–2028.12</span>
+          </header>
+
+          <button class="project-card interactive-card featured-project-card" type="button" data-project="jiangsu-excellence-postdoctoral">
+            <span class="featured-project-level">省级项目 · Provincial</span>
+            <span class="featured-project-visual">
+              <img src="../image/project/2027-jiangsu-excellence-postdoctoral.jpg" alt="Research framework for geospatial-intelligence diagnosis and simulation of rice–wheat production resilience" />
+            </span>
+            <span class="card-body featured-project-body">
+              <strong>江苏省卓越博士后计划</strong>
+              <span class="featured-project-title-en">Jiangsu Excellent Postdoctoral Program</span>
+              <span class="featured-project-topic-label">课题名称 · Research Topic</span>
+              <span class="featured-project-topic">
+                极端气候扰动下稻麦生产空间韧性的地理空间智能诊断与模拟研究
+              </span>
+              <span class="featured-project-topic-en">
+                Geospatial-intelligence diagnosis and simulation of the spatial resilience of
+                rice–wheat production under extreme climate disturbance
+              </span>
+              <span class="featured-project-action">查看项目详情 · View details</span>
+            </span>
+          </button>
+        </section>
+
+        <div class="project-stage-transition" aria-hidden="true">
+          <span></span>
+          <span>研究脉络 · Research continuum</span>
+          <span></span>
+        </div>
+
+        <section class="project-stage project-stage-foundation" aria-labelledby="foundation-projects-title">
+          <header class="project-stage-heading">
+            <span class="project-stage-number" aria-hidden="true">02</span>
+            <div class="project-stage-copy">
+              <p class="project-stage-label">既有研究基础 · Established Research Foundation</p>
+              <h2 id="foundation-projects-title">
+                代表性前期科研项目 <span class="heading-translation">Representative Prior Research</span>
+              </h2>
+              <p class="project-stage-description">
+                汇集智慧农业、环境 GIS、遥感与空间建模方向的代表性工作，构成当前研究的技术与应用基础。
+                <span class="bilingual-secondary">
+                  Representative work in smart agriculture, environmental GIS, remote sensing, and
+                  spatial modeling forms the methodological foundation for the current research stage.
+                </span>
+              </p>
+            </div>
+            <span class="project-stage-period">2017–至今 · Present</span>
+          </header>
+
+          <div class="card-grid existing-project-grid">
           <button class="project-card interactive-card" type="button" data-project="dayou-zuowei">
             <img src="../image/project/2022-project-oil-s.jpg" alt="Graphic for Dayou Zuowei oily sludge remediation project" />
             <span class="card-body">
@@ -129,6 +183,7 @@
             </span>
           </button>
         </div>
+        </section>
       </section>
     </main>
 
