@@ -133,7 +133,7 @@ const paperDetailsZh = {
 
 const projectDetails = {
   "jiangsu-excellence-postdoctoral": {
-    title: "江苏省卓越博士后计划 | Jiangsu Excellent Postdoctoral Program",
+    title: "江苏省卓越博士后计划 | Jiangsu Funding Program for Excellent Postdoctoral Talent",
     category: "省级项目 / Provincial-level Project",
     period: "2027.01–2028.12",
     periodLabel: "研究周期 / Period",
