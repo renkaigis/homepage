@@ -2398,6 +2398,16 @@ h3 {
   font-weight: 800;
 }
 
+.compact-news-link {
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 0.18em;
+}
+
+.compact-news-link:hover {
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
+}
+
 .compact-section {
   padding-block: clamp(2.2rem, 4vw, 3.2rem);
 }
