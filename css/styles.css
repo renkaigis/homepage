@@ -2067,6 +2067,7 @@ h3 {
 
 .hero-name-row h1 {
   margin: 0;
+  font-size: clamp(1.85rem, 4vw, 3.25rem);
 }
 
 .home-intro .lead {
