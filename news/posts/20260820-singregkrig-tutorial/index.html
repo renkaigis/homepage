@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SingRegKrig: A Complete R Tutorial | Kai Ren</title>
+  <meta name="description"
+    content="A complete English tutorial for the SingRegKrig R package, from data preparation and model fitting to spatial cross-validation, uncertainty mapping, and parameter sensitivity analysis." />
+  <link rel="icon" href="../../../image/mine/favicon.ico" type="image/x-icon" />
+  <script>
+    (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch { } })();
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../../../css/styles.css" />
+  <script defer src="../../../js/main.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="../../../" aria-label="Homepage"><img class="brand-logo brand-logo-day"
+          src="../../../image/mine/logo_day.png" alt="" /><img class="brand-logo brand-logo-night"
+          src="../../../image/mine/logo_night.png" alt="" /><span class="brand-name">Kai Ren</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+      <div class="nav-links" id="site-menu">
+        <a href="../../../"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+        <a href="../../../about/"><i class="fa-solid fa-user" aria-hidden="true"></i><span>About</span></a>
+        <a href="../../../publications/"><i class="fa-solid fa-book-open"
+            aria-hidden="true"></i><span>Publications</span></a>
+        <a href="../../../projects/"><i class="fa-solid fa-diagram-project"
+            aria-hidden="true"></i><span>Projects</span></a>
+        <a href="../../" aria-current="page"><i class="fa-solid fa-newspaper"
+            aria-hidden="true"></i><span>News</span></a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false"
+          title="Toggle dark mode">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <article class="note-article shell tutorial-article">
+      <a class="back-link" href="../../">Back to news</a>
+      <header class="note-article-header">
+        <div class="note-article-hero">
+          <div class="note-article-hero-copy">
+            <p class="eyebrow">R Package Tutorial</p>
+            <h1>SingRegKrig: A Complete R Tutorial for Singularity Regression Kriging</h1>
+            <p class="lead narrow">
+              From data preparation and model fitting to spatial cross-validation, uncertainty mapping, and
+              reproducible prediction.
+            </p>
+          </div>
+          <figure class="note-article-cover tutorial-cover">
+            <img src="00-cover-singregkrig.png"
+              alt="SingRegKrig package cover showing singularity features, random forest regression, and ordinary kriging" />
+          </figure>
+        </div>
+        <dl class="note-meta">
+          <div>
+            <dt>Date</dt>
+            <dd><time datetime="2026-08-20">20 August 2026</time></dd>
+          </div>
+          <div>
+            <dt>Package</dt>
+            <dd>SingRegKrig 0.1.0</dd>
+          </div>
+          <div>
+            <dt>Language</dt>
+            <dd>R</dd>
+          </div>
+          <div>
+            <dt>Workflow</dt>
+            <dd>End-to-end spatial prediction</dd>
+          </div>
+        </dl>
+        <a class="tutorial-package-spotlight" href="https://CRAN.R-project.org/package=SingRegKrig" target="_blank"
+          rel="noreferrer" aria-label="Open the official SingRegKrig package page on CRAN">
+          <span class="tutorial-package-spotlight-logo">
+            <img src="00-singregkrig-logo.png" alt="SingRegKrig logo" />
+          </span>
+          <span class="tutorial-package-spotlight-copy">
+            <small>Official R package</small>
+            <span class="tutorial-package-spotlight-title">SingRegKrig <b>Version 0.1.0</b></span>
+            <code>https://CRAN.R-project.org/package=SingRegKrig</code>
+            <span class="tutorial-package-spotlight-people">
+              <span><strong>Developers</strong> Shikhar Tyagi, Arvind Pandey, Bhupendra Singh, and Vrijesh Tripathi</span>
+              <span><strong>Maintainer</strong> Shikhar Tyagi</span>
+            </span>
+          </span>
+          <span class="tutorial-package-spotlight-action">
+            Open CRAN <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </span>
+        </a>
+      </header>
+
+      <div class="note-article-layout">
+        <div class="note-content tutorial-content">
+          <section class="tutorial-opening" id="overview">
+            <div class="tutorial-opening-mark" aria-hidden="true">
+              <img src="00-singregkrig-logo.png" alt="" />
+            </div>
+            <div>
+              <p class="tutorial-kicker">What this tutorial covers</p>
+              <h2>From heterogeneous covariates to a validated spatial prediction</h2>
+              <p class="reflection-lead">
+                Environmental relationships are often nonlinear, non-stationary, and affected by local anomalies.
+                Singularity Regression Kriging (SRK) addresses this setting by combining multi-scale singularity
+                features, a random-forest trend, and ordinary kriging of the remaining residuals.
+              </p>
+            </div>
+          </section>
+
+          <div class="tutorial-pipeline" aria-label="Singularity regression kriging workflow">
+            <span>Environmental covariates</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <span>Multi-scale singularity</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <span>Random-forest trend</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <span>Residual kriging</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <span>Final prediction</span>
+          </div>
+
+          <section id="resources">
+            <p class="tutorial-kicker">Before you begin</p>
+            <h2>Package, files, and source material</h2>
+            <p>
+              The worked example is self-contained: <code>sim_srk_data()</code> generates the tutorial data in R, so
+              no external input file is required. When adapting the workflow to a real study, prepare one sample file
+              and one prediction-grid file with matching coordinate and covariate fields.
+            </p>
+            <div class="tutorial-resource-grid">
+              <a class="tutorial-resource-card" href="https://CRAN.R-project.org/package=SingRegKrig" target="_blank"
+                rel="noreferrer">
+                <span class="tutorial-resource-icon"><i class="fa-brands fa-r-project" aria-hidden="true"></i></span>
+                <span>
+                  <small>R package</small>
+                  <strong>SingRegKrig 0.1.0</strong>
+                  <span>Install from CRAN</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+              <div class="tutorial-resource-card">
+                <span class="tutorial-resource-icon"><i class="fa-solid fa-table" aria-hidden="true"></i></span>
+                <span>
+                  <small>Observed samples</small>
+                  <strong>sample_data.csv</strong>
+                  <span>Target, coordinates, and covariates</span>
+                </span>
+              </div>
+              <div class="tutorial-resource-card">
+                <span class="tutorial-resource-icon"><i class="fa-solid fa-border-all" aria-hidden="true"></i></span>
+                <span>
+                  <small>Prediction grid</small>
+                  <strong>prediction_grid.csv</strong>
+                  <span>Coordinates and matching covariates</span>
+                </span>
+              </div>
+              <div class="tutorial-resource-card">
+                <span class="tutorial-resource-icon"><i class="fa-solid fa-file-export" aria-hidden="true"></i></span>
+                <span>
+                  <small>Model output</small>
+                  <strong>SingRegKrig_predictions.csv</strong>
+                  <span>Predictions, trend, residual, and uncertainty</span>
+                </span>
+              </div>
+            </div>
+            <p class="tutorial-small-note">
+              This tutorial follows version 0.1.0 and uses the supplied cover, package logo, and twelve reproducible
+              result figures.
+            </p>
+            <div class="tutorial-reference-card">
+              <span class="tutorial-reference-label">Original method paper</span>
+              <p>
+                <strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Chen, M., &amp; Yu, Q. (2026).
+                “A singularity regression kriging for spatial prediction.”
+                <em>GIScience &amp; Remote Sensing</em>, 63(1), 2690341.
+              </p>
+              <div class="tutorial-reference-actions">
+                <a href="https://doi.org/10.1080/15481603.2026.2690341" target="_blank" rel="noreferrer">
+                  Read the original article <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+                <a href="../../../details/papers/2026-grs-kai-srk/">
+                  View paper details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section id="setup">
+            <span class="tutorial-step">01</span>
+            <p class="tutorial-kicker">Set up R</p>
+            <h2>Install the package and fix the random seed</h2>
+            <p>Install the package once, then load the two libraries used throughout this walkthrough.</p>
+            <pre class="tutorial-code"><code>install.packages("SingRegKrig")
+
+library(SingRegKrig)
+library(ggplot2)
+
+set.seed(42)
+packageVersion("SingRegKrig")
+# [1] '0.1.0'</code></pre>
+            <div class="tutorial-callout tutorial-callout-tip">
+              <strong>Reproducibility note</strong>
+              <p>Record the R version, package version, and random seed in every formal analysis.</p>
+            </div>
+          </section>
+
+          <section id="data">
+            <span class="tutorial-step">02</span>
+            <p class="tutorial-kicker">Prepare the data</p>
+            <h2>Build and inspect a skewed spatial dataset</h2>
+            <p>An SRK analysis needs four types of information.</p>
+            <div class="tutorial-table-wrap">
+              <table class="tutorial-table">
+                <thead>
+                  <tr><th>Field type</th><th>Example</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Response</td><td><code>z</code></td><td>Observed target at sampled locations</td></tr>
+                  <tr><td>Coordinates</td><td><code>x</code>, <code>y</code></td><td>Projected coordinates, normally in metres</td></tr>
+                  <tr><td>Covariates</td><td><code>cov1</code>, elevation, slope</td><td>Required at samples and prediction locations</td></tr>
+                  <tr><td>Prediction locations</td><td>Matching coordinates and covariates</td><td>No response field is required</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="tutorial-code"><code>tutorial_data &lt;- sim_srk_data(
+  n_side = 20,
+  scenario = "skewed",
+  seed = 42
+)
+
+dim(tutorial_data)
+# [1] 400   4
+
+head(tutorial_data, 8)
+summary(tutorial_data)</code></pre>
+            <p>
+              The result contains 400 locations and four fields: <code>x</code> and <code>y</code> are coordinates,
+              <code>z</code> is the response, and <code>cov1</code> is the environmental covariate. There are no missing
+              or non-finite values.
+            </p>
+            <div class="tutorial-callout tutorial-callout-warning">
+              <strong>Keep units consistent</strong>
+              <p>
+                Do not mix longitude and latitude in degrees with analysis scales in metres. If the singularity
+                scales are 2,000–20,000 m, use a projected coordinate system measured in metres.
+              </p>
+            </div>
+          </section>
+
+          <section id="explore">
+            <span class="tutorial-step">03</span>
+            <p class="tutorial-kicker">Explore first</p>
+            <h2>Check spatial patterns, skewness, and covariate relationships</h2>
+            <p>
+              Before fitting a model, inspect the response and covariate maps, the response distribution, and the
+              shape of the covariate–response relationship.
+            </p>
+            <pre class="tutorial-code"><code>spatial_long &lt;- rbind(
+  data.frame(x = tutorial_data$x, y = tutorial_data$y,
+             variable = "Response z", value = tutorial_data$z),
+  data.frame(x = tutorial_data$x, y = tutorial_data$y,
+             variable = "Covariate cov1", value = tutorial_data$cov1)
+)
+
+ggplot(spatial_long, aes(x, y, fill = value)) +
+  geom_raster() +
+  coord_equal() +
+  facet_wrap(~variable) +
+  scale_fill_viridis_c() +
+  theme(panel.grid = element_blank())</code></pre>
+            <figure class="tutorial-figure tutorial-figure-wide">
+              <img src="01-spatial-patterns.png" alt="Spatial maps of response z and covariate cov1" loading="lazy" />
+              <figcaption><span>Figure 1</span> Spatial patterns of the response and environmental covariate.</figcaption>
+            </figure>
+            <div class="tutorial-figure-grid">
+              <figure class="tutorial-figure">
+                <img src="02-response-distribution.png" alt="Histogram and density curve of the response variable"
+                  loading="lazy" />
+                <figcaption><span>Figure 2</span> The response is clearly right-skewed.</figcaption>
+              </figure>
+              <figure class="tutorial-figure">
+                <img src="03-covariate-response-relationship.png"
+                  alt="Scatter plot and smooth curve showing the relationship between cov1 and z" loading="lazy" />
+                <figcaption><span>Figure 3</span> The covariate–response relationship is associated but not fully linear.</figcaption>
+              </figure>
+            </div>
+            <p>
+              This combination of spatial structure, skewness, and nonlinearity is precisely where a random-forest
+              trend and multi-scale singularity features may add useful information.
+            </p>
+          </section>
+
+          <section id="singularity">
+            <span class="tutorial-step">04</span>
+            <p class="tutorial-kicker">Engineer spatial features</p>
+            <h2>Compute and interpret the singularity index</h2>
+            <p>
+              In two dimensions, an index near 2 indicates locally uniform behaviour; values below 2 indicate local
+              enrichment or a positive anomaly; and values above 2 indicate local depletion. Because the simulated
+              grid spacing is 1, this example uses scales from 1 to 5 grid units.
+            </p>
+            <pre class="tutorial-code"><code>coords &lt;- tutorial_data[c("x", "y")]
+
+alpha_cov1 &lt;- compute_singularity(
+  coords = coords,
+  values = tutorial_data$cov1,
+  scales = 1:5,
+  min_neighbours = 3,
+  min_scales = 2
+)
+
+summary(alpha_cov1)
+sd(alpha_cov1)
+# Mean: 2.039; SD: 0.2482</code></pre>
+            <figure class="tutorial-figure tutorial-figure-portrait">
+              <img src="04-singularity-index-map.png" alt="Map of the singularity index for cov1" loading="lazy" />
+              <figcaption><span>Figure 4</span> Low values show local enrichment; high values show local depletion.</figcaption>
+            </figure>
+            <p>
+              Whether a singularity feature enters the final trend model also depends on <code>sd_threshold</code>.
+              Features with very little variation are removed automatically so that near-constant inputs do not add
+              noise to the random forest.
+            </p>
+          </section>
+
+          <section id="holdout">
+            <span class="tutorial-step">05</span>
+            <p class="tutorial-kicker">Design a realistic test</p>
+            <h2>Create a continuous spatial holdout</h2>
+            <p>
+              Hide the central 8 × 8 block from model fitting. The outer 336 locations become training samples and the
+              central 64 locations form a contiguous, unsampled prediction area.
+            </p>
+            <pre class="tutorial-code"><code>holdout_index &lt;- with(
+  tutorial_data,
+  x &gt;= 7 &amp; x &lt;= 14 &amp; y &gt;= 7 &amp; y &lt;= 14
+)
+
+train_data &lt;- tutorial_data[!holdout_index, ]
+test_data  &lt;- tutorial_data[holdout_index, ]
+
+c(training = nrow(train_data), holdout = nrow(test_data))
+# training holdout
+#      336      64</code></pre>
+            <figure class="tutorial-figure tutorial-figure-portrait">
+              <img src="05-training-holdout-split.png"
+                alt="Map of training samples around a central spatial holdout block" loading="lazy" />
+              <figcaption><span>Figure 5</span> Training samples surround a completely hidden central prediction block.</figcaption>
+            </figure>
+            <p>
+              A contiguous holdout is closer to predicting an unsampled area than a random split, and it reduces the
+              spatial leakage caused by placing neighbouring observations in both training and test sets.
+            </p>
+          </section>
+
+          <section id="fit">
+            <span class="tutorial-step">06</span>
+            <p class="tutorial-kicker">Fit the model</p>
+            <h2>Run singularity regression kriging</h2>
+            <pre class="tutorial-code"><code>set.seed(42)
+
+srk_model &lt;- srk(
+  z ~ cov1,
+  data = train_data,
+  coords = ~x + y,
+  pred_data = test_data,
+  scales = 1:5,
+  ntree = 300,
+  sd_threshold = 0.10,
+  min_neighbours = 3,
+  min_scales = 2,
+  variogram_model = "auto"
+)
+
+print(srk_model)</code></pre>
+            <div class="tutorial-parameter-grid">
+              <div><code>scales = 1:5</code><span>Spatial scales used to compute singularity features</span></div>
+              <div><code>ntree = 300</code><span>Number of trees in the random forest</span></div>
+              <div><code>sd_threshold = 0.10</code><span>Standard-deviation filter for singularity features</span></div>
+              <div><code>variogram_model = "auto"</code><span>Automatic choice among spherical, exponential, and Gaussian models</span></div>
+            </div>
+            <div class="tutorial-result-panel">
+              <div><small>Training observations</small><strong>336</strong></div>
+              <div><small>Retained feature</small><strong>sv_cov1</strong></div>
+              <div><small>Training R²</small><strong>0.9516</strong></div>
+              <div><small>Training RMSE</small><strong>0.1340</strong></div>
+              <div><small>Training MAE</small><strong>0.0948</strong></div>
+            </div>
+            <pre class="tutorial-code"><code>srk_model$retained_features
+# [1] "sv_cov1"
+
+unlist(srk_model$metrics)
+#      R2    RMSE     MAE
+# 0.95156 0.13402 0.09479
+
+srk_model$variogram_model
+#   model    psill range
+# 1   Nug 0.011243 0.000
+# 2   Exp 0.007597 2.562
+
+sort(srk_model$feature_importance, decreasing = TRUE)
+#    cov1 sv_cov1
+#   87.11   15.42</code></pre>
+            <div class="tutorial-callout tutorial-callout-warning">
+              <strong>Training fit is not predictive accuracy</strong>
+              <p>
+                These metrics describe the in-sample random-forest trend. Use the independent holdout and spatial
+                block cross-validation results below for performance claims.
+              </p>
+            </div>
+          </section>
+
+          <section id="diagnostics">
+            <span class="tutorial-step">07</span>
+            <p class="tutorial-kicker">Diagnose the model</p>
+            <h2>Inspect residuals, importance, fit, and the variogram</h2>
+            <pre class="tutorial-code"><code>plot(srk_model, which = 1:4)</code></pre>
+            <figure class="tutorial-figure tutorial-figure-wide">
+              <img src="06-model-diagnostics.png"
+                alt="Four SRK diagnostic plots showing residuals, importance, fitted values, and variogram"
+                loading="lazy" />
+              <figcaption><span>Figure 6</span> SRK model diagnostics in one view.</figcaption>
+            </figure>
+            <ul class="tutorial-check-list">
+              <li>Residuals should remain centred near zero without a strong systematic shift.</li>
+              <li>Variable importance shows the contributions of raw and singularity features.</li>
+              <li>Observed and fitted values should approach the 1:1 line.</li>
+              <li>The variogram describes residual spatial dependence used by ordinary kriging.</li>
+            </ul>
+          </section>
+
+          <section id="predictions">
+            <span class="tutorial-step">08</span>
+            <p class="tutorial-kicker">Read the output</p>
+            <h2>Separate the trend, kriged residual, and uncertainty</h2>
+            <p>
+              Because <code>pred_data</code> was supplied during fitting, the holdout predictions are already stored in
+              <code>srk_model$predictions</code>. The same result can be regenerated explicitly with
+              <code>predict(srk_model, newdata = test_data)</code>.
+            </p>
+            <div class="tutorial-table-wrap">
+              <table class="tutorial-table">
+                <thead><tr><th>Column</th><th>Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><code>x</code>, <code>y</code></td><td>Prediction-location coordinates</td></tr>
+                  <tr><td><code>prediction</code></td><td>Final SRK prediction</td></tr>
+                  <tr><td><code>trend</code></td><td>Random-forest trend prediction</td></tr>
+                  <tr><td><code>kriged_residual</code></td><td>Ordinary-kriging interpolation of the residual</td></tr>
+                  <tr><td><code>kriging_se</code></td><td>Standard error of residual kriging</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <pre class="tutorial-code"><code>head(srk_model$predictions)
+
+identity_error &lt;- max(abs(
+  srk_model$predictions$prediction -
+    srk_model$predictions$trend -
+    srk_model$predictions$kriged_residual
+))
+
+identity_error
+# [1] 1.041e-16</code></pre>
+            <div class="tutorial-equation" aria-label="Final prediction equals trend plus kriged residual">
+              Final prediction <span>=</span> random-forest trend <span>+</span> kriged residual
+            </div>
+            <p>
+              The near-zero identity error confirms the decomposition. Note that <code>kriging_se</code> captures
+              uncertainty in residual kriging only; it does not include uncertainty from the random-forest trend and
+              should not be presented as a complete prediction interval.
+            </p>
+          </section>
+
+          <section id="holdout-validation">
+            <span class="tutorial-step">09</span>
+            <p class="tutorial-kicker">Map and validate</p>
+            <h2>Evaluate the continuous holdout area</h2>
+            <figure class="tutorial-figure tutorial-figure-wide">
+              <img src="07-holdout-prediction-maps.png"
+                alt="Observed, predicted, error, and kriging uncertainty maps for the holdout area" loading="lazy" />
+              <figcaption><span>Figure 7</span> Observed values, predictions, errors, and residual-kriging uncertainty.</figcaption>
+            </figure>
+            <p>
+              The observed and predicted panels share a colour scale. In the error panel, red indicates overprediction
+              and blue indicates underprediction; the final panel shows the spatial pattern of kriging standard error.
+            </p>
+            <pre class="tutorial-code"><code>observed &lt;- test_data$z
+predicted &lt;- srk_model$predictions$prediction
+
+holdout_metrics &lt;- data.frame(
+  n = sum(complete.cases(observed, predicted)),
+  R2 = cor(observed, predicted, use = "complete.obs")^2,
+  RMSE = sqrt(mean((predicted - observed)^2, na.rm = TRUE)),
+  MAE = mean(abs(predicted - observed), na.rm = TRUE)
+)
+
+holdout_metrics
+#    n     R2   RMSE    MAE
+# 1 64 0.6167 0.1968 0.1419</code></pre>
+            <figure class="tutorial-figure tutorial-figure-portrait">
+              <img src="08-holdout-observed-predicted.png"
+                alt="Observed versus predicted values in the spatial holdout coloured by kriging uncertainty"
+                loading="lazy" />
+              <figcaption><span>Figure 8</span> Observed versus predicted values for the 64 hidden locations.</figcaption>
+            </figure>
+            <div class="tutorial-result-panel tutorial-result-panel-three">
+              <div><small>Holdout R²</small><strong>0.6167</strong></div>
+              <div><small>Holdout RMSE</small><strong>0.1968</strong></div>
+              <div><small>Holdout MAE</small><strong>0.1419</strong></div>
+            </div>
+            <p>
+              This test measures interpolation into a contiguous unsampled patch surrounded by training observations;
+              it does not evaluate extrapolation beyond the study boundary.
+            </p>
+          </section>
+
+          <section id="spatial-cv">
+            <span class="tutorial-step">10</span>
+            <p class="tutorial-kicker">Strengthen validation</p>
+            <h2>Run five-fold spatial block cross-validation</h2>
+            <p>
+              A single holdout may depend on where it is placed. Spatial block cross-validation keeps neighbouring
+              locations together and assigns entire blocks to folds, reducing optimistic leakage between train and
+              test data.
+            </p>
+            <pre class="tutorial-code"><code>set.seed(42)
+
+cv_result &lt;- srk_block_cv(
+  z ~ cov1,
+  data = tutorial_data,
+  coords = ~x + y,
+  nfold = 5,
+  block_size = 4,
+  scales = 1:5,
+  ntree = 200,
+  sd_threshold = 0.10
+)
+
+print(cv_result)
+cv_result$fold_metrics
+unlist(cv_result$overall_metrics)</code></pre>
+            <div class="tutorial-result-panel tutorial-result-panel-three">
+              <div><small>Overall R²</small><strong>0.8220</strong></div>
+              <div><small>Overall RMSE</small><strong>0.2458</strong></div>
+              <div><small>Overall MAE</small><strong>0.1812</strong></div>
+            </div>
+            <div class="tutorial-figure-grid tutorial-figure-grid-three">
+              <figure class="tutorial-figure">
+                <img src="09-spatial-cv-folds.png" alt="Map of the five spatial cross-validation folds"
+                  loading="lazy" />
+                <figcaption><span>Figure 9</span> Spatially contiguous fold assignment.</figcaption>
+              </figure>
+              <figure class="tutorial-figure tutorial-figure-wide-card">
+                <img src="10-spatial-cv-observed-predicted.png"
+                  alt="Observed versus cross-validated predictions coloured by fold" loading="lazy" />
+                <figcaption><span>Figure 10</span> Observed versus spatially cross-validated predictions.</figcaption>
+              </figure>
+              <figure class="tutorial-figure">
+                <img src="11-spatial-cv-error-map.png" alt="Map of spatial cross-validation prediction errors"
+                  loading="lazy" />
+                <figcaption><span>Figure 11</span> Spatial distribution of cross-validation errors.</figcaption>
+              </figure>
+            </div>
+            <p>
+              Inspect both per-fold and overall metrics. The fold map confirms that validation blocks are spatially
+              coherent, while the error map reveals areas with persistent over- or underprediction.
+            </p>
+          </section>
+
+          <section id="sensitivity">
+            <span class="tutorial-step">11</span>
+            <p class="tutorial-kicker">Test robustness</p>
+            <h2>Compare scales and screening thresholds</h2>
+            <p>
+              For a quick sensitivity experiment, use a smaller 12 × 12 dataset and compare nine combinations of
+              maximum scale and singularity-feature threshold.
+            </p>
+            <pre class="tutorial-code"><code>sensitivity_data &lt;- sim_srk_data(
+  n_side = 12,
+  scenario = "skewed",
+  seed = 42
+)
+
+set.seed(42)
+
+sensitivity_result &lt;- srk_sensitivity(
+  z ~ cov1,
+  data = sensitivity_data,
+  coords = ~x + y,
+  scale_range = c(3, 5, 7),
+  threshold_range = c(0, 0.10, 0.30),
+  nfold = 3,
+  block_size = 4,
+  ntree = 100,
+  scale_step = 1
+)
+
+print(sensitivity_result)
+
+par(mfrow = c(1, 3))
+plot(sensitivity_result, metric = "R2")
+plot(sensitivity_result, metric = "RMSE")
+plot(sensitivity_result, metric = "MAE")</code></pre>
+            <figure class="tutorial-figure tutorial-figure-wide">
+              <img src="12-parameter-sensitivity.png"
+                alt="Sensitivity plots for R squared, RMSE, and MAE across maximum scale and threshold settings"
+                loading="lazy" />
+              <figcaption><span>Figure 12</span> Parameter sensitivity across maximum scale and feature threshold.</figcaption>
+            </figure>
+            <p>
+              Do not select a setting from the single highest R² alone. Look for stable performance across neighbouring
+              combinations and favour parameters that match the scientific process scale and computational budget.
+            </p>
+            <div class="tutorial-callout tutorial-callout-warning">
+              <strong>Version 0.1.0 behaviour</strong>
+              <p>
+                The sensitivity function creates a new random spatial fold assignment for each parameter combination.
+                For a formal comparison, predefine one fold scheme and reuse it across all settings.
+              </p>
+            </div>
+          </section>
+
+          <section id="own-data">
+            <span class="tutorial-step">12</span>
+            <p class="tutorial-kicker">Move to a real study</p>
+            <h2>Adapt the workflow to your own files</h2>
+            <p>
+              In this template, the sample file contains <code>target</code>, projected coordinates, and three
+              environmental covariates. The prediction grid contains the same coordinate and covariate fields but no
+              target.
+            </p>
+            <pre class="tutorial-code"><code>sample_data &lt;- read.csv("sample_data.csv")
+prediction_grid &lt;- read.csv("prediction_grid.csv")
+
+required_sample_columns &lt;- c(
+  "target", "x", "y", "elevation", "slope", "covariate2"
+)
+required_grid_columns &lt;- c(
+  "x", "y", "elevation", "slope", "covariate2"
+)
+
+stopifnot(all(required_sample_columns %in% names(sample_data)))
+stopifnot(all(required_grid_columns %in% names(prediction_grid)))
+
+set.seed(42)
+
+my_model &lt;- srk(
+  target ~ elevation + slope + covariate2,
+  data = sample_data,
+  coords = ~x + y,
+  pred_data = prediction_grid,
+  scales = seq(2000, 20000, 2000),
+  ntree = 500,
+  sd_threshold = 0.5,
+  min_neighbours = 3,
+  min_scales = 2,
+  variogram_model = "auto"
+)
+
+print(my_model)
+summary(my_model)
+head(my_model$predictions)
+
+write.csv(
+  my_model$predictions,
+  "SingRegKrig_predictions.csv",
+  row.names = FALSE
+)</code></pre>
+          </section>
+
+          <section id="checklist">
+            <span class="tutorial-step">13</span>
+            <p class="tutorial-kicker">Final checks</p>
+            <h2>Seven details that determine whether the result is credible</h2>
+            <ol class="tutorial-numbered-list">
+              <li><strong>Specify scales explicitly.</strong> Base them on sampling density, process scale, and coordinate units.</li>
+              <li><strong>Inspect retained features.</strong> An empty <code>retained_features</code> object means no singularity feature entered the trend model.</li>
+              <li><strong>Separate fit from validation.</strong> Report spatial holdout or block-CV metrics, not only <code>model$metrics</code>.</li>
+              <li><strong>Fix the random seed.</strong> Random forests and spatial fold allocation both include random processes.</li>
+              <li><strong>Predict the complete grid together.</strong> Version 0.1.0 computes singularity from the training locations and the supplied <code>newdata</code>; avoid arbitrary batches.</li>
+              <li><strong>Interpret uncertainty precisely.</strong> <code>kriging_se</code> is residual-kriging uncertainty, not a complete prediction interval.</li>
+              <li><strong>Estimate the computational load.</strong> Test a subset before running multi-scale neighbourhood searches on very large grids.</li>
+            </ol>
+          </section>
+
+          <section class="tutorial-closing" id="reference">
+            <div>
+              <p class="tutorial-kicker">Closing note</p>
+              <h2>A concise interface still requires rigorous spatial reasoning</h2>
+              <p>
+                A successful function call is only the beginning. Credible SRK results depend on informative
+                covariates, compatible coordinates and scales, retained singularity features, a defensible residual
+                variogram, strict spatial validation, and careful uncertainty interpretation.
+              </p>
+              <p>Run the simulated example first, then replace the response, coordinates, covariates, and grid with your own data.</p>
+            </div>
+            <img src="00-singregkrig-logo.png" alt="SingRegKrig logo" loading="lazy" />
+          </section>
+
+          <div class="tutorial-reference-card tutorial-reference-card-final">
+            <span class="tutorial-reference-label">Citation</span>
+            <p>
+              <strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Chen, M., &amp; Yu, Q. (2026).
+              “A singularity regression kriging for spatial prediction.”
+              <em>GIScience &amp; Remote Sensing</em>, 63(1), 2690341.
+              <a href="https://doi.org/10.1080/15481603.2026.2690341" target="_blank"
+                rel="noreferrer">https://doi.org/10.1080/15481603.2026.2690341</a>
+            </p>
+          </div>
+        </div>
+
+        <aside class="note-toc tutorial-toc" aria-label="Article table of contents">
+          <h2>Contents</h2>
+          <a href="#overview">Overview</a>
+          <a href="#resources">Files and references</a>
+          <a href="#setup">1. Set up R</a>
+          <a href="#data">2. Prepare data</a>
+          <a href="#explore">3. Explore patterns</a>
+          <a href="#singularity">4. Singularity index</a>
+          <a href="#holdout">5. Spatial holdout</a>
+          <a href="#fit">6. Fit SRK</a>
+          <a href="#diagnostics">7. Diagnostics</a>
+          <a href="#predictions">8. Predictions</a>
+          <a href="#holdout-validation">9. Holdout validation</a>
+          <a href="#spatial-cv">10. Spatial block CV</a>
+          <a href="#sensitivity">11. Sensitivity</a>
+          <a href="#own-data">12. Use your data</a>
+          <a href="#checklist">13. Final checks</a>
+          <a href="#reference">Citation</a>
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span class="footer-credit">&copy; Reserved by <i class="fa fa-heart footer-heart"
+          aria-hidden="true"></i>&nbsp;renkaigis. <span id="current-year">2026</span>.</span>
+      <span class="footer-unit-logo"
+        aria-label="OpenGMS, Nanjing Normal University, Geospatial Intelligence Lab, and Curtin University">
+        <a href="http://opengmsteam.com/" target="_blank" rel="noopener noreferrer" aria-label="OpenGMS">
+          <img class="footer-logo-opengms footer-logo-opengms-blue" src="../../../image/mine/OpenGMS-logo-blue.png"
+            alt="" />
+          <img class="footer-logo-opengms footer-logo-opengms-dark" src="../../../image/mine/OpenGMS-logo.png" alt="" />
+        </a>
+        <a href="https://www.njnu.edu.cn/" target="_blank" rel="noopener noreferrer"
+          aria-label="Nanjing Normal University">
+          <img class="footer-logo-black" src="../../../image/mine/NNU-logo-black.png" alt="" />
+          <img class="footer-logo-white" src="../../../image/mine/NNU-logo-white.png" alt="" />
+        </a>
+        <a href="https://yongzesong.com/lab.html" target="_blank" rel="noopener noreferrer"
+          aria-label="Geospatial Intelligence Lab">
+          <img class="footer-logo-gsil" src="../../../image/mine/GSIL_logo.png" alt="" />
+        </a>
+        <a href="https://www.curtin.edu.au/" target="_blank" rel="noopener noreferrer" aria-label="Curtin University">
+          <img class="footer-logo-curtin" src="../../../image/mine/Curtin_logo.png" alt="" />
+        </a>
+      </span>
+    </div>
+  </footer>
+</body>
+
+</html>
