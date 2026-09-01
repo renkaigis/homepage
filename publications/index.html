@@ -12,7 +12,7 @@
     (() => { try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.dataset.theme = theme; } catch { } })();
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="../css/styles.css?v=paper-details-20260619-mobile" />
+  <link rel="stylesheet" href="../css/styles.css?v=tutorial-links-20260901" />
   <script defer src="../js/main.js"></script>
 </head>
 
@@ -63,7 +63,12 @@
                 Geographical Information Science</em>, pp. 1–23. <span class="publication-note">Top Journal in Zone 1,
                 IF
                 5.9</span> <a class="publication-doi" href="https://doi.org/10.1080/13658816.2026.2682957"
-                target="_blank" rel="noreferrer">DOI</a></li>
+                target="_blank" rel="noreferrer">DOI</a>
+              <a class="publication-tutorial-link" href="https://yongzesong.com/reproduce/SOH/soh.html"
+                target="_blank" rel="noreferrer">
+                <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Tutorial
+              </a>
+            </li>
             <li id="singularity-regression-kriging"><strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Chen, M., &amp; Yu,
               Q., 2026.
               <a class="publication-title" href="../details/papers/2026-grs-kai-srk/">A singularity regression kriging
@@ -71,6 +76,10 @@
               <em>GIScience &amp; Remote Sensing</em>, 63(1), 2690341. <span class="publication-note">Top Journal in
                 Zone 1, IF 6.8</span> <a class="publication-doi" href="https://doi.org/10.1080/15481603.2026.2690341"
                 target="_blank" rel="noreferrer">DOI</a>
+              <a class="publication-tutorial-link" href="https://yongzesong.com/reproduce/SRK/srk.html"
+                target="_blank" rel="noreferrer">
+                <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Tutorial
+              </a>
             </li>
             <li id="second-dimension-outliers"><strong>Ren, K.</strong>, Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup>, 2026.
               <a class="publication-title" href="../details/papers/2026-ijgis-kai-sdo/">Second-dimension outliers
@@ -210,23 +219,35 @@
       <div class="publication-year publication-card-section">
         <h2 class="publication-section-title">Featured Publications</h2>
         <div class="card-grid">
-          <a class="publication-card image-publication-card" href="../details/papers/2026-ijgis-kai-soh/">
-            <img src="../image/paper/2026-ijgis-soh/2026-ijgis-soh-s.jpg"
-              alt="Graphic for spatial outliers heterogeneity paper" />
-            <span class="card-meta">Journal Article</span>
-            <strong>Spatial outliers as a pattern determinant for explaining heterogeneity</strong>
-            <span><strong class="author-self">Kai Ren</strong><sup>*</sup>, Yongze Song<sup>*</sup>, Xinyue Yang,
-              Xi Wang, Min Chen, Qiang Yu</span>
-            <em>International Journal of Geographical Information Science, 2026</em>
-          </a>
-          <a class="publication-card image-publication-card" href="../details/papers/2026-grs-kai-srk/">
-            <img src="../image/paper/2026-grs-srk/2026-grs-srk-s.jpg"
-              alt="Graphic for singularity regression kriging paper" />
-            <span class="card-meta">Journal Article</span>
-            <strong>A singularity regression kriging for spatial prediction</strong>
-            <span><strong class="author-self">Kai Ren</strong>, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu</span>
-            <em>GIScience &amp; Remote Sensing, 2026</em>
-          </a>
+          <article class="publication-card-shell">
+            <a class="publication-card image-publication-card" href="../details/papers/2026-ijgis-kai-soh/">
+              <img src="../image/paper/2026-ijgis-soh/2026-ijgis-soh-s.jpg"
+                alt="Graphic for spatial outliers heterogeneity paper" />
+              <span class="card-meta">Journal Article</span>
+              <strong>Spatial outliers as a pattern determinant for explaining heterogeneity</strong>
+              <span><strong class="author-self">Kai Ren</strong><sup>*</sup>, Yongze Song<sup>*</sup>, Xinyue Yang,
+                Xi Wang, Min Chen, Qiang Yu</span>
+              <em>International Journal of Geographical Information Science, 2026</em>
+            </a>
+            <a class="card-tutorial-link" href="https://yongzesong.com/reproduce/SOH/soh.html" target="_blank"
+              rel="noreferrer" aria-label="Open the SOH tutorial">
+              <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Tutorial
+            </a>
+          </article>
+          <article class="publication-card-shell">
+            <a class="publication-card image-publication-card" href="../details/papers/2026-grs-kai-srk/">
+              <img src="../image/paper/2026-grs-srk/2026-grs-srk-s.jpg"
+                alt="Graphic for singularity regression kriging paper" />
+              <span class="card-meta">Journal Article</span>
+              <strong>A singularity regression kriging for spatial prediction</strong>
+              <span><strong class="author-self">Kai Ren</strong>, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu</span>
+              <em>GIScience &amp; Remote Sensing, 2026</em>
+            </a>
+            <a class="card-tutorial-link" href="https://yongzesong.com/reproduce/SRK/srk.html" target="_blank"
+              rel="noreferrer" aria-label="Open the SRK tutorial">
+              <i class="fa-solid fa-book-open-reader" aria-hidden="true"></i> Tutorial
+            </a>
+          </article>
           <a class="publication-card image-publication-card" href="../details/papers/2026-ijgis-kai-sdo/">
             <img src="../image/paper/2025-ijgis-sdo/2025-ijgis-sdo-s.jpg"
               alt="Graphic for second-dimension outliers paper" />

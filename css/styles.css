@@ -991,6 +991,53 @@ h3 {
   text-decoration: none;
 }
 
+.publication-card-shell {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+
+.publication-card-shell > .publication-card {
+  height: 100%;
+}
+
+.card-tutorial-link {
+  position: absolute;
+  top: 0.72rem;
+  right: 0.72rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  border: 1px solid rgba(154, 91, 63, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 20px rgba(29, 37, 40, 0.08);
+  padding: 0.3rem 0.58rem;
+  color: var(--accent-warm);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(10px);
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.card-tutorial-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: #fff;
+}
+
+.card-tutorial-link i {
+  font-size: 0.78em;
+}
+
 .publication-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
@@ -1114,6 +1161,8 @@ h3 {
 
 .publication-doi {
   display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   vertical-align: 0.08em;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -1122,6 +1171,39 @@ h3 {
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 800;
+}
+
+.publication-tutorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  vertical-align: 0.08em;
+  margin-left: 0.22rem;
+  border: 1px solid rgba(154, 91, 63, 0.28);
+  border-radius: 999px;
+  background: rgba(154, 91, 63, 0.055);
+  padding: 0.08rem 0.5rem;
+  color: var(--accent-warm);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.01em;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.publication-tutorial-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: var(--surface);
+}
+
+.publication-tutorial-link i {
+  font-size: 0.72em;
 }
 
 .publication-note,
@@ -1563,6 +1645,45 @@ h3 {
   font-weight: 800;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.paper-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.62rem;
+  margin-top: 1.25rem;
+}
+
+.paper-resource-links .doi-link {
+  margin-top: 0;
+}
+
+.paper-tutorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.46rem;
+  width: fit-content;
+  border: 1px solid rgba(154, 91, 63, 0.32);
+  border-radius: 999px;
+  background: rgba(154, 91, 63, 0.07);
+  padding: 0.46rem 0.78rem;
+  color: var(--accent-warm);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 850;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.paper-tutorial-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: var(--surface);
 }
 
 .detail-section {
@@ -3631,6 +3752,18 @@ h3 {
   color: #fff;
 }
 
+.publication-note-action-tutorial {
+  border-color: rgba(154, 91, 63, 0.3);
+  background: rgba(154, 91, 63, 0.055);
+  color: var(--accent-warm);
+}
+
+.publication-note-action-tutorial:hover {
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: #fff;
+}
+
 .note-toc {
   position: sticky;
   top: 96px;
@@ -3926,6 +4059,21 @@ h3 {
   background: var(--accent-strong);
   border-color: var(--accent-strong);
   color: var(--surface);
+}
+
+.dialog-links .dialog-tutorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  border-color: rgba(154, 91, 63, 0.32);
+  background: rgba(154, 91, 63, 0.07);
+  color: var(--accent-warm);
+}
+
+.dialog-links .dialog-tutorial-link:hover {
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: #fff;
 }
 
 .tutorial-article {
@@ -4874,6 +5022,32 @@ code {
 :root[data-theme="dark"] .doi-link,
 :root[data-theme="dark"] code {
   background: rgba(255, 255, 255, 0.045);
+}
+
+:root[data-theme="dark"] .card-tutorial-link {
+  border-color: rgba(214, 163, 109, 0.34);
+  background: rgba(17, 22, 20, 0.9);
+  color: var(--accent-warm);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] .publication-tutorial-link,
+:root[data-theme="dark"] .paper-tutorial-link,
+:root[data-theme="dark"] .publication-note-action-tutorial,
+:root[data-theme="dark"] .dialog-links .dialog-tutorial-link {
+  border-color: rgba(214, 163, 109, 0.3);
+  background: rgba(214, 163, 109, 0.08);
+  color: var(--accent-warm);
+}
+
+:root[data-theme="dark"] .card-tutorial-link:hover,
+:root[data-theme="dark"] .publication-tutorial-link:hover,
+:root[data-theme="dark"] .paper-tutorial-link:hover,
+:root[data-theme="dark"] .publication-note-action-tutorial:hover,
+:root[data-theme="dark"] .dialog-links .dialog-tutorial-link:hover {
+  border-color: var(--accent-warm);
+  background: var(--accent-warm);
+  color: #111614;
 }
 
 :root[data-theme="dark"] .note-card {

@@ -1,1 +1,4 @@
 .DS_Store
+
+# OneDrive/macOS conflict copies (for example: index-Kai’s MacBook Air.html)
+**/index-*MacBook*.html

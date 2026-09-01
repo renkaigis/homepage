@@ -8,6 +8,7 @@ const paperDetails = {
     abstract:
       "This study proposed a second-dimension outlier-driven heterogeneity (SOH) model for incorporating local outlier configurations into spatial heterogeneity analysis. Applied to Australian barley production, SOH showed that multi-scale spatial outlier patterns strengthened heterogeneity explanation and produced synergistic gains through SOP interactions and SOP-variable interactions.",
     doi: "https://doi.org/10.1080/13658816.2026.2682957",
+    tutorial: "https://yongzesong.com/reproduce/SOH/soh.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -21,6 +22,7 @@ const paperDetails = {
     abstract:
       "This study proposes singularity regression kriging (SRK), combining multi-scale covariate singularity features, random forest trend estimation, and residual kriging to improve prediction accuracy and reduce uncertainty in heterogeneous environments.",
     doi: "https://doi.org/10.1080/15481603.2026.2690341",
+    tutorial: "https://yongzesong.com/reproduce/SRK/srk.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -323,6 +325,7 @@ function labels() {
         abstract: "摘要",
         methods: "方法",
         doi: "DOI",
+        tutorial: "教程",
         pdf: "PDF",
         code: "代码",
         data: "数据",
@@ -335,6 +338,7 @@ function labels() {
         abstract: "Abstract",
         methods: "Methods",
         doi: "DOI",
+        tutorial: "Tutorial",
         pdf: "PDF",
         code: "Code",
         data: "Data",
@@ -496,12 +500,17 @@ function optionalPaperLinks(paper, text) {
       : "";
 
   const supportingLinks = [
+    ["tutorial", text.tutorial],
     ["pdf", text.pdf],
     ["code", text.code],
     ["data", text.data]
   ]
     .filter(([key]) => paper[key] && paper[key] !== "#")
-    .map(([key, label]) => `<a href="${sitePath(paper[key])}" target="_blank" rel="noreferrer">${label}</a>`)
+    .map(([key, label]) => {
+      const className = key === "tutorial" ? ' class="dialog-tutorial-link"' : "";
+      const icon = key === "tutorial" ? '<i class="fa-solid fa-book-open-reader" aria-hidden="true"></i>' : "";
+      return `<a${className} href="${sitePath(paper[key])}" target="_blank" rel="noreferrer">${icon}${label}</a>`;
+    })
     .join("");
 
   return `${doiLink}${supportingLinks}`;
