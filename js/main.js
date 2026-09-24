@@ -137,6 +137,8 @@ const projectDetails = {
   "jiangsu-excellence-postdoctoral": {
     title: "江苏省卓越博士后计划 | Jiangsu Funding Program for Excellent Postdoctoral Talent",
     category: "省级项目 / Provincial-level Project",
+    projectNumber: "2026ZB574",
+    projectNumberLabel: "项目编号 / Project No.",
     period: "2027.01–2028.12",
     periodLabel: "研究周期 / Period",
     topic: "极端气候扰动下稻麦生产空间韧性的地理空间智能诊断与模拟研究",
@@ -601,6 +603,7 @@ function setupDetailDialog() {
         `
           <img class="dialog-hero-image project-dialog-image${project.imageFit === "contain" ? " image-contain" : ""}" src="${sitePath(project.image)}" alt="" />
           <p class="card-meta">${project.category}</p>
+          ${project.projectNumber ? `<p><strong>${project.projectNumberLabel || "Project No."}:</strong> <span class="dialog-project-number-value">${project.projectNumber}</span></p>` : ""}
           ${project.period ? `<p><strong>${project.periodLabel || "Period"}:</strong> ${project.period}</p>` : ""}
           ${project.topic ? `<p><strong>${project.topicLabel || "Research Topic"}:</strong> ${project.topic}</p>` : ""}
           ${project.topicEn ? `<p class="dialog-translation">${project.topicEn}</p>` : ""}

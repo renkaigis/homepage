@@ -909,13 +909,40 @@ h3 {
   line-height: 1.45;
 }
 
-.featured-project-topic-label {
-  margin-top: clamp(0.8rem, 1.4vw, 1.1rem);
+.project-card .featured-project-body .featured-project-number-label,
+.project-card .featured-project-body .featured-project-topic-label {
   color: var(--project-blue);
   font-size: 0.68rem;
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.project-card .featured-project-body span.featured-project-number {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  align-self: flex-start;
+  margin: clamp(0.8rem, 1.4vw, 1.1rem) 0 0;
+  white-space: nowrap;
+}
+
+.project-card .featured-project-body .featured-project-number > span {
+  display: inline;
+  margin: 0;
+}
+
+.project-card .featured-project-number .featured-project-number-value {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.featured-project-topic-label {
+  margin-top: clamp(0.8rem, 1.4vw, 1.1rem);
 }
 
 .featured-project-body .featured-project-topic {
@@ -3992,6 +4019,12 @@ h3 {
   margin-top: -0.55rem;
   color: color-mix(in srgb, var(--muted) 88%, var(--surface));
   font-size: 0.88rem;
+}
+
+.dialog-project-number-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  letter-spacing: 0.025em;
 }
 
 .dialog-hero-image {
