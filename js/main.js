@@ -484,8 +484,29 @@ function setupNavigation() {
   });
 }
 
-function openDialog(dialog, titleNode, contentNode, title, html) {
-  titleNode.textContent = title;
+function openDialog(dialog, titleNode, contentNode, title, html, featuredCategory = "") {
+  dialog.classList.toggle("featured-project-dialog", Boolean(featuredCategory));
+
+  if (featuredCategory) {
+    const [primaryTitle, translatedTitle] = title.split(" | ");
+    const category = document.createElement("span");
+    const primary = document.createElement("span");
+    category.className = "dialog-title-category";
+    category.textContent = featuredCategory;
+    primary.className = "dialog-title-primary";
+    primary.textContent = primaryTitle;
+    titleNode.replaceChildren(category, primary);
+
+    if (translatedTitle) {
+      const translation = document.createElement("span");
+      translation.className = "dialog-title-translation";
+      translation.textContent = translatedTitle;
+      titleNode.append(translation);
+    }
+  } else {
+    titleNode.textContent = title;
+  }
+
   contentNode.innerHTML = html;
 
   if (typeof dialog.showModal === "function") {
@@ -544,6 +565,38 @@ function optionalProjectActions(project, text) {
   return `<div class="dialog-links dialog-actions" aria-label="Project links">${actions}</div>`;
 }
 
+function projectMetadata(project) {
+  if (project.projectNumber) {
+    return `
+      <dl class="project-dialog-facts">
+        <div>
+          <dt>${project.projectNumberLabel || "Project No."}</dt>
+          <dd class="project-dialog-number">${project.projectNumber}</dd>
+        </div>
+        ${project.period ? `
+          <div>
+            <dt>${project.periodLabel || "Period"}</dt>
+            <dd>${project.period}</dd>
+          </div>
+        ` : ""}
+      </dl>
+      ${project.topic || project.topicEn ? `
+        <div class="project-dialog-topic">
+          <div class="project-dialog-topic-label">${project.topicLabel || "Research Topic"}</div>
+          ${project.topic ? `<p class="project-dialog-topic-primary">${project.topic}</p>` : ""}
+          ${project.topicEn ? `<p class="project-dialog-topic-translation">${project.topicEn}</p>` : ""}
+        </div>
+      ` : ""}
+    `;
+  }
+
+  return `
+    ${project.period ? `<p><strong>${project.periodLabel || "Period"}:</strong> ${project.period}</p>` : ""}
+    ${project.topic ? `<p><strong>${project.topicLabel || "Research Topic"}:</strong> ${project.topic}</p>` : ""}
+    ${project.topicEn ? `<p class="dialog-translation">${project.topicEn}</p>` : ""}
+  `;
+}
+
 function setupDetailDialog() {
   const dialog = document.querySelector("#paper-dialog");
   const title = document.querySelector("#paper-dialog-title");
@@ -600,18 +653,27 @@ function setupDetailDialog() {
         title,
         content,
         project.title,
-        `
-          <img class="dialog-hero-image project-dialog-image${project.imageFit === "contain" ? " image-contain" : ""}" src="${sitePath(project.image)}" alt="" />
-          <p class="card-meta">${project.category}</p>
-          ${project.projectNumber ? `<p><strong>${project.projectNumberLabel || "Project No."}:</strong> <span class="dialog-project-number-value">${project.projectNumber}</span></p>` : ""}
-          ${project.period ? `<p><strong>${project.periodLabel || "Period"}:</strong> ${project.period}</p>` : ""}
-          ${project.topic ? `<p><strong>${project.topicLabel || "Research Topic"}:</strong> ${project.topic}</p>` : ""}
-          ${project.topicEn ? `<p class="dialog-translation">${project.topicEn}</p>` : ""}
+        project.projectNumber ? `
+          <div class="featured-project-dialog-layout">
+            <div class="featured-project-dialog-visual">
+              <img class="dialog-hero-image project-dialog-image image-contain" src="${sitePath(project.image)}" alt="研究框架图 / Research framework" />
+            </div>
+            <div class="featured-project-dialog-details">${projectMetadata(project)}</div>
+          </div>
           ${project.summary ? `<p>${project.summary}</p>` : ""}
           ${project.summaryEn ? `<p class="dialog-translation">${project.summaryEn}</p>` : ""}
           ${project.methods ? `<p><strong>${text.methods}:</strong> ${project.methods}</p>` : ""}
           ${optionalProjectActions(project, text)}
-        `
+        ` : `
+          <img class="dialog-hero-image project-dialog-image${project.imageFit === "contain" ? " image-contain" : ""}" src="${sitePath(project.image)}" alt="" />
+          <p class="card-meta">${project.category}</p>
+          ${projectMetadata(project)}
+          ${project.summary ? `<p>${project.summary}</p>` : ""}
+          ${project.summaryEn ? `<p class="dialog-translation">${project.summaryEn}</p>` : ""}
+          ${project.methods ? `<p><strong>${text.methods}:</strong> ${project.methods}</p>` : ""}
+          ${optionalProjectActions(project, text)}
+        `,
+        project.projectNumber ? project.category : ""
       );
     });
   });
