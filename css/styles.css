@@ -1232,7 +1232,8 @@ h3 {
   font-weight: 400;
 }
 
-.publication-doi {
+.publication-doi,
+.publication-details-link {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -1244,6 +1245,42 @@ h3 {
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 800;
+}
+
+.publication-details-link {
+  white-space: nowrap;
+}
+
+.publication-details-link:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* Keep publication text selectable; only the image and resource links navigate. */
+.publication-summary-card {
+  display: flex;
+  flex-direction: column;
+  cursor: auto;
+}
+
+.publication-summary-card:hover {
+  border-color: var(--line);
+  transform: none;
+}
+
+.publication-card-image-link {
+  display: block;
+}
+
+.publication-card-image-link:focus-visible {
+  outline-offset: -3px;
+}
+
+.publication-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: auto 1rem 1rem;
 }
 
 .publication-tutorial-link {

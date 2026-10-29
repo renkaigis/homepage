@@ -2,13 +2,13 @@ const paperDetails = {
   "spatial-outliers-heterogeneity": {
     title: "Spatial outliers as a pattern determinant for explaining heterogeneity",
     authors:
-      "Kai Ren<sup>*</sup>, Yongze Song<sup>*</sup>, Xinyue Yang, Xi Wang, Min Chen, Qiang Yu",
+      "Kai Ren*, Yongze Song*, Xinyue Yang, Xi Wang, Min Chen, Qiang Yu",
     venue: "International Journal of Geographical Information Science, 2026",
     image: "image/paper/2026-ijgis-soh/2026-ijgis-soh-m.jpg",
     abstract:
       "This study proposed a second-dimension outlier-driven heterogeneity (SOH) model for incorporating local outlier configurations into spatial heterogeneity analysis. Applied to Australian barley production, SOH showed that multi-scale spatial outlier patterns strengthened heterogeneity explanation and produced synergistic gains through SOP interactions and SOP-variable interactions.",
     doi: "https://doi.org/10.1080/13658816.2026.2682957",
-    tutorial: "https://yongzesong.com/reproduce/SOH/soh.html",
+    tutorial: "https://yongzesong.com/reproduce/soh.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -16,13 +16,13 @@ const paperDetails = {
   },
   "singularity-regression-kriging": {
     title: "A singularity regression kriging for spatial prediction",
-    authors: "Kai Ren, Yongze Song<sup>*</sup>, Min Chen, Qiang Yu",
+    authors: "Kai Ren, Yongze Song*, Min Chen, Qiang Yu",
     venue: "GIScience & Remote Sensing, 2026",
     image: "image/paper/2026-grs-srk/2026-grs-srk-m.jpg",
     abstract:
       "This study proposes singularity regression kriging (SRK), combining multi-scale covariate singularity features, random forest trend estimation, and residual kriging to improve prediction accuracy and reduce uncertainty in heterogeneous environments.",
     doi: "https://doi.org/10.1080/15481603.2026.2690341",
-    tutorial: "https://yongzesong.com/reproduce/SRK/srk.html",
+    tutorial: "https://yongzesong.com/reproduce/srk.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -30,7 +30,7 @@ const paperDetails = {
   },
   "second-dimension-outliers": {
     title: "Second-dimension outliers for spatial prediction",
-    authors: "Ren, K., Song, Y.<sup>*</sup>, Yu, Q.<sup>*</sup>",
+    authors: "Ren, K., Song, Y.*, Yu, Q.*",
     venue: "International Journal of Geographical Information Science, 2026",
     image: "image/paper/2025-ijgis-sdo/2025-ijgis-sdo-m.jpg",
     abstract:
@@ -45,7 +45,7 @@ const paperDetails = {
     title:
       "Identifying climate and environmental determinants of spatial disparities in wheat production using a geospatial machine learning model",
     authors:
-      "Kai Ren, Yongze Song<sup>*</sup>, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu<sup>*</sup>",
+      "Kai Ren, Yongze Song*, Linchao Li, Francesco Mancini, Zhuoyao Xiao, Xueyuan Zhang, Rui Qu, Qiang Yu*",
     venue: "GIScience & Remote Sensing, 2025",
     image: "image/paper/2025-grs-gozh/2025-grs-gozh-wheat-m.jpg",
     abstract:
@@ -58,7 +58,7 @@ const paperDetails = {
   },
   "urban-heat-island": {
     title: "Irregular anisotropy in surface urban heat island footprint",
-    authors: "Xinyue Yang, Yongze Song<sup>*</sup>, Cheolhee Yoo, Kai Ren, Peng Wu",
+    authors: "Xinyue Yang, Yongze Song*, Cheolhee Yoo, Kai Ren, Peng Wu",
     venue: "Sustainable Cities and Society, 2025",
     image: "image/paper/2025-scs-co-xinyue/2025-scs-urban-heat-island-footprint-m.jpg",
     abstract:
@@ -73,7 +73,7 @@ const paperDetails = {
     title:
       "A spatio-temporal unmixing with heterogeneity model for the identification of remotely sensed MODIS aerosols",
     authors:
-      "Longshan Yang, Peng Luo<sup>*</sup>, Zehua Zhang, Yongze Song<sup>*</sup>, Kai Ren, Ce Zhang, Joseph Awange, Peter M. Atkinson, Liqiu Meng",
+      "Longshan Yang, Peng Luo*, Zehua Zhang, Yongze Song*, Kai Ren, Ce Zhang, Joseph Awange, Peter M. Atkinson, Liqiu Meng",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
     image: "image/paper/2024-jag-co-longshan/2024-jag-aerosol-unmixing-m.jpg",
     abstract:
@@ -87,7 +87,7 @@ const paperDetails = {
   "oasisation-ecology": {
     title: "Ecological influence of oasisation on peripheral regions",
     authors:
-      "Xueyuan Zhang, Yongze Song, Ashraf Dewan, Zecheng Guo, Xiaoyan Cao, Qiang Bie, Yaowen Xie<sup>*</sup>, Xu Ma, Kai Ren, Haoyan Zhang, Guilin Xi, Lei He",
+      "Xueyuan Zhang, Yongze Song, Ashraf Dewan, Zecheng Guo, Xiaoyan Cao, Qiang Bie, Yaowen Xie*, Xu Ma, Kai Ren, Haoyan Zhang, Guilin Xi, Lei He",
     venue: "International Journal of Applied Earth Observation and Geoinformation, 2024",
     image: "image/paper/2024-jag-oasisation-ecology/2024-jag-oasisation-ecology-m.jpg",
     abstract:
