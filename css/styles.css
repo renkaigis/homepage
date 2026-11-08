@@ -1505,8 +1505,8 @@ h3 {
   gap: 0.55rem;
 }
 
-.about-profile-details a,
-.about-profile-details span {
+.about-profile-details > a,
+.about-profile-details > span {
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -1520,13 +1520,13 @@ h3 {
   overflow-wrap: anywhere;
 }
 
-.about-profile-details a {
+.about-profile-details > a {
   color: var(--accent-strong);
   font-weight: 400;
   text-decoration: none;
 }
 
-.about-profile-details i {
+.about-profile-details > :is(a, span) > i {
   width: 1rem;
   color: var(--accent);
   text-align: center;
@@ -2503,7 +2503,15 @@ h3 {
   margin: 0;
 }
 
-.hero-contact-row .icon-links a {
+.about-profile-links {
+  align-self: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding-inline: 0.65rem;
+}
+
+.hero-contact-row .icon-links a,
+.about-profile-links a {
   width: 31px;
   height: 31px;
   min-height: 31px;
@@ -5343,8 +5351,8 @@ code {
 }
 
 :root[data-theme="dark"] .about-name-row span,
-:root[data-theme="dark"] .about-profile-details a,
-:root[data-theme="dark"] .about-profile-details span,
+:root[data-theme="dark"] .about-profile-details > a,
+:root[data-theme="dark"] .about-profile-details > span,
 :root[data-theme="dark"] .doi-link,
 :root[data-theme="dark"] code {
   background: rgba(255, 255, 255, 0.045);
