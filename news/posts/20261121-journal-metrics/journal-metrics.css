@@ -80,7 +80,7 @@
 
 .journal-table {
   width: 100%;
-  min-width: 49rem;
+  min-width: 55rem;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
@@ -91,6 +91,7 @@
 }
 
 .col-number { width: 3.25rem; }
+.col-subject { width: 6rem; }
 .col-if { width: clamp(4rem, 7vw, 5.5rem); }
 .col-tier { width: clamp(6rem, 10vw, 7.25rem); }
 .col-oa { width: 9.25rem; }
@@ -123,8 +124,17 @@
   background: var(--row-fill);
 }
 
-.journal-table tbody tr:last-child > * {
+.journal-table tbody:last-of-type tr:last-child > * {
   border-bottom: 0;
+}
+
+.journal-table th[scope="rowgroup"] {
+  padding-block: 0.7rem;
+  border-top: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  scroll-margin-block-start: 7rem;
 }
 
 .journal-table th[scope="row"] {
@@ -209,7 +219,7 @@
   font-size: 0.72rem;
 }
 
-@container journal-note (min-width: 49.125rem) {
+@container journal-note (min-width: 55.125rem) {
   .journal-scroll {
     overflow: visible;
   }
@@ -221,11 +231,11 @@
 
   .journal-table thead th:first-child { border-start-start-radius: var(--radius); }
   .journal-table thead th:last-child { border-start-end-radius: var(--radius); }
-  .journal-table tr:last-child td:first-child { border-end-start-radius: var(--radius); }
-  .journal-table tr:last-child td:last-child { border-end-end-radius: var(--radius); }
+  .journal-table tbody:last-of-type tr:last-child td:first-child { border-end-start-radius: var(--radius); }
+  .journal-table tbody:last-of-type tr:last-child td:last-child { border-end-end-radius: var(--radius); }
 }
 
-@container journal-note (width < 49.125rem) {
+@container journal-note (width < 55.125rem) {
   .journal-scroll-hint {
     display: inline;
   }
@@ -234,5 +244,10 @@
     position: sticky;
     inset-inline-start: 0;
     box-shadow: 1px 0 var(--line);
+  }
+
+  .journal-table th[scope="rowgroup"] span {
+    position: sticky;
+    inset-inline-start: 0.6rem;
   }
 }
