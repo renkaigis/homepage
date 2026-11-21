@@ -8,8 +8,9 @@
   --oa-text: #762b73;
   --oa-fill: #f5e3f2;
   --oa-edge: #c78cbd;
-  --scie-text: #ffffff;
-  --scie-fill: #096348;
+  --scie-text: #092d21;
+  --scie-fill: #68cc9d;
+  --scie-edge: #3f866c;
   --ssci-text: #ffffff;
   --ssci-fill: #225b9e;
   --esci-text: #8c3517;
@@ -29,8 +30,6 @@
   --oa-text: #f4d0ed;
   --oa-fill: #44263f;
   --oa-edge: #b17aa7;
-  --scie-text: #092d21;
-  --scie-fill: #68cc9d;
   --ssci-text: #102c4f;
   --ssci-fill: #84b8fa;
   --esci-text: #ffd8b8;
@@ -206,7 +205,12 @@
   color: var(--oa-text);
 }
 
-.index-scie { color: var(--scie-text); background: var(--scie-fill); }
+.index-scie {
+  border-color: var(--scie-edge);
+  background: var(--scie-fill);
+  color: var(--scie-text);
+}
+
 .index-ssci { color: var(--ssci-text); background: var(--ssci-fill); }
 .index-esci {
   border-color: var(--esci-edge);
