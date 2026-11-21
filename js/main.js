@@ -8,7 +8,6 @@ const paperDetails = {
     abstract:
       "This study proposed a second-dimension outlier-driven heterogeneity (SOH) model for incorporating local outlier configurations into spatial heterogeneity analysis. Applied to Australian barley production, SOH showed that multi-scale spatial outlier patterns strengthened heterogeneity explanation and produced synergistic gains through SOP interactions and SOP-variable interactions.",
     doi: "https://doi.org/10.1080/13658816.2026.2682957",
-    tutorial: "https://yongzesong.com/reproduce/soh.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -22,7 +21,6 @@ const paperDetails = {
     abstract:
       "This study proposes singularity regression kriging (SRK), combining multi-scale covariate singularity features, random forest trend estimation, and residual kriging to improve prediction accuracy and reduce uncertainty in heterogeneous environments.",
     doi: "https://doi.org/10.1080/15481603.2026.2690341",
-    tutorial: "https://yongzesong.com/reproduce/srk.html",
     pdf: "#",
     code: "#",
     data: "#",
@@ -36,6 +34,7 @@ const paperDetails = {
     abstract:
       "This paper develops the concept of second-dimension outliers for spatial prediction, using spatial outlier patterns to improve the interpretation of heterogeneity and prediction behavior in geographic data.",
     doi: "https://doi.org/10.1080/13658816.2025.2580414",
+    tutorial: "https://heterra.org/",
     pdf: "#",
     code: "#",
     data: "#",
@@ -327,7 +326,7 @@ function labels() {
         abstract: "摘要",
         methods: "方法",
         doi: "DOI",
-        tutorial: "教程",
+        tutorial: "Tutorial",
         pdf: "PDF",
         code: "代码",
         data: "数据",

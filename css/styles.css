@@ -3174,6 +3174,11 @@ h3 {
   padding: 1.05rem 0 0.88rem;
 }
 
+.note-card-body:last-child {
+  grid-column: 2 / -1;
+  padding-inline-end: 1rem;
+}
+
 .note-card-heading-row {
   display: flex;
   flex-wrap: wrap;
